@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="badgeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F6C214" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#032F22" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <circle cx="100" cy="100" r="94" fill="#122B20" stroke="#F6C214" stroke-width="1.5" stroke-opacity="0.35"/>
+  <!-- Crown -->
+  <path d="M76 68 L86 86 L100 62 L114 86 L124 68 L120 95 L80 95 Z" fill="#F6C214" />
+  <circle cx="76" cy="65" r="3" fill="#F6C214" />
+  <circle cx="100" cy="59" r="3.5" fill="#F6C214" />
+  <circle cx="124" cy="65" r="3" fill="#F6C214" />
+  <!-- GW Monogram -->
+  <text x="100" y="136" font-family="'Raleway', sans-serif" font-weight="700" font-size="38" fill="#F6C214" text-anchor="middle" letter-spacing="1">GW</text>
+  <line x1="56" y1="145" x2="144" y2="145" stroke="#F6C214" stroke-width="1.5" stroke-opacity="0.8" />
+  <text x="100" y="157" font-family="'Raleway', sans-serif" font-weight="300" font-size="8.5" fill="#F6C214" text-anchor="middle" letter-spacing="3.2">GREEN WARDROBE</text>
+</svg>

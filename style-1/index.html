@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Wardrobe — Designed Around You. Not the Rack.</title>
+    <meta name="description" content="Personalised bespoke fashion combining 3D body scanning, AI styling, robotics-assisted tailoring and sustainable wardrobe renewal." />
+    <meta property="og:title" content="Green Wardrobe — Designed Around You. Not the Rack." />
+    <meta property="og:description" content="Personalised bespoke fashion combining 3D body scanning, AI styling, robotics-assisted tailoring and sustainable wardrobe renewal." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Raleway & Cormorant Garamond -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Raleway:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap 5.3.3 Grid & Utilities only -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+
+    <!-- Font Awesome 6.5.2 Free -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Green Wardrobe Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <noscript>
+      <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+
+    <!-- Synchronous Boot -->
+    <script src="assets/js/boot.js"></script>
+
+    <!-- Vendor Libraries (defer) -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+
+    <!-- Application Modules (defer in strict sequence) -->
+    <script defer src="assets/js/utils.js"></script>
+    <script defer src="assets/js/smooth-scroll.js"></script>
+    <script defer src="assets/js/preloader.js"></script>
+    <script defer src="assets/js/menu.js"></script>
+    <script defer src="assets/js/hero.js"></script>
+    <script defer src="assets/js/hero-blocks.js"></script>
+    <script defer src="assets/js/begins.js"></script>
+    <script defer src="assets/js/technologies.js"></script>
+    <script defer src="assets/js/experience.js"></script>
+    <script defer src="assets/js/scanner.js"></script>
+    <script defer src="assets/js/imagine.js"></script>
+    <script defer src="assets/js/machines.js"></script>
+    <script defer src="assets/js/final-results.js"></script>
+    <script defer src="assets/js/rewardrobe.js"></script>
+    <script defer src="assets/js/cta.js"></script>
+    <script defer src="assets/js/footer.js"></script>
+    <script defer src="assets/js/main.js"></script>
+  </head>
+  <body>
+    <!-- Skip to main landmark -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Fixed subtle architectural grid -->
+    <div class="page-grid" aria-hidden="true"></div>
+
+    <!-- 3. PRELOADER -->
+    <div class="preloader js-preloader" role="status" aria-live="polite">
+      <span class="visually-hidden js-preloader-announce">Loading experience</span>
+      <div class="preloader__center">
+        <div class="preloader__badge">
+          <div class="preloader__ring"></div>
+          <img src="assets/img/gw-badge.svg" alt="Green Wardrobe" class="preloader__logo" width="180" height="180" />
+        </div>
+        <div class="preloader__text-wrap">
+          <p class="preloader__text">Loading Experience<span class="preloader__dots">...</span></p>
+        </div>
+      </div>
+      <div class="preloader__count">0%</div>
+      <div class="preloader__bar"></div>
+    </div>
+
+    <!-- 4. HEADER -->
+    <header class="site-header">
+      <a href="#top" class="site-header__logo-link" aria-label="Green Wardrobe Home">
+        <img src="assets/img/gw-logo.png" alt="Green Wardrobe Logo" class="site-header__logo" width="180" height="52" />
+      </a>
+      <button class="site-header__hamburger" aria-expanded="false" aria-controls="site-menu" aria-label="Toggle navigation menu">
+        <span class="hamburger-line hamburger-line--1"></span>
+        <span class="hamburger-line hamburger-line--2"></span>
+        <span class="hamburger-line hamburger-line--3"></span>
+      </button>
+    </header>
+
+    <!-- FULLSCREEN MENU OVERLAY -->
+    <nav id="site-menu" class="site-menu" aria-label="Main Navigation">
+      <div class="site-menu__body">
+        <ul class="site-menu__list">
+          <li class="site-menu__item">
+            <a href="#experience" class="site-menu__link" data-preview="1">
+              <span class="site-menu__index">01</span>
+              <span>Experience</span>
+            </a>
+          </li>
+          <li class="site-menu__item">
+            <a href="#technology" class="site-menu__link" data-preview="2">
+              <span class="site-menu__index">02</span>
+              <span>Technology</span>
+            </a>
+          </li>
+          <li class="site-menu__item">
+            <a href="#imagine" class="site-menu__link" data-preview="3">
+              <span class="site-menu__index">03</span>
+              <span>AI Styling</span>
+            </a>
+          </li>
+          <li class="site-menu__item">
+            <a href="#final" class="site-menu__link" data-preview="4">
+              <span class="site-menu__index">04</span>
+              <span>Final Looks</span>
+            </a>
+          </li>
+          <li class="site-menu__item">
+            <a href="#rewardrobe" class="site-menu__link" data-preview="5">
+              <span class="site-menu__index">05</span>
+              <span>ReWardrobe</span>
+            </a>
+          </li>
+          <li class="site-menu__item">
+            <a href="#book" class="site-menu__link" data-preview="6">
+              <span class="site-menu__index">06</span>
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+        <div class="site-menu__preview-wrap">
+          <div class="site-menu__preview">
+            <img src="assets/img/scanner-booth.png" alt="Preview Experience" class="site-menu__preview-img is-active" data-index="1" />
+            <img src="assets/img/fabric-selection.png" alt="Preview Technology" class="site-menu__preview-img" data-index="2" />
+            <img src="assets/img/blazer-selection.jpg" alt="Preview Styling" class="site-menu__preview-img" data-index="3" />
+            <img src="assets/img/final-western.png" alt="Preview Final Looks" class="site-menu__preview-img" data-index="4" />
+            <img src="assets/img/wardrobe-after.jpg" alt="Preview ReWardrobe" class="site-menu__preview-img" data-index="5" />
+            <img src="assets/img/final-western.png" alt="Preview Contact" class="site-menu__preview-img" data-index="6" />
+          </div>
+        </div>
+      </div>
+      <div class="site-menu__footer">
+        <a href="#book" class="btn-cta btn-cta--solid">
+          <span class="btn-cta__text-roll">
+            <span class="btn-cta__label">Book Your GW Experience</span>
+            <span class="btn-cta__label">Book Your GW Experience</span>
+          </span>
+          <i class="fa-solid fa-arrow-right btn-cta__icon" aria-hidden="true"></i>
+        </a>
+        <p class="site-menu__brand">Designed Around You. Not the Rack.</p>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+      <!-- 5. SECTION 1 — HERO (HERO-C) -->
+      <section class="hero" id="top">
+        <!-- Interactive Block Field -->
+        <div class="hero__bg" aria-hidden="true">
+          <div class="hero__glow"></div>
+          <div class="hero__blocks js-hero-blocks"></div>
+          <div class="hero__spotlight js-hero-spotlight"></div>
+          <div class="hero__dust js-hero-dust"></div>
+        </div>
+
+        <!-- HERO-C Marquee -->
+        <div class="hero__marquee" aria-hidden="true">
+          <div class="hero__marquee-track">
+            <div class="hero__marquee-content">
+              <span>AI STYLING</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>BESPOKE TAILORING</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>SUSTAINABLE FASHION</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>3D</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>AI</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>ML</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>ROBOTICS</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>QUANTUM PHYSICS</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>SUSTAINABLE RECYCLING</span>
+              <span class="hero__marquee-bullet"></span>
+            </div>
+            <div class="hero__marquee-content">
+              <span>AI STYLING</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>BESPOKE TAILORING</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>SUSTAINABLE FASHION</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>3D</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>AI</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>ML</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>ROBOTICS</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>QUANTUM PHYSICS</span>
+              <span class="hero__marquee-bullet"></span>
+              <span>SUSTAINABLE RECYCLING</span>
+              <span class="hero__marquee-bullet"></span>
+            </div>
+          </div>
+        </div>
+        <div class="visually-hidden">
+          AI styling, bespoke tailoring, sustainable fashion. Technologies: 3D, AI, ML, robotics, quantum physics, sustainable recycling.
+        </div>
+
+        <!-- Hero Content (70svh) -->
+        <div class="hero__content">
+          <h1 class="hero__h1">YOUR BODY. YOUR STYLE. / YOUR PERFECT WARDROBE.</h1>
+          <p class="hero__brand">Designed Around You. Not the Rack.</p>
+          <a href="#imagine" class="btn-cta hero__cta">
+            <span class="btn-cta__text-roll">
+              <span class="btn-cta__label">Discover Your Look</span>
+              <span class="btn-cta__label">Discover Your Look</span>
+            </span>
+            <i class="fa-solid fa-arrow-right btn-cta__icon" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <!-- Hero Media (Peeking card expanding to full screen) -->
+        <div class="hero__media">
+          <div class="hero__video-wrap">
+            <video class="hero__video" poster="https://peru-jackal-882954.hostingersite.com/gw/assets/img/hero.jpg" preload="metadata" muted loop playsinline>
+              <source src="https://peru-jackal-882954.hostingersite.com/gw/assets/video/hero.mp4" type="video/mp4" />
+            </video>
+            <div class="hero__after">
+              <img src="assets/img/final-western.png" alt="Bespoke Tailored Result" class="hero__after-img" />
+            </div>
+            <div class="hero__seam"></div>
+            <div class="hero__play-ring" aria-hidden="true">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <div class="hero__label">
+              <span class="hero__label-text">BEFORE</span>
+              <div class="hero__progress-bar">
+                <div class="hero__progress-fill"></div>
+              </div>
+            </div>
+            <div class="hero__scroll-cue">
+              <span>Scroll</span>
+              <i class="fa-solid fa-arrow-down"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. SECTION 2 — FASHION BEGINS WITH YOU (BEGINS-C) -->
+      <section class="begins" id="begins">
+        <div class="begins__container">
+          <div class="begins__text-col">
+            <span class="eyebrow">FASHION BEGINS WITH YOU</span>
+            <h2 class="heading-h2 begins__h2">
+              <span class="line-reveal"><span class="line-reveal__inner">FASHION BEGINS WITH <span class="font-accent">YOU.</span></span></span>
+            </h2>
+            <p class="lead-text begins__lead">A complete styling and suit-making experience, designed around your body, your style and your moments.</p>
+          </div>
+          <div class="begins__visual-col">
+            <div class="begins__morph">
+              <img src="assets/img/measurement.png" alt="3D Wireframe Scan" class="begins__layer-wireframe" />
+              <img src="assets/img/final-western.png" alt="Bespoke Tailored Suit" class="begins__layer-suit" />
+              <div class="begins__scan-line"></div>
+            </div>
+            <div class="begins__chips">
+              <span class="begins__chip">BODY</span>
+              <span class="begins__chip">STYLE</span>
+              <span class="begins__chip">MOMENTS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. SECTION 3 — TECHNOLOGIES (TECH-C) -->
+      <section class="technology" id="technology">
+        <div class="technology__header">
+          <span class="eyebrow">TECHNOLOGIES</span>
+        </div>
+        <div class="technology__stack">
+          <article class="tech-word tech-word--huge" tabindex="0" data-image="/assets/img/measurement.png" aria-label="Technology 01: 3D">
+            <span class="tech-word__index">01</span>
+            <div class="tech-word__text-wrap">
+              <span class="tech-word__outline">3D</span>
+              <span class="tech-word__fill">3D</span>
+            </div>
+          </article>
+          <article class="tech-word tech-word--huge" tabindex="0" data-image="/assets/img/blazer-selection.jpg" aria-label="Technology 02: AI">
+            <span class="tech-word__index">02</span>
+            <div class="tech-word__text-wrap">
+              <span class="tech-word__outline">AI</span>
+              <span class="tech-word__fill">AI</span>
+            </div>
+          </article>
+          <article class="tech-word tech-word--huge" tabindex="0" data-image="/assets/img/fabric-selection.png" aria-label="Technology 03: ML">
+            <span class="tech-word__index">03</span>
+            <div class="tech-word__text-wrap">
+              <span class="tech-word__outline">ML</span>
+              <span class="tech-word__fill">ML</span>
+            </div>
+          </article>
+          <article class="tech-word tech-word--mid" tabindex="0" data-image="/assets/img/auto-stitching.png" aria-label="Technology 04: Robotics">
+            <span class="tech-word__index">04</span>
+            <div class="tech-word__text-wrap">
+              <span class="tech-word__outline">ROBOTICS</span>
+              <span class="tech-word__fill">ROBOTICS</span>
+            </div>
+          </article>
+          <article class="tech-word tech-word--long" tabindex="0" data-image="/assets/img/scan-hand.jpg" aria-label="Technology 05: Quantum Physics">
+            <span class="tech-word__index">05</span>
+            <div class="tech-word__text-wrap">
+              <span class="tech-word__outline">QUANTUM PHYSICS</span>
+              <span class="tech-word__fill">QUANTUM PHYSICS</span>
+            </div>
+          </article>
+          <article class="tech-word tech-word--long" tabindex="0" data-image="/assets/img/recycling.jpg" aria-label="Technology 06: Sustainable Recycling">
+            <span class="tech-word__index">06</span>
+            <div class="tech-word__text-wrap">
+              <span class="tech-word__outline">SUSTAINABLE RECYCLING</span>
+              <span class="tech-word__fill">SUSTAINABLE RECYCLING</span>
+            </div>
+          </article>
+        </div>
+        <!-- Pointer Peek Card -->
+        <div class="tech-peek" aria-hidden="true">
+          <img src="assets/img/measurement.png" alt="Tech Preview" class="tech-peek__img" />
+        </div>
+      </section>
+
+      <!-- 9. SECTION 4 — THE GW EXPERIENCE (EXP-C) -->
+      <section class="experience" id="experience">
+        <div class="experience__header">
+          <span class="eyebrow">THE GW EXPERIENCE</span>
+          <h2 class="heading-h2">THE GW <span class="font-accent">EXPERIENCE</span></h2>
+          <p class="lead-text" style="margin: 0 auto;">An 8 step journey that brings together technology, design and craftsmanship.</p>
+        </div>
+        <div class="experience__counter">
+          <span class="experience__counter-val">01 / 08</span>
+        </div>
+        <div class="experience__path-wrap">
+          <svg class="experience__svg" aria-hidden="true" preserveAspectRatio="none">
+            <path class="experience__track-path"></path>
+            <path class="experience__gold-path"></path>
+          </svg>
+          <div class="experience__steps">
+            <!-- Step 01 -->
+            <div class="exp-step" data-step="1">
+              <button class="exp-node exp-node--1" aria-label="Step 01: 3D and ML Screening">
+                <span>01</span>
+                <span class="exp-node__pulse"></span>
+              </button>
+              <div class="exp-card">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/scanner-booth.png" alt="3D Screening Booth" class="exp-card__img" />
+                </div>
+                <h3 class="exp-card__title">3D + ML Screening</h3>
+                <a href="#scanner" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <!-- Step 02 -->
+            <div class="exp-step" data-step="2">
+              <button class="exp-node exp-node--2" aria-label="Step 02: Robotics Measurement">
+                <span>02</span>
+                <span class="exp-node__pulse"></span>
+              </button>
+              <div class="exp-card">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/measurement.png" alt="Robotics Measurement" class="exp-card__img" />
+                </div>
+                <h3 class="exp-card__title">Robotics Measurement</h3>
+                <a href="#scanner" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <!-- Step 03 -->
+            <div class="exp-step" data-step="3">
+              <button class="exp-node exp-node--3" aria-label="Step 03: ML Fabric Selection">
+                <span>03</span>
+                <span class="exp-node__pulse"></span>
+              </button>
+              <div class="exp-card">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/fabric-selection.png" alt="ML Fabric Selection" class="exp-card__img" />
+                </div>
+                <h3 class="exp-card__title">ML Fabric Selection</h3>
+                <a href="#imagine" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <!-- Step 04 -->
+            <div class="exp-step" data-step="4">
+              <button class="exp-node exp-node--4" aria-label="Step 04: ML + AI Styling">
+                <span>04</span>
+                <span class="exp-node__pulse"></span>
+              </button>
+              <div class="exp-card">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/blazer-selection.jpg" alt="ML + AI Styling" class="exp-card__img" />
+                </div>
+                <h3 class="exp-card__title">ML + AI Styling</h3>
+                <a href="#imagine" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <!-- Step 05 -->
+            <div class="exp-step" data-step="5">
+              <button class="exp-node exp-node--5" aria-label="Step 05: ML + AI Accessory Selection">
+                <span>05</span>
+                <span class="exp-node__pulse"></span>
+              </button>
+              <div class="exp-card">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/accessories-selection.png" alt="ML + AI Accessory Selection" class="exp-card__img" />
+                </div>
+                <h3 class="exp-card__title">ML + AI Accessory Selection</h3>
+                <a href="#imagine" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <!-- Step 06 -->
+            <div class="exp-step" data-step="6">
+              <button class="exp-node exp-node--6" aria-label="Step 06: Hair + Grooming ML">
+                <span>06</span>
+                <span class="exp-node__pulse"></span>
+              </button>
+              <div class="exp-card">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/grooming.png" alt="Hair and Grooming ML" class="exp-card__img" />
+                </div>
+                <h3 class="exp-card__title">Hair + Grooming — ML</h3>
+                <a href="#imagine" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <!-- Step 07 -->
+            <div class="exp-step" data-step="7">
+              <button class="exp-node exp-node--7" aria-label="Step 07: Automated Cutting and Precise Stitching">
+                <span>07</span>
+                <span class="exp-node__pulse"></span>
+              </button>
+              <div class="exp-card">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/auto-cutting.png" alt="Automated Cutting" class="exp-card__img" />
+                </div>
+                <h3 class="exp-card__title">Automated Cutting, Precise Stitching through ML</h3>
+                <a href="#machines" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <!-- Step 08 -->
+            <div class="exp-step" data-step="8">
+              <button class="exp-node exp-node--8" aria-label="Step 08: Final Result">
+                <span>08</span>
+                <span class="exp-node__pulse"></span>
+              </button>
+              <div class="exp-card">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/final-western.png" alt="Final Result" class="exp-card__img" />
+                </div>
+                <h3 class="exp-card__title">Final Result</h3>
+                <a href="#final" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. SECTION 5 — DIGITAL SCANNER (SCAN-C) -->
+      <section class="scanner" id="scanner">
+        <div class="scanner__container">
+          <!-- Frame: Drag comparison slider -->
+          <div class="scan__compare" aria-label="Digital Scanner interactive comparison">
+            <img src="assets/img/scanner-booth.png" alt="Scanner Photo Capture" class="scan__layer scan__layer-photo" />
+            <img src="assets/img/measurement.png" alt="3D Measurement Wireframe" class="scan__layer scan__layer-wireframe" />
+            <div class="scan__handle">
+              <button class="scan__handle-btn" aria-label="Drag slider to compare photo with wireframe">
+                <i class="fa-solid fa-arrows-left-right"></i>
+              </button>
+            </div>
+            <div class="scan__tag scan__tag--left">SCAN</div>
+            <div class="scan__tag scan__tag--right">PHOTO</div>
+            <div class="scan__hint">Drag to compare</div>
+          </div>
+
+          <!-- Panel: Measurement readout -->
+          <div class="scanner__panel">
+            <span class="eyebrow">STEPS 01–02 · DIGITAL SCANNER</span>
+            <h2 class="heading-h2">DIGITAL <span class="font-accent">SCANNER</span></h2>
+            <span class="scan__subtitle">MEASUREMENT</span>
+            <ul class="scan__list" aria-label="Body measurements">
+              <li class="scan__row" data-gw-at="10">
+                <span>HEIGHT</span>
+                <span class="scan__val" data-value="170">170 cm</span>
+              </li>
+              <li class="scan__row" data-gw-at="22">
+                <span>NECK</span>
+                <span class="scan__val" data-value="38">38 cm</span>
+              </li>
+              <li class="scan__row" data-gw-at="34">
+                <span>SHOULDER</span>
+                <span class="scan__val" data-value="46">46 cm</span>
+              </li>
+              <li class="scan__row" data-gw-at="46">
+                <span>CHEST</span>
+                <span class="scan__val" data-value="98">98 cm</span>
+              </li>
+              <li class="scan__row" data-gw-at="58">
+                <span>SLEEVE</span>
+                <span class="scan__val" data-value="62">62 cm</span>
+              </li>
+              <li class="scan__row" data-gw-at="70">
+                <span>WAIST</span>
+                <span class="scan__val" data-value="86">86 cm</span>
+              </li>
+              <li class="scan__row" data-gw-at="82">
+                <span>HIP</span>
+                <span class="scan__val" data-value="98">98 cm</span>
+              </li>
+              <li class="scan__row" data-gw-at="94">
+                <span>INSEAM</span>
+                <span class="scan__val" data-value="78">78 cm</span>
+              </li>
+            </ul>
+            <div class="scan__cutaways">
+              <div class="scan__cutaway">
+                <img src="assets/img/scan-legs.jpg" alt="Legs scan mesh" />
+              </div>
+              <div class="scan__cutaway">
+                <img src="assets/img/scan-hand.jpg" alt="Hand scan mesh" />
+              </div>
+            </div>
+            <p class="scan__caption">Sample measurements for illustration.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11. SECTION 6 — IMAGINE YOUR LOOK (IMG-C) -->
+      <section class="imagine" id="imagine">
+        <div class="imagine__container">
+          <div class="imagine__header">
+            <h2 class="heading-h2">IMAGINE YOUR <span class="font-accent">LOOK.</span></h2>
+            <p class="eyebrow" style="color: var(--gw-ivory); margin-bottom: 0.75rem;">SEE IT BEFORE YOU WEAR IT.</p>
+            <p class="lead-text">Tell us how you want to look.</p>
+            <p class="lead-text" style="color: var(--gw-stone); font-size: 0.95rem; margin-top: 0.5rem;">
+              Our AI + ML + Robotics creates a complete style direction - outfit fabric, accessories, grooming & more
+            </p>
+
+            <!-- Dynamic Brief Field -->
+            <div class="imagine__brief-wrap">
+              <div class="brief__input" aria-live="polite">
+                <span class="brief__text"></span>
+                <span class="brief__caret" aria-hidden="true"></span>
+              </div>
+            </div>
+
+            <!-- Occasion Chips -->
+            <div class="imagine__chips" role="tablist" aria-label="Style occasions">
+              <button class="brief-chip is-active" role="tab" aria-selected="true"
+                data-gw-brief="Bespoke charcoal double-breasted suit for an executive venture investor meeting."
+                data-gw-outfit="Italian Super 150s Merino Wool in Deep Charcoal with peak lapels."
+                data-gw-fabric="Fine woven twill with subtle micro-pinstripe & silk lining."
+                data-gw-accessories="Hand-finished pocket square, onyx cufflinks & Swiss automatic timepiece."
+                data-gw-grooming="Clean executive taper, structured beard blend & sandalwood finish.">
+                Investor meeting
+              </button>
+              <button class="brief-chip" role="tab" aria-selected="false"
+                data-gw-brief="Regal emerald green royal sherwani with hand embroidery for an evening wedding."
+                data-gw-outfit="Royal Emerald raw silk bandhgala with sculpted shoulders."
+                data-gw-fabric="Pure Varanasi brocade with handcrafted zardozi floral motifs."
+                data-gw-accessories="Gilded pearl brooch, vintage signet ring & gold-trimmed pocket silk."
+                data-gw-grooming="Regal sharp contour, softened temple fade & natural pomade sculpt.">
+                Wedding
+              </button>
+              <button class="brief-chip" role="tab" aria-selected="false"
+                data-gw-brief="Contemporary smart casual silhouette with tailored deconstructed blazer."
+                data-gw-outfit="Unstructured hopsack blazer in forest olive with pleated trousers."
+                data-gw-fabric="Breathable organic linen-wool blend with garment wash."
+                data-gw-accessories="Minimalist brushed platinum watch & Italian woven leather loafers."
+                data-gw-grooming="Natural textured flow, fresh neckline & subtle matte finish.">
+                Refresh my style
+              </button>
+            </div>
+            <span class="imagine__micro">Concept preview — illustrative looks.</span>
+          </div>
+
+          <!-- Expanding 4-Panel Accordion -->
+          <div class="look-panels">
+            <!-- 01 Outfit -->
+            <div class="look-panel is-active" tabindex="0">
+              <img src="assets/img/blazer-selection.jpg" alt="Outfit direction" class="look-panel__img" />
+              <div class="look-panel__overlay"></div>
+              <span class="look-panel__collapsed-label">01 · Outfit</span>
+              <div class="look-panel__active-card">
+                <span class="look-panel__num">01 · OUTFIT DIRECTION</span>
+                <h3 class="look-panel__title">Structured Bespoke Blazer</h3>
+                <p class="look-panel__detail" data-detail="outfit">Italian Super 150s Merino Wool in Deep Charcoal with peak lapels.</p>
+              </div>
+            </div>
+            <!-- 02 Fabric & Colours -->
+            <div class="look-panel" tabindex="0">
+              <img src="assets/img/fabric-selection.png" alt="Fabric & Colours" class="look-panel__img" />
+              <div class="look-panel__overlay"></div>
+              <span class="look-panel__collapsed-label">02 · Fabric & Colours</span>
+              <div class="look-panel__active-card">
+                <span class="look-panel__num">02 · FABRIC & COLOURS</span>
+                <h3 class="look-panel__title">Curated Premium Weaves</h3>
+                <p class="look-panel__detail" data-detail="fabric">Fine woven twill with subtle micro-pinstripe & silk lining.</p>
+              </div>
+            </div>
+            <!-- 03 Accessories -->
+            <div class="look-panel" tabindex="0">
+              <img src="assets/img/accessories-selection.png" alt="Accessories" class="look-panel__img" />
+              <div class="look-panel__overlay"></div>
+              <span class="look-panel__collapsed-label">03 · Accessories</span>
+              <div class="look-panel__active-card">
+                <span class="look-panel__num">03 · ACCESSORY PAIRING</span>
+                <h3 class="look-panel__title">Signature Accents</h3>
+                <p class="look-panel__detail" data-detail="accessories">Hand-finished pocket square, onyx cufflinks & timepiece.</p>
+              </div>
+            </div>
+            <!-- 04 Hair & Grooming -->
+            <div class="look-panel" tabindex="0">
+              <img src="assets/img/grooming.png" alt="Hair & Grooming" class="look-panel__img" />
+              <div class="look-panel__overlay"></div>
+              <span class="look-panel__collapsed-label">04 · Hair & Grooming</span>
+              <div class="look-panel__active-card">
+                <span class="look-panel__num">04 · GROOMING HARMONY</span>
+                <h3 class="look-panel__title">Personalised Styling</h3>
+                <p class="look-panel__detail" data-detail="grooming">Clean executive taper, structured beard blend & finish.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="imagine__cta-wrap">
+            <a href="#book" class="btn-cta">
+              <span class="btn-cta__text-roll">
+                <span class="btn-cta__label">Explore AI Styling</span>
+                <span class="btn-cta__label">Explore AI Styling</span>
+              </span>
+              <i class="fa-solid fa-arrow-right btn-cta__icon" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. SECTION 7 — AUTOMATED MACHINES (MACH-B) -->
+      <section class="machines" id="machines">
+        <div class="machines__container">
+          <div class="machines__header">
+            <span class="eyebrow">STEP 07</span>
+            <h2 class="machines__title">AUTOMATED <span class="font-accent">MACHINES</span></h2>
+          </div>
+          <div class="machines__diptych">
+            <div class="machines__col machines__col--cut">
+              <img src="assets/img/auto-cutting.png" alt="Precision laser fabric cutting" class="machines__img" />
+              <span class="machines__label">CUT</span>
+            </div>
+            <div class="machines__col machines__col--stitch">
+              <img src="assets/img/auto-stitching.png" alt="Robotic embroidery and precise stitching" class="machines__img" />
+              <span class="machines__label">STITCH</span>
+            </div>
+          </div>
+          <!-- Magnifier Lens Element -->
+          <div class="machines__lens" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- 13. SECTION 8 — FINAL RESULTS (FINAL-C) -->
+      <section class="final" id="final">
+        <div class="final__container">
+          <div class="final__header">
+            <span class="eyebrow">FINAL RESULTS</span>
+            <p class="final__subhead">ULTIMATE RESULT OF</p>
+            <h2 class="final__headline">
+              <span class="final__word">ROBOTICS</span> + 
+              <span class="final__word">AI</span> + 
+              <span class="final__word">MACHINE LEARNING</span>
+            </h2>
+          </div>
+
+          <!-- Carousel Container -->
+          <div class="final__carousel-wrap">
+            <div class="final__carousel">
+              <div class="final__slides">
+                <!-- Slide 1: Western Formal -->
+                <div class="final__slide">
+                  <div class="final__compare">
+                    <img src="assets/img/scanner-booth.png" alt="Everyday casual before" class="final__layer-before" />
+                    <img src="assets/img/final-western.png" alt="Western Formal bespoke look" class="final__layer-after" />
+                    <div class="scan__handle">
+                      <button class="scan__handle-btn" aria-label="Compare Everyday with Final Look">
+                        <i class="fa-solid fa-arrows-left-right"></i>
+                      </button>
+                    </div>
+                    <div class="scan__tag scan__tag--left">EVERYDAY</div>
+                    <div class="scan__tag scan__tag--right">FINAL LOOK</div>
+                  </div>
+                  <h3 class="final__look-label">WESTERN FORMAL</h3>
+                </div>
+
+                <!-- Slide 2: Traditional Indian -->
+                <div class="final__slide">
+                  <div class="final__compare">
+                    <img src="assets/img/scanner-booth.png" alt="Everyday casual before" class="final__layer-before" />
+                    <img src="assets/img/final-indian.jpg" alt="Traditional Indian regal attire" class="final__layer-after" />
+                    <div class="scan__handle">
+                      <button class="scan__handle-btn" aria-label="Compare Everyday with Final Look">
+                        <i class="fa-solid fa-arrows-left-right"></i>
+                      </button>
+                    </div>
+                    <div class="scan__tag scan__tag--left">EVERYDAY</div>
+                    <div class="scan__tag scan__tag--right">FINAL LOOK</div>
+                  </div>
+                  <h3 class="final__look-label">TRADITIONAL INDIAN</h3>
+                </div>
+              </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <div class="final__nav">
+              <button class="final__nav-btn final__nav-btn--prev" aria-label="Previous bespoke style">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <div class="final__dots">
+                <span class="final__dot is-active" aria-label="Slide 1"></span>
+                <span class="final__dot" aria-label="Slide 2"></span>
+              </div>
+              <button class="final__nav-btn final__nav-btn--next" aria-label="Next bespoke style">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="final__cta-wrap">
+            <a href="#book" class="btn-cta">
+              <span class="btn-cta__text-roll">
+                <span class="btn-cta__label">Book Your GW Experience</span>
+                <span class="btn-cta__label">Book Your GW Experience</span>
+              </span>
+              <i class="fa-solid fa-arrow-right btn-cta__icon" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14. SECTION 9 — GW REWARDROBE -->
+      <section class="rewardrobe" id="rewardrobe">
+        <div class="rewardrobe__container">
+          <div class="rewardrobe__top">
+            <span class="eyebrow">GW REWARDROBE</span>
+            <h2 class="heading-h2">NEW STYLE. LESS <span class="font-accent">WASTE.</span></h2>
+            <p class="lead-text" style="margin: 0 auto;">Give eligible pre-loved clothes a new purpose.</p>
+          </div>
+
+          <div class="rewardrobe__stat-wrap">
+            <span class="rewardrobe__stat-label">UP TO</span>
+            <div class="rewardrobe__stat-number">
+              <span class="rewardrobe__stat-val">0</span>
+              <span class="rewardrobe__stat-pct">%</span>
+              <span class="rewardrobe__stat-off">OFF</span>
+            </div>
+            <div class="rewardrobe__stat-line"></div>
+          </div>
+
+          <div class="rewardrobe__band">
+            <img src="assets/img/wardrobe-before.jpg" alt="Pre-loved wardrobe items" class="rewardrobe__img-before" />
+            <img src="assets/img/wardrobe-after.jpg" alt="Curated renewed wardrobe" class="rewardrobe__img-after" />
+            <div class="rewardrobe__caption">RETURN.</div>
+          </div>
+
+          <div class="rewardrobe__cta-wrap" style="margin-bottom: 3rem;">
+            <a href="#book" class="btn-cta">
+              <span class="btn-cta__text-roll">
+                <span class="btn-cta__label">Explore ReWardrobe</span>
+                <span class="btn-cta__label">Explore ReWardrobe</span>
+              </span>
+              <i class="fa-solid fa-arrow-right btn-cta__icon" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Terms line strictly placed and always visible -->
+        <div class="rewardrobe__terms">
+          Up to 25% off eligible new purchases. Terms apply.
+        </div>
+      </section>
+
+      <!-- 15. SECTION 10 — FINAL CTA -->
+      <section class="final-cta" id="book">
+        <div class="final-cta__container">
+          <div class="final-cta__text">
+            <span class="eyebrow">BESPOKE RESERVATION</span>
+            <h2 class="final-cta__h2">
+              <span class="line-reveal"><span class="line-reveal__inner">YOUR NEXT LOOK</span></span>
+              <span class="line-reveal"><span class="line-reveal__inner">STARTS <span class="font-accent">HERE.</span></span></span>
+            </h2>
+            <a href="#top" class="btn-cta btn-cta--solid btn-cta--magnetic">
+              <span class="btn-cta__text-roll">
+                <span class="btn-cta__label">Book Your GW Experience</span>
+                <span class="btn-cta__label">Book Your GW Experience</span>
+              </span>
+              <i class="fa-solid fa-arrow-right btn-cta__icon" aria-hidden="true"></i>
+            </a>
+            <p class="final-cta__micro">Appointment subject to confirmation.</p>
+          </div>
+          <div class="final-cta__portrait-frame">
+            <img src="assets/img/final-western.png" alt="Green Wardrobe Custom Bespoke Tailoring" class="final-cta__portrait-img" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 16. FOOTER -->
+    <footer class="site-footer" id="footer">
+      <div class="site-footer__container">
+        <!-- Row 1: Primary Navigation -->
+        <nav class="site-footer__nav" aria-label="Footer navigation">
+          <a href="#experience" class="site-footer__nav-link">Experience</a>
+          <a href="#technology" class="site-footer__nav-link">Technology</a>
+          <a href="#imagine" class="site-footer__nav-link">AI Styling</a>
+          <a href="#final" class="site-footer__nav-link">Final Looks</a>
+          <a href="#rewardrobe" class="site-footer__nav-link">ReWardrobe</a>
+          <a href="#book" class="site-footer__nav-link">Contact</a>
+        </nav>
+
+        <!-- Row 2: Legal Links -->
+        <div class="site-footer__legal-nav">
+          <a href="#book" class="site-footer__legal-link">Privacy</a>
+          <a href="#book" class="site-footer__legal-link">Terms</a>
+          <a href="#book" class="site-footer__legal-link">Returns</a>
+          <a href="#book" class="site-footer__legal-link">FAQs</a>
+        </div>
+
+        <!-- Row 3: Brand statement & Copyright -->
+        <div class="site-footer__info-row">
+          <p class="site-footer__brandline">Designed Around You. Not the Rack.</p>
+          <p class="site-footer__copyright">&copy; 2026 Green Wardrobe.</p>
+        </div>
+
+        <!-- Giant Wordmark Curtain -->
+        <div class="site-footer__wordmark" aria-hidden="true">
+          <span class="site-footer__wordmark-inner">GREEN WARDROBE</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

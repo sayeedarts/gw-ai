@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 70" width="240" height="70">
+  <!-- Crown -->
+  <path d="M42 16 L49 27 L60 12 L71 27 L78 16 L75 32 L45 32 Z" fill="#F6C214" />
+  <circle cx="42" cy="14" r="2" fill="#F6C214" />
+  <circle cx="60" cy="10" r="2.5" fill="#F6C214" />
+  <circle cx="78" cy="14" r="2" fill="#F6C214" />
+  <!-- GW Text -->
+  <text x="60" y="56" font-family="'Raleway', sans-serif" font-weight="700" font-size="28" fill="#F6C214" text-anchor="middle" letter-spacing="1">GW</text>
+  <!-- Divider -->
+  <line x1="88" y1="20" x2="88" y2="56" stroke="#F6C214" stroke-width="1.2" stroke-opacity="0.3" />
+  <!-- Brand text -->
+  <text x="98" y="34" font-family="'Raleway', sans-serif" font-weight="300" font-size="14" fill="#F6C214" letter-spacing="3.5">GREEN</text>
+  <text x="98" y="52" font-family="'Raleway', sans-serif" font-weight="300" font-size="14" fill="#F6C214" letter-spacing="3.5">WARDROBE</text>
+</svg>
