@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none">
+  <!-- Crown -->
+  <g fill="#F6C214">
+    <circle cx="100" cy="38" r="4.5" />
+    <circle cx="78" cy="46" r="3.5" />
+    <circle cx="122" cy="46" r="3.5" />
+    <circle cx="62" cy="56" r="3" />
+    <circle cx="138" cy="56" r="3" />
+    <path d="M62 60 L78 50 L88 72 L100 42 L112 72 L122 50 L138 60 L130 80 L70 80 Z" />
+  </g>
+  <!-- GW Monogram -->
+  <g fill="#F6C214">
+    <!-- G -->
+    <path d="M92 108 C90 98 82 92 70 92 C56 92 46 103 46 118 C46 133 56 144 71 144 C84 144 91 137 93 125 L72 125 L72 116 L103 116 C104 135 93 154 71 154 C48 154 34 138 34 118 C34 97 49 82 71 82 C88 82 99 92 102 108 Z" />
+    <!-- W -->
+    <path d="M102 85 L114 142 L128 98 L138 98 L152 142 L164 85 L176 85 L158 152 L146 152 L133 111 L120 152 L108 152 L90 85 Z" />
+  </g>
+  <!-- Divider Line -->
+  <line x1="34" y1="162" x2="166" y2="162" stroke="#F6C214" stroke-width="2.5" stroke-linecap="round" />
+  <!-- Brand text -->
+  <text x="100" y="177" text-anchor="middle" fill="#F6C214" font-family="'Raleway', sans-serif" font-size="9.5" font-weight="400" letter-spacing="3.5">GREEN WARDROBE</text>
+</svg>
