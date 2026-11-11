@@ -226,22 +226,28 @@
     var bg = document.querySelector('.hero__bg');
     var glow = document.querySelector('.hero__glow');
 
-    phaseATL.to(container, {
-      yPercent: -12,
-      scale: 1.08,
-      ease: 'none'
-    }, 0)
-    .to(bg, {
-      opacity: 0,
-      ease: 'none',
-      duration: 0.7
-    }, 0)
-    .to(glow, {
-      scale: 1.4,
-      opacity: 1,
-      duration: 0.2,
-      ease: 'none'
-    }, 0);
+    if (container) {
+      phaseATL.to(container, {
+        yPercent: -12,
+        scale: 1.08,
+        ease: 'none'
+      }, 0);
+    }
+    if (bg) {
+      phaseATL.to(bg, {
+        opacity: 0,
+        ease: 'none',
+        duration: 0.7
+      }, 0);
+    }
+    if (glow) {
+      phaseATL.to(glow, {
+        scale: 1.4,
+        opacity: 1,
+        duration: 0.2,
+        ease: 'none'
+      }, 0);
+    }
   }
 
   window.GW.heroBlocks = {

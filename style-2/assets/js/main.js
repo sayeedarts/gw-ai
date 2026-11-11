@@ -28,8 +28,6 @@
     if (window.GW.imagine) window.GW.imagine.init();
     if (window.GW.machines) window.GW.machines.init();
     if (window.GW.finalResults) window.GW.finalResults.init();
-    if (window.GW.rewardrobe) window.GW.rewardrobe.init();
-    if (window.GW.cta) window.GW.cta.init();
     if (window.GW.footer) window.GW.footer.init();
 
     // 3. Debounced resize handler to refresh ScrollTrigger

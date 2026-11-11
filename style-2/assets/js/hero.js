@@ -1,5 +1,5 @@
 /**
- * hero.js — Scroll-scrubbed hero expansion, video playback trigger, and before/after transformation
+ * hero.js — Scroll-scrubbed hero expansion and video playback trigger
  */
 (function() {
   'use strict';
@@ -9,9 +9,6 @@
   var content = null;
   var media = null;
   var video = null;
-  var afterLayer = null;
-  var seam = null;
-  var labelText = null;
   var playRing = null;
   var techPills = null;
   var scrollCue = null;
@@ -24,9 +21,6 @@
     content = section.querySelector('.hero__content');
     media = section.querySelector('.hero__media');
     video = section.querySelector('.hero__video');
-    afterLayer = section.querySelector('.hero__after');
-    seam = section.querySelector('.hero__seam');
-    labelText = section.querySelector('.hero__label-text');
     playRing = section.querySelector('.hero__play-ring');
     techPills = section.querySelector('.hero__tech');
     scrollCue = section.querySelector('.hero__scroll-cue');
@@ -46,18 +40,15 @@
     }
 
     if (window.GW.isReducedMotion || !window.gsap || !window.ScrollTrigger) {
-      // Fallback: stacked, no pin
+      // Fallback: static positioning via class toggle without direct element.style writes
       if (media) {
-        media.style.transform = 'none';
-        media.style.position = 'relative';
-        media.style.width = '100%';
-        media.style.borderRadius = '0';
+        media.classList.add('is-static');
       }
       return;
     }
 
-    // Reset any CSS transform so GSAP has exclusive control over translation
-    gsap.set(media, { y: 0, yPercent: 50 });
+    // Single source of truth in GSAP: media at yPercent: 70
+    gsap.set(media, { y: 0, yPercent: 85 });
 
     setupIntro();
     setupScrollTrigger();
@@ -75,10 +66,10 @@
       var tl = gsap.timeline();
       tl.fromTo(media, {
         y: 0,
-        yPercent: 100
+        yPercent: 100,
       }, {
         y: 0,
-        yPercent: 50,
+        yPercent: 75,
         duration: 1.4,
         ease: 'power3.out'
       }, 0)
@@ -98,31 +89,39 @@
   function setupScrollTrigger() {
     var isMobile = window.innerWidth < 768;
 
-    // Master pinned timeline for Phase A (expansion) & Phase B (transformation)
+    // Master pinned timeline for hero card expansion (Task A2)
     var masterTL = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: 'top top',
-        end: isMobile ? '+=200%' : '+=250%',
+        end: isMobile ? '+=100%' : '+=120%',
         pin: true,
         scrub: 0.6,
         anticipatePin: 1,
         invalidateOnRefresh: true,
         onUpdate: function(self) {
           var prog = self.progress;
+          var rise = Math.min(prog / 0.85, 1);
 
-          // Video play/pause toggle at progress 0.25 (when card is expanding past center)
-          if (prog >= 0.25 && !isVideoPlaying && video) {
-            video.play().catch(function() {});
-            isVideoPlaying = true;
-            if (playRing) gsap.to(playRing, { opacity: 0, duration: 0.3 });
-          } else if (prog < 0.25 && isVideoPlaying && video) {
+          // Video playback hysteresis between 0.40 and 0.45
+          if (rise >= 0.45 && !isVideoPlaying && video) {
+            var playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise.then(function() {
+                isVideoPlaying = true;
+                if (playRing) gsap.to(playRing, { opacity: 0, duration: 0.3 });
+              }).catch(function() {
+                // Keep poster/ring visible if autoplay blocked
+                isVideoPlaying = false;
+              });
+            }
+          } else if (rise < 0.40 && isVideoPlaying && video) {
             video.pause();
             isVideoPlaying = false;
             if (playRing) gsap.to(playRing, { opacity: 1, duration: 0.3 });
           }
 
-          // Blocks pause when hero finishes
+          // Hero blocks link: pause at >= 0.7, resume below
           if (window.GW.heroBlocks) {
             if (prog >= 0.7) {
               window.GW.heroBlocks.pause();
@@ -131,16 +130,7 @@
             }
           }
 
-          // Before/After label roll at 50% of transformation phase (overall ~0.65)
-          if (labelText) {
-            if (prog >= 0.65) {
-              labelText.textContent = 'AFTER';
-            } else {
-              labelText.textContent = 'BEFORE';
-            }
-          }
-
-          // Remove hero-active class on body when hero is passed
+          // Hero active class on body
           if (prog >= 0.95) {
             document.body.classList.remove('hero-active');
           } else {
@@ -150,58 +140,49 @@
       }
     });
 
-    // Phase A: Card Expansion (0% to 40% of master timeline)
+    // 0 -> 0.35: content fades and recedes
     masterTL.to(content, {
       opacity: 0,
       y: -80,
       scale: 0.96,
-      duration: 0.4,
+      duration: 0.35,
       ease: 'none'
     }, 0)
-    .to(media, {
-      yPercent: 0,
-      y: 0,
-      width: '100vw',
-      borderRadius: '0px',
-      duration: 0.4,
-      ease: 'none'
+    // 0 -> 0.85: media lifts to yPercent 0, full width, zero radius; video scale 1.15 -> 1
+    .fromTo(media,
+      {
+        width: 'calc(80% - (2 * var(--gutter)))',        
+        borderRadius: '20px'
+      },{
+        yPercent: 0,
+        y: 0,      
+        borderRadius: '0px',
+        duration: 0.85,
+        ease: 'none',
+        width: '100vw'
     }, 0)
-    .to('.hero__video', {
+    .to(video, {
       scale: 1,
-      duration: 0.4,
+      duration: 0.85,
       ease: 'none'
     }, 0)
+    // 0.80 -> 0.90: tech pills fade in
     .to(techPills, {
       opacity: 1,
       duration: 0.1,
       ease: 'power2.out'
-    }, 0.35);
+    }, 0.80)
+    // 0.85 -> 1: hold at full screen; scroll cue fades in at 0.90
+    .to(scrollCue, {
+      opacity: 1,
+      duration: 0.1,
+      ease: 'power2.out'
+    }, 0.90);
 
     // Attach hero blocks timeline link
     if (window.GW.heroBlocks) {
       window.GW.heroBlocks.attachToTimeline(masterTL);
     }
-
-    // Phase B: Transformation Wipe (40% to 90% of master timeline)
-    masterTL.fromTo(afterLayer, {
-      clipPath: 'inset(0% 100% 0% 0%)'
-    }, {
-      clipPath: 'inset(0% 0% 0% 0%)',
-      duration: 0.5,
-      ease: 'none'
-    }, 0.4)
-    .fromTo(seam, {
-      left: '0%'
-    }, {
-      left: '100%',
-      duration: 0.5,
-      ease: 'none'
-    }, 0.4)
-    .to(scrollCue, {
-      opacity: 1,
-      duration: 0.1,
-      ease: 'power2.out'
-    }, 0.9);
   }
 
   window.GW.hero = {
