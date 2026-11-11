@@ -51,15 +51,17 @@
         }
       });
 
-      // Desktop hover preview swap
+      // Desktop hover preview swap using class toggles
       var targetPreview = link.getAttribute('data-preview');
       link.addEventListener('mouseenter', function() {
         if (!targetPreview) return;
         menuLinks.forEach(function(l) {
-          if (l !== link) l.style.opacity = '0.35';
-          else {
-            l.style.opacity = '1';
-            l.style.transform = 'translateX(16px)';
+          if (l !== link) {
+            l.classList.add('is-dimmed');
+            l.classList.remove('is-hovered');
+          } else {
+            l.classList.remove('is-dimmed');
+            l.classList.add('is-hovered');
           }
         });
 
@@ -74,8 +76,7 @@
 
       link.addEventListener('mouseleave', function() {
         menuLinks.forEach(function(l) {
-          l.style.opacity = '1';
-          l.style.transform = 'translateX(0)';
+          l.classList.remove('is-dimmed', 'is-hovered');
         });
       });
     });

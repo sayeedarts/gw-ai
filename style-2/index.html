@@ -1,133 +1,196 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en" class="is-loading">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Green Wardrobe — Designed Around You. Not the Rack.</title>
-    <meta name="description" content="Personalised bespoke luxury fashion brand combining 3D body scanning, AI styling, robotics tailoring and wardrobe renewal." />
+    <meta
+      name="description"
+      content="Green Wardrobe — Designed Around You. Not the Rack. Luxury bespoke fashion combining 3D body scanning, AI styling, robotics tailoring and wardrobe renewal."
+    />
     <meta property="og:title" content="Green Wardrobe — Designed Around You. Not the Rack." />
-    <meta property="og:description" content="Personalised bespoke luxury fashion brand combining 3D body scanning, AI styling, robotics tailoring and wardrobe renewal." />
+    <meta
+      property="og:description"
+      content="Green Wardrobe — Designed Around You. Not the Rack. Luxury bespoke fashion combining 3D body scanning, AI styling, robotics tailoring and wardrobe renewal."
+    />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Raleway (thin geometric headlines, body) and Cormorant Garamond (italic brand accent) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Raleway:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&family=Raleway:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- Bootstrap 5.3.3 Grid & Utilities only -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <!-- Font Awesome 6.5.2 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-    <!-- Font Awesome 6.5.2 Free -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
 
-    <!-- Master CSS -->
+    <!-- Primary Style (Relative path) -->
     <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Noscript fallback for CSS -->
     <noscript>
       <link rel="stylesheet" href="assets/css/noscript.css" />
     </noscript>
 
-    <!-- Synchronous Boot Script -->
+    <!-- Early Feature Detection & Preload state -->
     <script src="assets/js/boot.js"></script>
   </head>
   <body>
-    <!-- Skip Navigation Link -->
+    <!-- Skip to main content link for accessibility -->
     <a href="#top" class="skip-link">Skip to main content</a>
 
-    <!-- Faint Architectural Grid -->
+    <!-- Architectural Background Grid -->
     <div class="page-grid" aria-hidden="true"></div>
 
-    <!-- 3. Preloader -->
-    <div class="preloader js-preloader" role="status" aria-live="polite">
-      <span class="visually-hidden js-preloader-announce">Loading experience</span>
-      <div class="preloader__center">
+    <!-- PRELOADER -->
+    <aside class="preloader js-preloader" aria-label="Page loading" role="status">
+      <div class="preloader__inner">
+        <div class="preloader__announce sr-only js-preloader-announce" aria-live="polite">Loading experience</div>
         <div class="preloader__badge">
-          <div class="preloader__ring" aria-hidden="true"></div>
-          <img src="assets/img/gw-badge.svg" alt="Green Wardrobe Emblem" class="preloader__logo" width="160" height="160" />
+          <img
+            src="assets/img/logo.png"
+            alt="Green Wardrobe Emblem"
+            class="preloader__badge-svg"
+            width="220"
+            height="220"
+          />
         </div>
-        <p class="preloader__text">LOADING EXPERIENCE<span class="preloader__dots"></span></p>
+        <p class="preloader__text">LOADING EXPERIENCE<span class="preloader__dots">...</span></p>
+        <div class="preloader__counter">
+          <span class="preloader__count">0%</span>
+        </div>
+        <div class="preloader__progress">
+          <div class="preloader__bar"></div>
+        </div>
       </div>
-      <div class="preloader__count">0%</div>
-      <div class="preloader__bar" aria-hidden="true"></div>
-    </div>
+    </aside>
 
-    <!-- 4. Header -->
+    <!-- SITE HEADER -->
     <header class="site-header">
-      <a href="#top" class="site-header__brand" aria-label="Green Wardrobe Home">
-        <img src="assets/img/gw-badge.svg" alt="Green Wardrobe" class="site-header__logo" width="76" height="76" />
-      </a>
-      <button class="hamburger" aria-expanded="false" aria-controls="site-menu" aria-label="Toggle navigation menu">
-        <span class="hamburger__line" aria-hidden="true"></span>
-        <span class="hamburger__line" aria-hidden="true"></span>
-        <span class="hamburger__line" aria-hidden="true"></span>
-      </button>
+      <div class="site-header__inner container-fluid">
+        <a href="#top" class="site-header__brand" aria-label="Green Wardrobe Home">
+          <img
+            class="site-header__logo"
+            src="assets/img/logo.png"
+            alt="Green Wardrobe"
+            width="76"
+            height="76"
+            loading="eager"
+          />
+        </a>
+
+        <button
+          type="button"
+          class="hamburger"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
     </header>
 
-    <!-- Full-Screen Menu Overlay -->
-    <nav id="site-menu" class="site-menu" aria-label="Main menu">
-      <div class="site-menu__inner">
-        <div class="site-menu__nav">
-          <a href="#experience" class="site-menu__link" data-preview="exp">
-            <span class="site-menu__idx">01</span>
-            <span class="site-menu__link-text">Experience</span>
-          </a>
-          <a href="#technology" class="site-menu__link" data-preview="tech">
-            <span class="site-menu__idx">02</span>
-            <span class="site-menu__link-text">Technology</span>
-          </a>
-          <a href="#imagine" class="site-menu__link" data-preview="imagine">
-            <span class="site-menu__idx">03</span>
-            <span class="site-menu__link-text">AI Styling</span>
-          </a>
-          <a href="#final" class="site-menu__link" data-preview="final">
-            <span class="site-menu__idx">04</span>
-            <span class="site-menu__link-text">Final Looks</span>
-          </a>
-          <a href="#rewardrobe" class="site-menu__link" data-preview="rew">
-            <span class="site-menu__idx">05</span>
-            <span class="site-menu__link-text">ReWardrobe</span>
-          </a>
-          <a href="#book" class="site-menu__link" data-preview="book">
-            <span class="site-menu__idx">06</span>
-            <span class="site-menu__link-text">Contact</span>
-          </a>
+    <!-- SITE MENU OVERLAY (5 items, renumbered 01-05) -->
+    <nav class="site-menu" id="site-menu" aria-label="Main menu">
+      <div class="site-menu__inner container-fluid">
+        <div class="site-menu__col site-menu__col--nav">
+          <ul class="site-menu__list list-unstyled">
+            <li class="site-menu__item">
+              <a href="#experience" class="site-menu__link" data-preview="exp">
+                <span class="site-menu__num">01</span>
+                <span class="site-menu__link-text">Experience</span>
+              </a>
+            </li>
+            <li class="site-menu__item">
+              <a href="#technology" class="site-menu__link" data-preview="tech">
+                <span class="site-menu__num">02</span>
+                <span class="site-menu__link-text">Technology</span>
+              </a>
+            </li>
+            <li class="site-menu__item">
+              <a href="#imagine" class="site-menu__link" data-preview="ai">
+                <span class="site-menu__num">03</span>
+                <span class="site-menu__link-text">AI Styling</span>
+              </a>
+            </li>
+            <li class="site-menu__item">
+              <a href="#final" class="site-menu__link" data-preview="looks">
+                <span class="site-menu__num">04</span>
+                <span class="site-menu__link-text">Final Looks</span>
+              </a>
+            </li>
+            <li class="site-menu__item">
+              <a href="#footer" class="site-menu__link" data-preview="contact">
+                <span class="site-menu__num">05</span>
+                <span class="site-menu__link-text">Contact</span>
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class="site-menu__preview" aria-hidden="true">
-          <img src="assets/img/scanner-booth.png" alt="" class="site-menu__preview-img is-active" data-preview-id="exp" />
-          <img src="assets/img/measurement.png" alt="" class="site-menu__preview-img" data-preview-id="tech" />
-          <img src="assets/img/blazer-selection.jpg" alt="" class="site-menu__preview-img" data-preview-id="imagine" />
-          <img src="assets/img/final-western.png" alt="" class="site-menu__preview-img" data-preview-id="final" />
-          <img src="assets/img/wardrobe-after.jpg" alt="" class="site-menu__preview-img" data-preview-id="rew" />
-          <img src="assets/img/hero.jpg" alt="" class="site-menu__preview-img" data-preview-id="book" />
+
+        <div class="site-menu__col site-menu__col--preview d-none d-md-block" aria-hidden="true">
+          <div class="site-menu__preview">
+            <img src="assets/img/scanner-booth.png" alt="" class="site-menu__preview-img" data-preview-id="exp" />
+            <img src="assets/img/measurement.png" alt="" class="site-menu__preview-img" data-preview-id="tech" />
+            <img src="assets/img/blazer-selection.jpg" alt="" class="site-menu__preview-img" data-preview-id="ai" />
+            <img src="assets/img/final-western.png" alt="" class="site-menu__preview-img" data-preview-id="looks" />
+            <img src="assets/img/final-indian.jpg" alt="" class="site-menu__preview-img" data-preview-id="contact" />
+          </div>
         </div>
       </div>
-      <div class="site-menu__footer">
-        <a href="#book" class="btn-cta btn-cta--solid">Book Your GW Experience</a>
+
+      <div class="site-menu__footer container-fluid">
+        <a href="mailto:saidarts@gmail.com?subject=Green%20Wardrobe%20Experience%20Booking" class="btn-cta btn-cta--solid">
+          <span>Book Your GW Experience</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
         <span class="site-menu__brand-line">Designed Around You. Not the Rack.</span>
       </div>
     </nav>
 
-    <!-- Main Content -->
-    <main>
-      <!-- SECTION 1 — HERO (HERO-A) -->
+    <!-- MAIN SCROLL CONTENT -->
+    <main id="main">
+      <!-- SECTION 1 — HERO (HERO-A 70/30 Layout) -->
       <section class="hero" id="top">
         <div class="hero__bg" aria-hidden="true">
+          <div class="hero__blocks"></div>
           <div class="hero__glow"></div>
-          <div class="hero__blocks js-hero-blocks"></div>
-          <div class="hero__spotlight js-hero-spotlight"></div>
-          <div class="hero__dust js-hero-dust"></div>
+          <div class="hero__spotlight"></div>
         </div>
 
         <div class="hero__content">
           <div class="hero__eyebrow">
             <span>AI STYLING</span>
-            <span class="hero__eyebrow-sep" aria-hidden="true"></span>
+            <span class="hero__eyebrow-sep"></span>
             <span>BESPOKE TAILORING</span>
-            <span class="hero__eyebrow-sep" aria-hidden="true"></span>
+            <span class="hero__eyebrow-sep"></span>
             <span>SUSTAINABLE FASHION</span>
           </div>
-          <h1 class="hero__title js-split-lines">YOUR BODY. YOUR STYLE. / YOUR PERFECT WARDROBE.</h1>
+
+          <h1 class="hero__title">
+            YOUR BODY. YOUR STYLE. <br />YOUR PERFECT WARDROBE.
+          </h1>
+
           <p class="hero__brand">Designed Around You. Not the Rack.</p>
+
           <div class="hero__cta-wrap">
             <a href="#imagine" class="btn-cta btn-cta--outlined">
               <span class="btn-cta__text-roll">
@@ -140,16 +203,13 @@
 
         <div class="hero__media">
           <div class="hero__video-wrap">
-            <video class="hero__video" muted loop playsinline poster="/assets/img/hero.jpg">
+            <video class="hero__video" muted loop playsinline preload="metadata" poster="https://peru-jackal-882954.hostingersite.com/gw/assets/img/hero.jpg">
               <source src="https://peru-jackal-882954.hostingersite.com/gw/assets/video/hero.mp4" type="video/mp4" />
               <source src="assets/img/hero.mp4" type="video/mp4" />
             </video>
             <div class="hero__play-ring" aria-hidden="true">
               <i class="fa-solid fa-play"></i>
             </div>
-          </div>
-          <div class="hero__after">
-            <div class="hero__seam" aria-hidden="true"></div>
           </div>
 
           <div class="hero__tech" aria-label="Core technologies">
@@ -161,12 +221,6 @@
             <span class="hero__tech-pill">SUSTAINABLE RECYCLING</span>
           </div>
 
-          <div class="hero__label" aria-live="polite">
-            <span class="hero__label-roll">
-              <span class="hero__label-text">BEFORE</span>
-            </span>
-          </div>
-
           <div class="hero__scroll-cue" aria-hidden="true">
             <span>Scroll</span>
             <i class="fa-solid fa-arrow-down"></i>
@@ -174,53 +228,73 @@
         </div>
       </section>
 
-      <!-- SECTION 2 — FASHION BEGINS WITH YOU (BEGINS-A) -->
+      <!-- SECTION 2 — FASHION BEGINS WITH YOU (Task B: Dual-Stream Flying Thumbnails & Pinned Word Fill) -->
       <section class="begins" id="begins">
-        <div class="begins__collage" aria-hidden="true">
-          <div class="begins__card begins__card--1">
-            <img src="assets/img/scanner-booth.png" alt="" loading="lazy" />
-          </div>
-          <div class="begins__card begins__card--2">
-            <img src="assets/img/fabric-selection.png" alt="" loading="lazy" />
-          </div>
-          <div class="begins__card begins__card--3">
-            <img src="assets/img/final-western.png" alt="" loading="lazy" />
-          </div>
+        <!-- Left Stream (7 thumbnails drifting up) -->
+        <div class="begins__stream begins__stream--left" aria-hidden="true">
+          <figure class="begins__thumb" data-speed="0.95" data-rot="-3">
+            <img src="assets/img/scanner-booth.png" loading="lazy" alt="" />
+          </figure>
+          <figure class="begins__thumb" data-speed="1.10" data-rot="3">
+            <img src="assets/img/fabric-selection.png" loading="lazy" alt="" />
+          </figure>
+          <figure class="begins__thumb" data-speed="1.00" data-rot="-2">
+            <img src="assets/img/blazer-selection.jpg" loading="lazy" alt="" />
+          </figure>
+          <figure class="begins__thumb" data-speed="1.15" data-rot="4">
+            <img src="assets/img/auto-cutting.png" loading="lazy" alt="" />
+          </figure>
+          <figure class="begins__thumb" data-speed="0.90" data-rot="-3">
+            <img src="assets/img/final-western.png" loading="lazy" alt="" />
+          </figure>
+          <figure class="begins__thumb" data-speed="1.05" data-rot="2">
+            <img src="assets/img/grooming.png" loading="lazy" alt="" />
+          </figure>
+          <figure class="begins__thumb" data-speed="1.00" data-rot="-4">
+            <img src="assets/img/scan-hand.jpg" loading="lazy" alt="" />
+          </figure>
         </div>
 
+        <!-- Right Stream (7 thumbnails drifting up) -->
+        <div class="begins__stream begins__stream--right" aria-hidden="true">
+          <figure class="begins__thumb" data-speed="1.05" data-rot="3">
+            <img src="assets/img/measurement.png" loading="lazy" alt="" />
+          </figure>
+          <figure class="begins__thumb" data-speed="0.95" data-rot="-2">
+            <img src="assets/img/grooming.png" loading="lazy" alt="" />
+          </figure>
+          <figure class="begins__thumb" data-speed="1.12" data-rot="4">
+            <img src="assets/img/final-western.png" loading="lazy" alt="" />
+          </figure>
+          <figure class="begins__thumb" data-speed="1.00" data-rot="-3">
+            <img src="assets/img/auto-stitching.png" loading="lazy" alt="" />
+          </figure>
+          <figure class="begins__thumb" data-speed="1.15" data-rot="2">
+            <img src="assets/img/fabric-selection.png" loading="lazy" alt="" />
+          </figure>
+          <figure class="begins__thumb" data-speed="0.90" data-rot="-4">
+            <img src="assets/img/blazer-selection.jpg" loading="lazy" alt="" />
+          </figure>
+          <figure class="begins__thumb" data-speed="1.08" data-rot="3">
+            <img src="assets/img/scan-legs.jpg" loading="lazy" alt="" />
+          </figure>
+        </div>
+
+        <!-- Center Text Content -->
         <div class="begins__content">
           <p class="begins__eyebrow">FASHION BEGINS WITH YOU</p>
-          <h2 class="begins__title">
-            <span class="begins__word">FASHION</span>
-            <span class="begins__word">BEGINS</span>
-            <span class="begins__word">WITH</span>
-            <span class="begins__word begins__word--accent">YOU.</span>
-          </h2>
-          <p class="begins__lead">
-            <span class="begins__lead-word">A</span>
-            <span class="begins__lead-word">complete</span>
-            <span class="begins__lead-word">styling</span>
-            <span class="begins__lead-word">and</span>
-            <span class="begins__lead-word">suit-making</span>
-            <span class="begins__lead-word">experience,</span>
-            <span class="begins__lead-word">designed</span>
-            <span class="begins__lead-word">around</span>
-            <span class="begins__lead-word">your</span>
-            <span class="begins__lead-word">body,</span>
-            <span class="begins__lead-word">your</span>
-            <span class="begins__lead-word">style</span>
-            <span class="begins__lead-word">and</span>
-            <span class="begins__lead-word">your</span>
-            <span class="begins__lead-word">moments.</span>
+          <h2 class="begins__title js-fill-text">FASHION BEGINS WITH YOU.</h2>
+          <p class="begins__lead js-fill-text">
+            A complete styling and suit-making experience, designed around your body, your style and your moments.
           </p>
         </div>
       </section>
 
-      <!-- SECTION 3 — TECHNOLOGIES (TECH-B) -->
+      <!-- SECTION 3 — TECHNOLOGIES (Plain Heading) -->
       <section class="technologies" id="technology">
         <div class="tech__header text-center">
           <p class="tech__eyebrow">TECHNOLOGIES</p>
-          <h2 class="tech__title">OUR <span class="font-accent text-gold">TECHNOLOGIES</span></h2>
+          <h2 class="tech__title">OUR TECHNOLOGIES</h2>
         </div>
 
         <div class="tech__grid" role="region" aria-label="Technology modules">
@@ -269,7 +343,7 @@
           </div>
 
           <div class="tech-tile tech-tile--5" role="button" aria-label="Quantum Physics Technology">
-            <img src="assets/img/scan-hand.jpg" alt="Quantum Physics Visual" class="tech-tile__bg" loading="lazy" />
+            <img src="assets/img/scanner-booth.png" alt="Quantum Physics Visual" class="tech-tile__bg" loading="lazy" />
             <div class="tech-tile__scrim"></div>
             <span class="tech-tile__index">05</span>
             <div class="tech-tile__arrow"><i class="fa-solid fa-arrow-right"></i></div>
@@ -280,7 +354,7 @@
           </div>
 
           <div class="tech-tile tech-tile--6" role="button" aria-label="Sustainable Recycling Technology">
-            <img src="assets/img/recycling.jpg" alt="Sustainable Recycling Cutting" class="tech-tile__bg" loading="lazy" />
+            <img src="assets/img/auto-cutting.png" alt="Sustainable Recycling Cutting" class="tech-tile__bg" loading="lazy" />
             <div class="tech-tile__scrim"></div>
             <span class="tech-tile__index">06</span>
             <div class="tech-tile__arrow"><i class="fa-solid fa-arrow-right"></i></div>
@@ -292,12 +366,12 @@
         </div>
       </section>
 
-      <!-- SECTION 4 — THE GW EXPERIENCE (EXP-A) -->
+      <!-- SECTION 4 — THE GW EXPERIENCE (Task D: Centered Cards, Drag Physics & Single-Source Index) -->
       <section class="experience" id="experience">
-        <div class="experience__header">
+        <div class="experience__header text-center">
           <p class="experience__eyebrow">THE GW EXPERIENCE</p>
-          <h2 class="experience__title">THE GW <span class="font-accent text-gold">EXPERIENCE</span></h2>
-          <p class="experience__lead">An 8 step journey that brings together technology, design and craftsmanship.</p>
+          <h2 class="experience__title">THE GW EXPERIENCE</h2>
+          <p class="experience__sub">An 8 step journey that brings together technology, design and craftsmanship.</p>
         </div>
 
         <div class="experience__stage">
@@ -306,440 +380,613 @@
               <div class="experience__line-fill"></div>
             </div>
             <div class="experience__nodes">
-              <span class="experience__node is-active" data-step="0"></span>
-              <span class="experience__node" data-step="1"></span>
-              <span class="experience__node" data-step="2"></span>
-              <span class="experience__node" data-step="3"></span>
-              <span class="experience__node" data-step="4"></span>
-              <span class="experience__node" data-step="5"></span>
-              <span class="experience__node" data-step="6"></span>
-              <span class="experience__node" data-step="7"></span>
+              <button type="button" class="experience__node is-active" data-step="0" aria-label="Step 1"></button>
+              <button type="button" class="experience__node" data-step="1" aria-label="Step 2"></button>
+              <button type="button" class="experience__node" data-step="2" aria-label="Step 3"></button>
+              <button type="button" class="experience__node" data-step="3" aria-label="Step 4"></button>
+              <button type="button" class="experience__node" data-step="4" aria-label="Step 5"></button>
+              <button type="button" class="experience__node" data-step="5" aria-label="Step 6"></button>
+              <button type="button" class="experience__node" data-step="6" aria-label="Step 7"></button>
+              <button type="button" class="experience__node" data-step="7" aria-label="Step 8"></button>
             </div>
           </div>
 
-          <div class="experience__track" role="region" aria-label="8-step experience journey">
+          <div
+            class="experience__track"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="8-step experience journey"
+          >
             <!-- Card 01 -->
-            <div class="exp-card is-current" tabindex="0">
-              <img src="assets/img/scanner-booth.png" alt="3D + ML Screening" class="exp-card__img" loading="lazy" />
-              <div class="exp-card__scrim"></div>
-              <span class="exp-card__num">01</span>
-              <div class="exp-card__body">
-                <h3 class="exp-card__title">3D + ML Screening</h3>
-                <a href="#scanner" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <article class="exp-card is-current" data-step="0">
+              <div class="exp-card__inner">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/scanner-booth.png" alt="3D + ML Screening" loading="lazy" />
+                  <div class="exp-card__scrim"></div>
+                  <span class="exp-card__num">01</span>
+                </div>
+                <div class="exp-card__body">
+                  <h3 class="exp-card__title">3D + ML Screening</h3>
+                  <a href="#scanner" class="exp-card__link">
+                    <span>See in detail</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
               </div>
-            </div>
+            </article>
 
             <!-- Card 02 -->
-            <div class="exp-card" tabindex="0">
-              <img src="assets/img/measurement.png" alt="Robotics Measurement" class="exp-card__img" loading="lazy" />
-              <div class="exp-card__scrim"></div>
-              <span class="exp-card__num">02</span>
-              <div class="exp-card__body">
-                <h3 class="exp-card__title">Robotics Measurement</h3>
-                <a href="#scanner" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <article class="exp-card" data-step="1">
+              <div class="exp-card__inner">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/measurement.png" alt="Robotics Measurement" loading="lazy" />
+                  <div class="exp-card__scrim"></div>
+                  <span class="exp-card__num">02</span>
+                </div>
+                <div class="exp-card__body">
+                  <h3 class="exp-card__title">Robotics Measurement</h3>
+                  <a href="#scanner" class="exp-card__link">
+                    <span>See in detail</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
               </div>
-            </div>
+            </article>
 
             <!-- Card 03 -->
-            <div class="exp-card" tabindex="0">
-              <img src="assets/img/fabric-selection.png" alt="ML Fabric Selection" class="exp-card__img" loading="lazy" />
-              <div class="exp-card__scrim"></div>
-              <span class="exp-card__num">03</span>
-              <div class="exp-card__body">
-                <h3 class="exp-card__title">ML Fabric Selection</h3>
-                <a href="#imagine" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <article class="exp-card" data-step="2">
+              <div class="exp-card__inner">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/fabric-selection.png" alt="ML Fabric Selection" loading="lazy" />
+                  <div class="exp-card__scrim"></div>
+                  <span class="exp-card__num">03</span>
+                </div>
+                <div class="exp-card__body">
+                  <h3 class="exp-card__title">ML Fabric Selection</h3>
+                  <a href="#imagine" class="exp-card__link">
+                    <span>See in detail</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
               </div>
-            </div>
+            </article>
 
             <!-- Card 04 -->
-            <div class="exp-card" tabindex="0">
-              <img src="assets/img/blazer-selection.jpg" alt="ML + AI Styling" class="exp-card__img" loading="lazy" />
-              <div class="exp-card__scrim"></div>
-              <span class="exp-card__num">04</span>
-              <div class="exp-card__body">
-                <h3 class="exp-card__title">ML + AI Styling</h3>
-                <a href="#imagine" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <article class="exp-card" data-step="3">
+              <div class="exp-card__inner">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/blazer-selection.jpg" alt="ML + AI Styling" loading="lazy" />
+                  <div class="exp-card__scrim"></div>
+                  <span class="exp-card__num">04</span>
+                </div>
+                <div class="exp-card__body">
+                  <h3 class="exp-card__title">ML + AI Styling</h3>
+                  <a href="#imagine" class="exp-card__link">
+                    <span>See in detail</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
               </div>
-            </div>
+            </article>
 
             <!-- Card 05 -->
-            <div class="exp-card" tabindex="0">
-              <img src="assets/img/accessories-selection.png" alt="ML + AI Accessory Selection" class="exp-card__img" loading="lazy" />
-              <div class="exp-card__scrim"></div>
-              <span class="exp-card__num">05</span>
-              <div class="exp-card__body">
-                <h3 class="exp-card__title">ML + AI Accessory Selection</h3>
-                <a href="#imagine" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <article class="exp-card" data-step="4">
+              <div class="exp-card__inner">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/accessories-selection.png" alt="ML + AI Accessory Selection" loading="lazy" />
+                  <div class="exp-card__scrim"></div>
+                  <span class="exp-card__num">05</span>
+                </div>
+                <div class="exp-card__body">
+                  <h3 class="exp-card__title">ML + AI Accessory Selection</h3>
+                  <a href="#imagine" class="exp-card__link">
+                    <span>See in detail</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
               </div>
-            </div>
+            </article>
 
             <!-- Card 06 -->
-            <div class="exp-card" tabindex="0">
-              <img src="assets/img/grooming.png" alt="Hair + Grooming — ML" class="exp-card__img" loading="lazy" />
-              <div class="exp-card__scrim"></div>
-              <span class="exp-card__num">06</span>
-              <div class="exp-card__body">
-                <h3 class="exp-card__title">Hair + Grooming — ML</h3>
-                <a href="#imagine" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <article class="exp-card" data-step="5">
+              <div class="exp-card__inner">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/grooming.png" alt="Hair + Grooming — ML" loading="lazy" />
+                  <div class="exp-card__scrim"></div>
+                  <span class="exp-card__num">06</span>
+                </div>
+                <div class="exp-card__body">
+                  <h3 class="exp-card__title">Hair + Grooming — ML</h3>
+                  <a href="#imagine" class="exp-card__link">
+                    <span>See in detail</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
               </div>
-            </div>
+            </article>
 
             <!-- Card 07 -->
-            <div class="exp-card" tabindex="0">
-              <img src="assets/img/auto-cutting.png" alt="Automated Cutting, Precise Stitching through ML" class="exp-card__img" loading="lazy" />
-              <div class="exp-card__scrim"></div>
-              <span class="exp-card__num">07</span>
-              <div class="exp-card__body">
-                <h3 class="exp-card__title">Automated Cutting, Precise Stitching through ML</h3>
-                <a href="#machines" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <article class="exp-card" data-step="6">
+              <div class="exp-card__inner">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/auto-cutting.png" alt="Automated Cutting, Precise Stitching through ML" loading="lazy" />
+                  <div class="exp-card__scrim"></div>
+                  <span class="exp-card__num">07</span>
+                </div>
+                <div class="exp-card__body">
+                  <h3 class="exp-card__title">Automated Cutting, Precise Stitching through ML</h3>
+                  <a href="#machines" class="exp-card__link">
+                    <span>See in detail</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
               </div>
-            </div>
+            </article>
 
             <!-- Card 08 -->
-            <div class="exp-card" tabindex="0">
-              <img src="assets/img/final-western.png" alt="Final Result" class="exp-card__img" loading="lazy" />
-              <div class="exp-card__scrim"></div>
-              <span class="exp-card__num">08</span>
-              <div class="exp-card__body">
-                <h3 class="exp-card__title">Final Result</h3>
-                <a href="#final" class="exp-card__link">See in detail <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <article class="exp-card" data-step="7">
+              <div class="exp-card__inner">
+                <div class="exp-card__img-wrap">
+                  <img src="assets/img/final-western.png" alt="Final Result" loading="lazy" />
+                  <div class="exp-card__scrim"></div>
+                  <span class="exp-card__num">08</span>
+                </div>
+                <div class="exp-card__body">
+                  <h3 class="exp-card__title">Final Result</h3>
+                  <a href="#final" class="exp-card__link">
+                    <span>See in detail</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- SECTION 5 — DIGITAL SCANNER (SCAN-B) -->
+      <!-- SECTION 5 — DIGITAL SCANNER (Task E: 2-Column Aside Layout & Delayed Hotspot Pop) -->
       <section class="scanner" id="scanner">
-        <div class="scanner__header text-center">
-          <p class="scanner__eyebrow">STEPS 01–02 · DIGITAL SCANNER</p>
-          <h2 class="scanner__title">DIGITAL <span class="font-accent text-gold">SCANNER</span></h2>
-        </div>
-
         <div class="scanner__grid">
-          <div class="scanner__viewport">
-            <div class="scan__cutaway scan__cutaway--legs">
+          <!-- Left Column: Frame (2:3 aspect ratio, contain fit) -->
+          <div class="scan__frame">
+            <!-- Cutaway cards (desktop only) -->
+            <div class="scan__cutaway scan__cutaway--legs d-none d-lg-block" aria-hidden="true">
               <img src="assets/img/scan-legs.jpg" alt="Inseam scan detail" loading="lazy" />
             </div>
-            <div class="scan__cutaway scan__cutaway--hand">
+            <div class="scan__cutaway scan__cutaway--hand d-none d-lg-block" aria-hidden="true">
               <img src="assets/img/scan-hand.jpg" alt="Wrist & cuff scan detail" loading="lazy" />
             </div>
 
-            <div class="scan__frame">
-              <img src="assets/img/scanner-booth.png" alt="3D Scanner Booth" class="scan__layer-booth" />
-              <img src="assets/img/measurement.png" alt="3D Measurement Wireframe" class="scan__layer-wireframe" />
-              <div class="scan__line" aria-hidden="true"></div>
-              <p class="scan__in-title">MEASUREMENT</p>
+            <!-- Base Booth Layer -->
+            <img src="assets/img/scanner-booth.png" alt="3D Scanner Booth" class="scan__layer scan__layer-booth" />
 
-              <!-- 8 Hotspots -->
-              <div class="scan__hotspots" role="region" aria-label="Body measurement points">
-                <button class="scan__hotspot scan__hotspot--height" data-point="height" aria-label="Height: 170 cm">
-                  <span class="scan__hotspot-pulse"></span>
-                  <span class="scan__callout"></span>
-                  <span class="scan__tip" role="tooltip">HEIGHT 170 cm</span>
-                </button>
-                <button class="scan__hotspot scan__hotspot--neck" data-point="neck" aria-label="Neck: 38 cm">
-                  <span class="scan__hotspot-pulse"></span>
-                  <span class="scan__callout"></span>
-                  <span class="scan__tip" role="tooltip">NECK 38 cm</span>
-                </button>
-                <button class="scan__hotspot scan__hotspot--shoulder" data-point="shoulder" aria-label="Shoulder: 46 cm">
-                  <span class="scan__hotspot-pulse"></span>
-                  <span class="scan__callout"></span>
-                  <span class="scan__tip" role="tooltip">SHOULDER 46 cm</span>
-                </button>
-                <button class="scan__hotspot scan__hotspot--chest" data-point="chest" aria-label="Chest: 98 cm">
-                  <span class="scan__hotspot-pulse"></span>
-                  <span class="scan__callout"></span>
-                  <span class="scan__tip" role="tooltip">CHEST 98 cm</span>
-                </button>
-                <button class="scan__hotspot scan__hotspot--sleeve" data-point="sleeve" aria-label="Sleeve: 62 cm">
-                  <span class="scan__hotspot-pulse"></span>
-                  <span class="scan__callout"></span>
-                  <span class="scan__tip" role="tooltip">SLEEVE 62 cm</span>
-                </button>
-                <button class="scan__hotspot scan__hotspot--waist" data-point="waist" aria-label="Waist: 86 cm">
-                  <span class="scan__hotspot-pulse"></span>
-                  <span class="scan__callout"></span>
-                  <span class="scan__tip" role="tooltip">WAIST 86 cm</span>
-                </button>
-                <button class="scan__hotspot scan__hotspot--hip" data-point="hip" aria-label="Hip: 98 cm">
-                  <span class="scan__hotspot-pulse"></span>
-                  <span class="scan__callout"></span>
-                  <span class="scan__tip" role="tooltip">HIP 98 cm</span>
-                </button>
-                <button class="scan__hotspot scan__hotspot--inseam" data-point="inseam" aria-label="Inseam: 78 cm">
-                  <span class="scan__hotspot-pulse"></span>
-                  <span class="scan__callout"></span>
-                  <span class="scan__tip" role="tooltip">INSEAM 78 cm</span>
-                </button>
-              </div>
+            <!-- Overlaid Wireframe Layer (wiped down by ScrollTrigger) -->
+            <img src="assets/img/measurement.png" alt="3D Measurement Wireframe" class="scan__layer scan__layer-wireframe" />
+
+            <!-- Laser Scanning Line -->
+            <div class="scan__line" aria-hidden="true"></div>
+
+            <!-- In-frame Measurement Title -->
+            <p class="scan__in-title" aria-hidden="true">MEASUREMENT</p>
+
+            <!-- Interactive Hotspots (Revealed only after full wireframe) -->
+            <div class="scan__hotspots" role="region" aria-label="Body measurement points">
+              <button type="button" class="scan__hotspot scan__hotspot--height" data-point="height" aria-label="Height: 170 cm">
+                <span class="scan__hotspot-pulse"></span>
+                <span class="scan__tip" role="tooltip">HEIGHT 170 cm</span>
+              </button>
+
+              <button type="button" class="scan__hotspot scan__hotspot--neck" data-point="neck" aria-label="Neck: 38 cm">
+                <span class="scan__hotspot-pulse"></span>
+                <span class="scan__tip" role="tooltip">NECK 38 cm</span>
+              </button>
+
+              <button type="button" class="scan__hotspot scan__hotspot--shoulder" data-point="shoulder" aria-label="Shoulder: 46 cm">
+                <span class="scan__hotspot-pulse"></span>
+                <span class="scan__tip" role="tooltip">SHOULDER 46 cm</span>
+              </button>
+
+              <button type="button" class="scan__hotspot scan__hotspot--chest" data-point="chest" aria-label="Chest: 98 cm">
+                <span class="scan__hotspot-pulse"></span>
+                <span class="scan__tip" role="tooltip">CHEST 98 cm</span>
+              </button>
+
+              <button type="button" class="scan__hotspot scan__hotspot--sleeve" data-point="sleeve" aria-label="Sleeve: 62 cm">
+                <span class="scan__hotspot-pulse"></span>
+                <span class="scan__tip" role="tooltip">SLEEVE 62 cm</span>
+              </button>
+
+              <button type="button" class="scan__hotspot scan__hotspot--waist" data-point="waist" aria-label="Waist: 86 cm">
+                <span class="scan__hotspot-pulse"></span>
+                <span class="scan__tip" role="tooltip">WAIST 86 cm</span>
+              </button>
+
+              <button type="button" class="scan__hotspot scan__hotspot--hip" data-point="hip" aria-label="Hip: 98 cm">
+                <span class="scan__hotspot-pulse"></span>
+                <span class="scan__tip" role="tooltip">HIP 98 cm</span>
+              </button>
+
+              <button type="button" class="scan__hotspot scan__hotspot--inseam" data-point="inseam" aria-label="Inseam: 78 cm">
+                <span class="scan__hotspot-pulse"></span>
+                <span class="scan__tip" role="tooltip">INSEAM 78 cm</span>
+              </button>
             </div>
           </div>
 
+          <!-- Right Column: Aside Panel (Heading + Hint + Measurement List) -->
           <aside class="scanner__aside">
+            <p class="scanner__eyebrow">STEPS 01–02 · DIGITAL SCANNER</p>
+            <h2 class="scanner__title">DIGITAL SCANNER</h2>
+
             <p class="scan__hint">Tap a point to see the measurement</p>
-            <div class="scan__list" role="list">
-              <div class="scan__row" data-point="height" role="listitem">
+
+            <ul class="scan__list list-unstyled">
+              <li class="scan__row" data-point="height" role="button" tabindex="0">
                 <span class="scan__row-label">HEIGHT</span>
                 <span class="scan__row-val">170 cm</span>
-              </div>
-              <div class="scan__row" data-point="neck" role="listitem">
+              </li>
+              <li class="scan__row" data-point="neck" role="button" tabindex="0">
                 <span class="scan__row-label">NECK</span>
                 <span class="scan__row-val">38 cm</span>
-              </div>
-              <div class="scan__row" data-point="shoulder" role="listitem">
+              </li>
+              <li class="scan__row" data-point="shoulder" role="button" tabindex="0">
                 <span class="scan__row-label">SHOULDER</span>
                 <span class="scan__row-val">46 cm</span>
-              </div>
-              <div class="scan__row" data-point="chest" role="listitem">
+              </li>
+              <li class="scan__row" data-point="chest" role="button" tabindex="0">
                 <span class="scan__row-label">CHEST</span>
                 <span class="scan__row-val">98 cm</span>
-              </div>
-              <div class="scan__row" data-point="sleeve" role="listitem">
+              </li>
+              <li class="scan__row" data-point="sleeve" role="button" tabindex="0">
                 <span class="scan__row-label">SLEEVE</span>
                 <span class="scan__row-val">62 cm</span>
-              </div>
-              <div class="scan__row" data-point="waist" role="listitem">
+              </li>
+              <li class="scan__row" data-point="waist" role="button" tabindex="0">
                 <span class="scan__row-label">WAIST</span>
                 <span class="scan__row-val">86 cm</span>
-              </div>
-              <div class="scan__row" data-point="hip" role="listitem">
+              </li>
+              <li class="scan__row" data-point="hip" role="button" tabindex="0">
                 <span class="scan__row-label">HIP</span>
                 <span class="scan__row-val">98 cm</span>
-              </div>
-              <div class="scan__row" data-point="inseam" role="listitem">
+              </li>
+              <li class="scan__row" data-point="inseam" role="button" tabindex="0">
                 <span class="scan__row-label">INSEAM</span>
                 <span class="scan__row-val">78 cm</span>
-              </div>
-            </div>
+              </li>
+            </ul>
+
             <p class="scan__caption">Sample measurements for illustration.</p>
           </aside>
         </div>
       </section>
 
-      <!-- SECTION 6 — IMAGINE YOUR LOOK (IMG-B) -->
+      <!-- SECTION 6 — IMAGINE YOUR LOOK: STYLE STUDIO (Task F: Gallery Walk-Through) -->
       <section class="imagine" id="imagine">
-        <div class="imagine__header">
-          <h2 class="imagine__title">IMAGINE YOUR <span class="font-accent text-gold">LOOK.</span></h2>
-          <p class="imagine__sub">SEE IT BEFORE YOU WEAR IT.</p>
-          <p class="imagine__prompt-line">Tell us how you want to look.</p>
-          <div class="brief__input" aria-label="Custom Style Prompt">
-            <span class="brief__text"></span>
-            <span class="brief__caret" aria-hidden="true"></span>
-          </div>
-        </div>
-
-        <div class="board__stage">
-          <svg class="board__svg-links" aria-hidden="true">
-            <line x1="20%" y1="15%" x2="42%" y2="40%" class="board__link" />
-            <line x1="80%" y1="15%" x2="58%" y2="40%" class="board__link" />
-            <line x1="20%" y1="85%" x2="42%" y2="60%" class="board__link" />
-            <line x1="80%" y1="85%" x2="58%" y2="60%" class="board__link" />
-          </svg>
-
-          <!-- 4 Floating Style Cards -->
-          <div class="board__card board__card--1" tabindex="0">
-            <img src="assets/img/blazer-selection.jpg" alt="Outfit direction" loading="lazy" />
-            <div class="board__card-badge"><span>01</span> Outfit</div>
-          </div>
-
-          <div class="board__card board__card--2" tabindex="0">
-            <img src="assets/img/fabric-selection.png" alt="Fabric and colour curation" loading="lazy" />
-            <div class="board__card-badge"><span>02</span> Fabric & Colours</div>
-          </div>
-
-          <div class="board__card board__card--3" tabindex="0">
-            <img src="assets/img/accessories-selection.png" alt="Accessories curation" loading="lazy" />
-            <div class="board__card-badge"><span>03</span> Accessories</div>
-          </div>
-
-          <div class="board__card board__card--4" tabindex="0">
-            <img src="assets/img/grooming.png" alt="Hair and grooming curation" loading="lazy" />
-            <div class="board__card-badge"><span>04</span> Hair & Grooming</div>
-          </div>
-
-          <!-- Centered Target Board Frame -->
-          <div class="board__frame">
-            <span class="board__frame-label">YOUR LOOK</span>
-            <img src="assets/img/final-western.png" alt="Finished bespoke tailored look" class="board__frame-img" />
-          </div>
-        </div>
-
-        <div class="imagine__footer">
-          <a href="#book" class="btn-cta btn-cta--outlined">
-            <span class="btn-cta__text-roll">
-              <span class="btn-cta__label">Explore AI Styling</span>
-            </span>
-            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-          </a>
-          <span class="imagine__microcopy">Concept preview — illustrative looks.</span>
-        </div>
-      </section>
-
-      <!-- SECTION 7 — AUTOMATED MACHINES (MACH-A) -->
-      <section class="machines" id="machines">
-        <div class="machines__meta">
-          <p class="machines__eyebrow">STEP 07</p>
-          <h2 class="machines__title">AUTOMATED <span class="font-accent text-gold">MACHINES</span></h2>
-        </div>
-
-        <div class="machines__stage">
-          <div class="machines__layer--cut">
-            <img src="assets/img/auto-cutting.png" alt="Precision laser fabric cutting" />
-          </div>
-          <div class="machines__layer--stitch">
-            <img src="assets/img/auto-stitching.png" alt="Robotics-assisted embroidery and stitching" />
-          </div>
-          <div class="machines__seam" aria-hidden="true"></div>
-
-          <div class="machines__label" aria-live="polite">
-            <span class="machines__label-text">CUT</span>
-          </div>
-
-          <div class="machines__counter" aria-hidden="true">01 / 02</div>
-        </div>
-      </section>
-
-      <!-- SECTION 8 — FINAL RESULTS (FINAL-A) -->
-      <section class="final" id="final">
-        <div class="final__stage">
-          <div class="final__layer--western">
-            <img src="assets/img/final-western.png" alt="Western Formal Finished Look" />
-          </div>
-          <div class="final__layer--indian">
-            <img src="assets/img/final-indian.jpg" alt="Traditional Indian Bespoke Look" />
-          </div>
-          <div class="final__scrim"></div>
-
-          <div class="final__content">
-            <p class="final__eyebrow">FINAL RESULTS</p>
-            <p class="final__sub">ULTIMATE RESULT OF</p>
-            <h2 class="final__headline">
-              <span class="final__word">ROBOTICS</span>
-              <span class="final__word">+ AI</span>
-              <span class="final__word">+ MACHINE LEARNING</span>
-            </h2>
-            <div class="final__cta-wrap">
-              <a href="#book" class="btn-cta btn-cta--outlined">
-                <span class="btn-cta__text-roll">
-                  <span class="btn-cta__label">Book Your GW Experience</span>
-                </span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
+        <div class="studio__container">
+          <!-- Left Column: Stage Image -->
+          <div class="studio__stage" aria-label="Style Studio Stage">
+            <div class="studio__slides">
+              <!-- Slide 01: Outfit -->
+              <div class="studio__slide is-active" role="tabpanel" id="panel-outfit" aria-labelledby="tab-outfit" aria-hidden="false">
+                <img src="assets/img/blazer-selection.jpg" alt="Curated Blazer & Trouser Outfit" />
+              </div>
+              <!-- Slide 02: Fabric & Colours -->
+              <div class="studio__slide" role="tabpanel" id="panel-fabric" aria-labelledby="tab-fabric" aria-hidden="true">
+                <img src="assets/img/fabric-selection.png" alt="Curated Fabric & Colour Swatches" />
+              </div>
+              <!-- Slide 03: Accessories -->
+              <div class="studio__slide" role="tabpanel" id="panel-accessories" aria-labelledby="tab-accessories" aria-hidden="true">
+                <img src="assets/img/accessories-selection.png" alt="Curated Accessories & Timepieces" />
+              </div>
+              <!-- Slide 04: Hair & Grooming -->
+              <div class="studio__slide" role="tabpanel" id="panel-grooming" aria-labelledby="tab-grooming" aria-hidden="true">
+                <img src="assets/img/grooming.png" alt="Hair & Grooming Styling" />
+              </div>
+              <!-- Slide 05: Your Look -->
+              <div class="studio__slide studio__slide--final" role="tabpanel" id="panel-look" aria-labelledby="tab-look" aria-hidden="true">
+                <img src="assets/img/final-western.png" alt="Complete Finished Bespoke Look" />
+              </div>
             </div>
+
+            <!-- Stage Overlays -->
+            <div class="studio__badge">01 · OUTFIT</div>
+            <div class="studio__num" aria-hidden="true">01</div>
+            <div class="studio__counter">1 / 4</div>
+            <div class="studio__caption" aria-live="polite">Curated Blazer & Trouser Silhouettes</div>
           </div>
 
-          <div class="final__label" aria-live="polite">WESTERN FORMAL</div>
+          <!-- Right Column: Heading + Brief + Thumbnails + CTA -->
+          <div class="studio__info">
+            <div class="studio__header">
+              <h2 class="imagine__title">IMAGINE YOUR LOOK.</h2>
+              <p class="imagine__sub">SEE IT BEFORE YOU WEAR IT.</p>
+              <p class="imagine__prompt-line">Tell us how you want to look.</p>
 
-          <div class="final__toggle" role="tablist" aria-label="Look selector">
-            <button class="final__toggle-btn is-active" role="tab" aria-selected="true">WESTERN FORMAL</button>
-            <button class="final__toggle-btn" role="tab" aria-selected="false">TRADITIONAL INDIAN</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 9 — GW REWARDROBE -->
-      <section class="rewardrobe" id="rewardrobe">
-        <div class="rewardrobe__header">
-          <p class="rewardrobe__eyebrow">GW REWARDROBE</p>
-          <h2 class="rewardrobe__title">NEW STYLE. LESS <span class="font-accent text-gold">WASTE.</span></h2>
-          <p class="rewardrobe__lead">Give eligible pre-loved clothes a new purpose.</p>
-        </div>
-
-        <div class="rewardrobe__hero-stat">
-          <span class="rewardrobe__stat-pre">UP TO</span>
-          <div class="rewardrobe__number-wrap">
-            <span class="rewardrobe__number">0</span>
-            <span class="rewardrobe__stat-unit">%</span>
-          </div>
-          <span class="rewardrobe__stat-post">OFF</span>
-          <div class="rewardrobe__stat-line" aria-hidden="true"></div>
-        </div>
-
-        <div class="rewardrobe__band-stage">
-          <div class="rewardrobe__band">
-            <img src="assets/img/wardrobe-before.jpg" alt="Pre-loved wardrobe before renewal" class="rewardrobe__img--before" />
-            <img src="assets/img/wardrobe-after.jpg" alt="Renewed bespoke wardrobe" class="rewardrobe__img--after" />
-            <div class="rewardrobe__seam" aria-hidden="true"></div>
-            <div class="rewardrobe__badge">
-              <span class="rewardrobe__badge-text">RETURN.</span>
+              <div class="brief__input" aria-label="Custom Style Prompt">
+                <span class="brief__prompt-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                <span class="brief__text"></span>
+                <span class="brief__caret" aria-hidden="true"></span>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="rewardrobe__footer-cta">
-          <a href="#book" class="btn-cta btn-cta--outlined">
-            <span class="btn-cta__text-roll">
-              <span class="btn-cta__label">Explore ReWardrobe</span>
-            </span>
-            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-          </a>
-        </div>
+            <!-- Thumbnails Tablist -->
+            <div class="studio__thumbs" role="tablist" aria-label="Style Studio Categories">
+              <button
+                type="button"
+                class="studio__thumb is-active is-seen"
+                role="tab"
+                id="tab-outfit"
+                aria-selected="true"
+                aria-controls="panel-outfit"
+              >
+                <div class="studio__thumb-media">
+                  <img src="assets/img/blazer-selection.jpg" alt="" />
+                  <span class="studio__thumb-check"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="studio__thumb-meta">
+                  <span class="studio__thumb-num">01</span>
+                  <span class="studio__thumb-name">Outfit</span>
+                </div>
+              </button>
 
-        <!-- Non-negotiable terms string -->
-        <div class="rewardrobe__terms">
-          Up to 25% off eligible new purchases. Terms apply.
-        </div>
-      </section>
+              <button
+                type="button"
+                class="studio__thumb"
+                role="tab"
+                id="tab-fabric"
+                aria-selected="false"
+                aria-controls="panel-fabric"
+              >
+                <div class="studio__thumb-media">
+                  <img src="assets/img/fabric-selection.png" alt="" />
+                  <span class="studio__thumb-check"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="studio__thumb-meta">
+                  <span class="studio__thumb-num">02</span>
+                  <span class="studio__thumb-name">Fabric & Colours</span>
+                </div>
+              </button>
 
-      <!-- SECTION 10 — FINAL CTA -->
-      <section class="final-cta" id="book">
-        <div class="final-cta__grid">
-          <div class="final-cta__content">
-            <h2 class="final-cta__title js-split-lines">YOUR NEXT LOOK / STARTS HERE.</h2>
-            <div class="final-cta__btn-wrap">
+              <button
+                type="button"
+                class="studio__thumb"
+                role="tab"
+                id="tab-accessories"
+                aria-selected="false"
+                aria-controls="panel-accessories"
+              >
+                <div class="studio__thumb-media">
+                  <img src="assets/img/accessories-selection.png" alt="" />
+                  <span class="studio__thumb-check"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="studio__thumb-meta">
+                  <span class="studio__thumb-num">03</span>
+                  <span class="studio__thumb-name">Accessories</span>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                class="studio__thumb"
+                role="tab"
+                id="tab-grooming"
+                aria-selected="false"
+                aria-controls="panel-grooming"
+              >
+                <div class="studio__thumb-media">
+                  <img src="assets/img/grooming.png" alt="" />
+                  <span class="studio__thumb-check"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="studio__thumb-meta">
+                  <span class="studio__thumb-num">04</span>
+                  <span class="studio__thumb-name">Hair & Grooming</span>
+                </div>
+              </button>
+
+              <!-- Full-width 5th button: YOUR LOOK -->
+              <button
+                type="button"
+                class="studio__thumb studio__thumb--final"
+                role="tab"
+                id="tab-look"
+                aria-selected="false"
+                aria-controls="panel-look"
+              >
+                <div class="studio__thumb-final-inner">
+                  <span class="studio__thumb-final-label">05 · YOUR LOOK</span>
+                  <span class="studio__thumb-final-sub">View Complete Presentation</span>
+                </div>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="studio__progress-wrap" aria-hidden="true">
+              <div class="studio__progress-line">
+                <div class="studio__progress-fill"></div>
+              </div>
+              <span class="studio__progress-count">1 / 4 Explored</span>
+            </div>
+
+            <!-- CTA & Micro Label -->
+            <div class="studio__footer">
               <a href="mailto:saidarts@gmail.com?subject=Green%20Wardrobe%20Experience%20Booking" class="btn-cta btn-cta--solid">
-                <span class="btn-cta__text-roll">
-                  <span class="btn-cta__label">Book Your GW Experience</span>
-                </span>
+                <span>Book Your GW Experience</span>
                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>
+              <p class="studio__micro">Concept preview — illustrative looks.</p>
             </div>
-            <span class="final-cta__micro">Appointment subject to confirmation.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7 — AUTOMATED MACHINES (Task G: Parallax Diptych + Magnifier Lens) -->
+      <section class="machines" id="machines">
+        <div class="machines__container">
+          <div class="machines__header text-center">
+            <p class="machines__eyebrow">STEP 07</p>
+            <h2 class="machines__title">AUTOMATED MACHINES</h2>
           </div>
 
-          <div class="final-cta__portrait-frame">
-            <img src="assets/img/final-western.png" alt="Green Wardrobe tailored client" class="final-cta__portrait-img" loading="lazy" />
+          <div class="machines__diptych">
+            <!-- Column 1: Cut -->
+            <div class="machines__col machines__col--cut" role="img" aria-label="Precision laser fabric cutting">
+              <img src="assets/img/auto-cutting.png" alt="Precision laser fabric cutting" class="machines__img" loading="lazy" />
+              <div class="machines__col-scrim"></div>
+              <div class="machines__col-label-wrap">
+                <span class="machines__col-label">CUT</span>
+              </div>
+            </div>
+
+            <!-- Column 2: Stitch (Offset down on desktop) -->
+            <div class="machines__col machines__col--stitch" role="img" aria-label="Robotics-assisted embroidery and stitching">
+              <img src="assets/img/auto-stitching.png" alt="Robotics-assisted embroidery and stitching" class="machines__img" loading="lazy" />
+              <div class="machines__col-scrim"></div>
+              <div class="machines__col-label-wrap">
+                <span class="machines__col-label">STITCH</span>
+              </div>
+            </div>
+
+            <!-- Magnifier Lens Overlay -->
+            <div class="machines__lens" aria-hidden="true"></div>
           </div>
+        </div>
+      </section>
+
+      <!-- SECTION 8 — FINAL RESULTS (Task H: Two Opposite-Direction Marquee Rows) -->
+      <section class="final" id="final">
+        <div class="final__header text-center">
+          <p class="final__eyebrow">FINAL RESULTS</p>
+          <p class="final__lead">ULTIMATE RESULT OF</p>
+          <h2 class="final__title">
+            <span class="final__word">ROBOTICS</span>
+            <span class="final__word">+ AI</span>
+            <span class="final__word">+ MACHINE LEARNING</span>
+          </h2>
+        </div>
+
+        <div class="final__rows" aria-label="Gallery of finished looks">
+          <!-- Row 1: Leftward Marquee -->
+          <div class="final__row final__row--left">
+            <div class="final__track">
+              <ul class="final__set list-unstyled">
+                <li class="final__look">
+                  <img src="assets/img/final-western.png" alt="Western Formal Finished Look" loading="lazy" />
+                  <span class="final__tag">WESTERN FORMAL</span>
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/final-indian.jpg" alt="Traditional Indian Bespoke Look" loading="lazy" />
+                  <span class="final__tag">TRADITIONAL INDIAN</span>
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/blazer-selection.jpg" alt="Bespoke Blazer Silhouette" loading="lazy" />
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/grooming.png" alt="Precision Groomed Presentation" loading="lazy" />
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/fabric-selection.png" alt="Handcrafted Wool Texture" loading="lazy" />
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/scanner-booth.png" alt="3D Body Calibration" loading="lazy" />
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/final-western.png" alt="Western Formal Bespoke Suit" loading="lazy" />
+                  <span class="final__tag">WESTERN FORMAL</span>
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/final-indian.jpg" alt="Traditional Indian Sherwani Look" loading="lazy" />
+                  <span class="final__tag">TRADITIONAL INDIAN</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Row 2: Rightward Marquee (Opposite Direction) -->
+          <div class="final__row final__row--right">
+            <div class="final__track">
+              <ul class="final__set list-unstyled">
+                <li class="final__look">
+                  <img src="assets/img/final-indian.jpg" alt="Traditional Indian Look" loading="lazy" />
+                  <span class="final__tag">TRADITIONAL INDIAN</span>
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/final-western.png" alt="Western Formal Look" loading="lazy" />
+                  <span class="final__tag">WESTERN FORMAL</span>
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/grooming.png" alt="Bespoke Styling Presentation" loading="lazy" />
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/blazer-selection.jpg" alt="AI Curated Tuxedo Look" loading="lazy" />
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/auto-stitching.png" alt="Robotic Stitching Detail" loading="lazy" />
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/scanner-booth.png" alt="Digital Scanner Precision" loading="lazy" />
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/final-indian.jpg" alt="Traditional Indian Festive Attire" loading="lazy" />
+                  <span class="final__tag">TRADITIONAL INDIAN</span>
+                </li>
+                <li class="final__look">
+                  <img src="assets/img/final-western.png" alt="Classic Navy Executive Suit" loading="lazy" />
+                  <span class="final__tag">WESTERN FORMAL</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="final__cta-wrap text-center">
+          <a href="mailto:saidarts@gmail.com?subject=Green%20Wardrobe%20Experience%20Booking" class="btn-cta btn-cta--solid">
+            <span>Book Your GW Experience</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
         </div>
       </section>
     </main>
 
-    <!-- 16. FOOTER -->
+    <!-- SITE FOOTER -->
     <footer class="site-footer" id="footer">
-      <div class="footer__nav-row">
-        <a href="#experience" class="footer__link">Experience</a>
-        <a href="#technology" class="footer__link">Technology</a>
-        <a href="#imagine" class="footer__link">AI Styling</a>
-        <a href="#final" class="footer__link">Final Looks</a>
-        <a href="#rewardrobe" class="footer__link">ReWardrobe</a>
-        <a href="#book" class="footer__link">Contact</a>
-      </div>
+      <div class="footer__inner container-fluid">
+        <div class="footer__top">
+          <nav class="footer__nav" aria-label="Footer Navigation">
+            <a href="#experience" class="footer__link">Experience</a>
+            <a href="#technology" class="footer__link">Technology</a>
+            <a href="#imagine" class="footer__link">AI Styling</a>
+            <a href="#final" class="footer__link">Final Looks</a>
+            <a href="#footer" class="footer__link">Contact</a>
+          </nav>
+        </div>
 
-      <div class="footer__sub-row">
-        <a href="#footer" class="footer__sub-link">Privacy</a>
-        <a href="#footer" class="footer__sub-link">Terms</a>
-        <a href="#footer" class="footer__sub-link">Returns</a>
-        <a href="#footer" class="footer__sub-link">FAQs</a>
-      </div>
+        <div class="footer__middle">
+          <div class="footer__legal">
+            <a href="#footer" class="footer__sublink">Privacy</a>
+            <a href="#footer" class="footer__sublink">Terms</a>
+            <a href="#footer" class="footer__sublink">Returns</a>
+            <a href="#footer" class="footer__sublink">FAQs</a>
+          </div>
 
-      <div class="footer__meta-row">
-        <span class="footer__brand-line">Designed Around You. Not the Rack.</span>
-        <span class="footer__legal">© 2026 Green Wardrobe.</span>
-      </div>
+          <div class="footer__brand-meta">
+            <span class="footer__brand-line">Designed Around You. Not the Rack.</span>
+            <span class="footer__copy">© 2026 Green Wardrobe.</span>
+          </div>
+        </div>
 
-      <div class="footer__wordmark" aria-hidden="true">
-        <span class="footer__giant-text">GREEN WARDROBE</span>
+        <div class="footer__bottom" aria-hidden="true">
+          <p class="footer__watermark">GREEN WARDROBE</p>
+        </div>
       </div>
     </footer>
 
-    <!-- Libraries (CDN pinned exact versions) -->
+    <!-- THIRD-PARTY LIBRARIES (GSAP, ScrollTrigger, Lenis) -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 
-    <!-- Application Modules in strict specified sequence -->
+    <!-- CORE SCRIPTS (In exact sequence specified in Section 11) -->
     <script defer src="assets/js/utils.js"></script>
     <script defer src="assets/js/smooth-scroll.js"></script>
     <script defer src="assets/js/preloader.js"></script>
@@ -753,8 +1000,6 @@
     <script defer src="assets/js/imagine.js"></script>
     <script defer src="assets/js/machines.js"></script>
     <script defer src="assets/js/final-results.js"></script>
-    <script defer src="assets/js/rewardrobe.js"></script>
-    <script defer src="assets/js/cta.js"></script>
     <script defer src="assets/js/footer.js"></script>
     <script defer src="assets/js/main.js"></script>
   </body>

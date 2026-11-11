@@ -6,6 +6,22 @@
   window.GW = window.GW || {};
 
   var utils = {
+    // Splits text of an element into individual word spans (.begins__w)
+    splitWords: function(element) {
+      if (!element) return [];
+      var originalText = element.getAttribute('data-original-text');
+      if (!originalText) {
+        originalText = element.textContent.trim();
+        element.setAttribute('data-original-text', originalText);
+      }
+      var words = originalText.split(/\s+/);
+      element.innerHTML = words.map(function(w) {
+        return '<span class="begins__w">' + w + '</span>';
+      }).join(' ');
+
+      return Array.prototype.slice.call(element.querySelectorAll('.begins__w'));
+    },
+
     // Splits text nodes of an element into lines with inner wrappers
     splitLines: function(element) {
       if (!element) return [];

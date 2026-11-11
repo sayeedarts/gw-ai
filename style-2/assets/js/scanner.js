@@ -1,16 +1,16 @@
 /**
- * scanner.js — Digital Scanner top-to-bottom scan wipe, interactive hotspots, and side list sync
+ * scanner.js — Digital Scanner wipe, delayed hotspot reveal, and side list sync
  */
 (function() {
   'use strict';
   window.GW = window.GW || {};
 
   var section = null;
-  var frame = null;
   var wireframe = null;
   var booth = null;
   var scanLine = null;
   var inTitle = null;
+  var hotspotsWrap = null;
   var hotspots = [];
   var listRows = [];
   var sideList = null;
@@ -18,6 +18,7 @@
   var cutaways = [];
   var hasInteracted = false;
   var demoTimer = null;
+  var hotspotsShown = false;
 
   var measurements = {
     height: 170,
@@ -34,11 +35,11 @@
     section = document.querySelector('section#scanner');
     if (!section) return;
 
-    frame = section.querySelector('.scan__frame');
     wireframe = section.querySelector('.scan__layer-wireframe');
     booth = section.querySelector('.scan__layer-booth');
     scanLine = section.querySelector('.scan__line');
     inTitle = section.querySelector('.scan__in-title');
+    hotspotsWrap = section.querySelector('.scan__hotspots');
     hotspots = Array.prototype.slice.call(section.querySelectorAll('.scan__hotspot'));
     sideList = section.querySelector('.scan__list');
     listRows = Array.prototype.slice.call(section.querySelectorAll('.scan__row'));
@@ -46,71 +47,70 @@
     cutaways = Array.prototype.slice.call(section.querySelectorAll('.scan__cutaway'));
 
     if (window.GW.isReducedMotion || !window.gsap || !window.ScrollTrigger) {
-      if (wireframe) wireframe.style.clipPath = 'none';
-      if (scanLine) scanLine.style.display = 'none';
-      if (inTitle) inTitle.style.opacity = '1';
-      hotspots.forEach(function(h) { h.style.opacity = '1'; });
+      if (wireframe) wireframe.classList.add('is-static');
+      if (hotspotsWrap) hotspotsWrap.classList.add('is-visible');
       setupHotspotsInteraction();
       return;
     }
 
-    setupPhase1Wipe();
+    setupScannerTimeline();
     setupHotspotsInteraction();
   }
 
-  function setupPhase1Wipe() {
-    var isMobile = window.innerWidth < 768;
+  function setupScannerTimeline() {
+    var isDesktop = window.innerWidth >= 1024;
 
     var tl = gsap.timeline({
-      scrollTrigger: {
+      scrollTrigger: isDesktop ? {
         trigger: section,
         start: 'top top',
-        end: isMobile ? '+=100%' : '+=120%',
+        end: '+=140%',
         pin: true,
         scrub: 0.6,
         anticipatePin: 1,
-        onLeave: function() {
-          showHotspots();
+        onUpdate: function(self) {
+          handleProgress(self.progress);
+        }
+      } : {
+        trigger: section,
+        start: 'top 65%',
+        end: 'bottom 45%',
+        scrub: 0.6,
+        onUpdate: function(self) {
+          handleProgress(self.progress);
         }
       }
     });
 
-    // Wipe down
+    // Wipe down runs 0 to 0.7; 0.7 to 1 is hold
     tl.fromTo(wireframe, {
       clipPath: 'inset(0% 0% 100% 0%)'
     }, {
       clipPath: 'inset(0% 0% 0% 0%)',
       ease: 'none',
-      duration: 1
+      duration: 0.7
     }, 0)
     .fromTo(scanLine, {
       top: '0%'
     }, {
       top: '100%',
       ease: 'none',
-      duration: 1
+      duration: 0.7
     }, 0)
     .to(booth, {
       filter: 'saturate(0.4)',
       ease: 'none',
-      duration: 0.8
+      duration: 0.6
     }, 0)
     .to(inTitle, {
       opacity: 1,
       y: 0,
-      duration: 0.4,
-      ease: 'power2.out'
-    }, 0.4)
-    .to(hotspots, {
-      opacity: 1,
-      scale: 1,
-      stagger: 0.04,
       duration: 0.3,
-      ease: 'back.out(2)'
-    }, 0.65);
+      ease: 'power2.out'
+    }, 0.3);
 
-    // Cutaways parallax
-    if (cutaways[0]) {
+    // Parallax on cutaways on desktop
+    if (isDesktop && cutaways.length >= 2) {
       gsap.to(cutaways[0], {
         yPercent: -12,
         ease: 'none',
@@ -121,8 +121,6 @@
           scrub: true
         }
       });
-    }
-    if (cutaways[1]) {
       gsap.to(cutaways[1], {
         yPercent: 12,
         ease: 'none',
@@ -136,25 +134,32 @@
     }
   }
 
-  function showHotspots() {
-    if (hotspots[0] && hotspots[0].style.opacity === '1') return;
+  function handleProgress(prog) {
+    if (prog >= 0.7 && !hotspotsShown) {
+      showHotspots();
+    } else if (prog < 0.65 && hotspotsShown) {
+      hideHotspots();
+    }
+  }
 
-    if (window.gsap) {
-      gsap.fromTo(hotspots, {
-        scale: 0,
-        opacity: 0
-      }, {
-        scale: 1,
-        opacity: 1,
-        duration: 0.6,
-        stagger: 0.08,
-        ease: 'back.out(2)'
-      });
-    } else {
-      hotspots.forEach(function(h) { h.style.opacity = '1'; });
+  function showHotspots() {
+    hotspotsShown = true;
+    if (hotspotsWrap) {
+      hotspotsWrap.classList.add('is-visible');
     }
 
-    // Idle demo after 2s if no interaction
+    gsap.fromTo(hotspots, {
+      scale: 0,
+      opacity: 0
+    }, {
+      scale: 1,
+      opacity: 1,
+      duration: 0.5,
+      stagger: 0.08,
+      ease: 'back.out(2)'
+    });
+
+    if (demoTimer) clearTimeout(demoTimer);
     demoTimer = setTimeout(function() {
       if (!hasInteracted) {
         runIdleDemo();
@@ -162,11 +167,24 @@
     }, 2000);
   }
 
+  function hideHotspots() {
+    hotspotsShown = false;
+    if (demoTimer) clearTimeout(demoTimer);
+
+    if (hotspotsWrap) {
+      hotspotsWrap.classList.remove('is-visible');
+    }
+
+    gsap.killTweensOf(hotspots);
+    gsap.set(hotspots, { scale: 0, opacity: 0 });
+    clearActive();
+  }
+
   function runIdleDemo() {
     var sequence = ['neck', 'chest', 'waist'];
     var i = 0;
     function next() {
-      if (hasInteracted || i >= sequence.length) {
+      if (hasInteracted || !hotspotsShown || i >= sequence.length) {
         clearActive();
         return;
       }
@@ -215,7 +233,7 @@
     hasInteracted = true;
     if (demoTimer) clearTimeout(demoTimer);
     if (hint) {
-      hint.style.opacity = '0';
+      hint.classList.add('is-hidden');
     }
   }
 

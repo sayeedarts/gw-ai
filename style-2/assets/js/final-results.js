@@ -1,111 +1,197 @@
 /**
- * final-results.js — Final Looks iris wipe, headline lighting in thirds, and interactive toggle sync
+ * final-results.js — Dual opposite-direction marquee rows of bespoke looks,
+ * scroll velocity boost, hover slowdown, and headline illumination (Task H)
  */
 (function() {
   'use strict';
   window.GW = window.GW || {};
 
   var section = null;
-  var indianLayer = null;
   var headlineWords = [];
-  var lookLabel = null;
-  var toggleBtns = [];
-  var ctaWrap = null;
-  var scrollTriggerInst = null;
+  var row1 = null;
+  var row2 = null;
+  var tween1 = null;
+  var tween2 = null;
 
   function init() {
     section = document.querySelector('section#final');
     if (!section) return;
 
-    indianLayer = section.querySelector('.final__layer--indian');
     headlineWords = Array.prototype.slice.call(section.querySelectorAll('.final__word'));
-    lookLabel = section.querySelector('.final__label');
-    toggleBtns = Array.prototype.slice.call(section.querySelectorAll('.final__toggle-btn'));
-    ctaWrap = section.querySelector('.final__cta-wrap');
+    row1 = section.querySelector('.final__row--left');
+    row2 = section.querySelector('.final__row--right');
 
-    if (window.GW.isReducedMotion || !window.gsap || !window.ScrollTrigger) {
-      if (indianLayer) indianLayer.style.clipPath = 'none';
-      headlineWords.forEach(function(w) { w.style.color = '#F6C214'; });
-      if (ctaWrap) ctaWrap.style.opacity = '1';
+    if (!row1 || !row2) return;
+
+    if (window.GW.isReducedMotion || !window.gsap) {
+      row1.classList.add('is-static');
+      row2.classList.add('is-static');
+      headlineWords.forEach(function(w) { w.classList.add('is-lit'); });
       return;
     }
 
-    setupFinalTimeline();
-    setupToggleClicks();
+    setupHeadlineReveal();
+    setupMarquees();
+    setupVelocityBoost();
+
+    // Rebuild marquee on resize
+    if (window.GW.utils && window.GW.utils.debounce) {
+      window.addEventListener('resize', window.GW.utils.debounce(function() {
+        setupMarquees();
+      }, 200));
+    }
   }
 
-  function setupFinalTimeline() {
-    var isMobile = window.innerWidth < 768;
-    var irisCenter = isMobile ? '50% 66%' : '50% 62%';
+  function setupHeadlineReveal() {
+    if (!headlineWords.length || !window.ScrollTrigger) return;
 
-    var tl = gsap.timeline({
+    gsap.fromTo(headlineWords, {
+      opacity: 0.2,
+      color: '#F5F3EC'
+    }, {
+      opacity: 1,
+      color: '#F6C214',
+      duration: 0.5,
+      stagger: 0.35,
+      ease: 'power2.out',
       scrollTrigger: {
         trigger: section,
-        start: 'top top',
-        end: isMobile ? '+=200%' : '+=260%',
-        pin: true,
-        scrub: 0.7,
-        anticipatePin: 1,
-        onUpdate: function(self) {
-          scrollTriggerInst = self;
-          var prog = self.progress;
-
-          // Swap labels and toggle buttons at 50%
-          if (prog >= 0.5) {
-            if (lookLabel) lookLabel.textContent = 'TRADITIONAL INDIAN';
-            if (toggleBtns[1]) toggleBtns[1].classList.add('is-active');
-            if (toggleBtns[0]) toggleBtns[0].classList.remove('is-active');
-          } else {
-            if (lookLabel) lookLabel.textContent = 'WESTERN FORMAL';
-            if (toggleBtns[0]) toggleBtns[0].classList.add('is-active');
-            if (toggleBtns[1]) toggleBtns[1].classList.remove('is-active');
-          }
-        }
+        start: 'top 65%',
+        once: true
       }
     });
-
-    // Iris wipe 0% to 100%
-    tl.fromTo(indianLayer, {
-      clipPath: 'circle(0% at ' + irisCenter + ')'
-    }, {
-      clipPath: 'circle(150% at ' + irisCenter + ')',
-      duration: 1,
-      ease: 'none'
-    }, 0);
-
-    // Three headline words light in thirds
-    if (headlineWords[0]) {
-      tl.to(headlineWords[0], { color: '#F6C214', duration: 0.33, ease: 'none' }, 0);
-    }
-    if (headlineWords[1]) {
-      tl.to(headlineWords[1], { color: '#F6C214', duration: 0.33, ease: 'none' }, 0.33);
-    }
-    if (headlineWords[2]) {
-      tl.to(headlineWords[2], { color: '#F6C214', duration: 0.34, ease: 'none' }, 0.66);
-    }
-
-    // CTA fades up at 95%
-    tl.to(ctaWrap, {
-      opacity: 1,
-      y: 0,
-      duration: 0.05,
-      ease: 'power2.out'
-    }, 0.95);
   }
 
-  function setupToggleClicks() {
-    toggleBtns.forEach(function(btn, idx) {
-      btn.addEventListener('click', function() {
-        if (!scrollTriggerInst) return;
-        var targetProgress = idx === 0 ? 0.05 : 0.95;
-        var targetScroll = scrollTriggerInst.start + (scrollTriggerInst.end - scrollTriggerInst.start) * targetProgress;
+  function prepareTrack(row) {
+    var track = row.querySelector('.final__track');
+    var originalSet = track.querySelector('.final__set');
+    if (!track || !originalSet) return null;
 
-        if (window.GW.smoothScroll) {
-          window.GW.smoothScroll.scrollTo(targetScroll);
-        } else {
-          window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    // Remove any previously cloned sets
+    var oldClones = track.querySelectorAll('.final__set--clone');
+    Array.prototype.forEach.call(oldClones, function(c) {
+      c.parentNode.removeChild(c);
+    });
+
+    // Check width against viewport
+    var vpWidth = window.innerWidth;
+    var setWidth = originalSet.scrollWidth;
+    if (setWidth < vpWidth * 1.2) {
+      var items = Array.prototype.slice.call(originalSet.children);
+      while (originalSet.scrollWidth < vpWidth * 1.2 && items.length) {
+        items.forEach(function(it) {
+          originalSet.appendChild(it.cloneNode(true));
+        });
+      }
+    }
+
+    // Clone whole set once for seamless loop
+    var clonedSet = originalSet.cloneNode(true);
+    clonedSet.classList.add('final__set--clone');
+    clonedSet.setAttribute('aria-hidden', 'true');
+    var focusables = clonedSet.querySelectorAll('a, button, input, [tabindex]');
+    Array.prototype.forEach.call(focusables, function(f) {
+      f.setAttribute('tabindex', '-1');
+    });
+    track.appendChild(clonedSet);
+
+    return track;
+  }
+
+  function setupMarquees() {
+    if (tween1) tween1.kill();
+    if (tween2) tween2.kill();
+
+    var track1 = prepareTrack(row1);
+    var track2 = prepareTrack(row2);
+    if (!track1 || !track2) return;
+
+    // Row 1: Leftward marquee (xPercent: -50)
+    gsap.set(track1, { xPercent: 0 });
+    tween1 = gsap.to(track1, {
+      xPercent: -50,
+      duration: 50,
+      ease: 'none',
+      repeat: -1
+    });
+
+    // Row 2: Rightward marquee (offset start, animates -50 -> 0)
+    gsap.set(track2, { xPercent: -25 });
+    tween2 = gsap.fromTo(track2, {
+      xPercent: -50
+    }, {
+      xPercent: 0,
+      duration: 60,
+      ease: 'none',
+      repeat: -1
+    });
+
+    // Hover slowdown for fine pointer devices
+    var bindHover = function(rowEl, tween) {
+      if (window.matchMedia('(pointer: fine)').matches) {
+        rowEl.addEventListener('mouseenter', function() {
+          gsap.to(tween, { timeScale: 0.15, duration: 0.5, ease: 'power2.out' });
+        });
+        rowEl.addEventListener('mouseleave', function() {
+          gsap.to(tween, { timeScale: 1, duration: 0.5, ease: 'power2.out' });
+        });
+        rowEl.addEventListener('focusin', function() {
+          tween.pause();
+        });
+        rowEl.addEventListener('focusout', function() {
+          tween.play();
+        });
+      }
+    };
+
+    bindHover(row1, tween1);
+    bindHover(row2, tween2);
+
+    // Pause when off-screen
+    if (window.ScrollTrigger) {
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top bottom',
+        end: 'bottom top',
+        onToggle: function(self) {
+          if (self.isActive) {
+            tween1.play();
+            tween2.play();
+          } else {
+            tween1.pause();
+            tween2.pause();
+          }
         }
       });
+    }
+  }
+
+  function setupVelocityBoost() {
+    if (!window.ScrollTrigger) return;
+
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top bottom',
+      end: 'bottom top',
+      onUpdate: function(self) {
+        var velocity = self.getVelocity();
+        var boost = 1 + Math.min(Math.abs(velocity) / 700, 3);
+
+        if (tween1 && tween2) {
+          gsap.to([tween1, tween2], {
+            timeScale: boost,
+            duration: 0.25,
+            overwrite: 'auto'
+          });
+          gsap.to([tween1, tween2], {
+            timeScale: 1,
+            duration: 1,
+            delay: 0.25,
+            ease: 'power2.out',
+            overwrite: 'auto'
+          });
+        }
+      }
     });
   }
 
