@@ -1,5 +1,5 @@
 /**
- * hero-blocks.js — Interactive architectural square-blocks grid, ambient pulse, and spotlight
+ * hero-blocks.js — Interactive architectural square-blocks grid, continuous odd/even motion, and spotlight
  */
 (function() {
   'use strict';
@@ -9,7 +9,10 @@
   var spotlight = null;
   var dustContainer = null;
   var cells = [];
-  var pulseTimer = null;
+  var oddTimeline = null;
+  var evenTimeline = null;
+  var driftTimeline = null;
+  var goldAccentInterval = null;
   var isPaused = false;
   var quickX = null;
   var quickY = null;
@@ -26,19 +29,33 @@
     buildGrid();
     buildDust();
     setupPointer();
+    setupViewportTrigger();
 
-    window.addEventListener('resize', window.GW.utils.debounce(rebuild, 250));
+    window.addEventListener('resize', window.GW.utils ? window.GW.utils.debounce(rebuild, 250) : debounce(rebuild, 250));
 
     window.addEventListener('gw:ready', function() {
       start();
     });
   }
 
-  function getCellSize() {
-    var w = window.innerWidth;
-    if (w < 768) return 56;
-    if (w < 1024) return 72;
-    return 100;
+  function debounce(fn, ms) {
+    var timer;
+    return function() {
+      var ctx = this;
+      var args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function() { fn.apply(ctx, args); }, ms);
+    };
+  }
+
+  function readCellSize() {
+    if (!container) return 80;
+    var computed = window.getComputedStyle(container);
+    var size = parseFloat(computed.gridAutoRows);
+    if (!size || isNaN(size)) {
+      size = window.innerWidth < 768 ? 64 : 100;
+    }
+    return size;
   }
 
   function buildGrid() {
@@ -46,23 +63,88 @@
     container.innerHTML = '';
     cells = [];
 
-    cellSize = getCellSize();
+    cellSize = readCellSize();
     var w = window.innerWidth;
     var h = window.innerHeight;
 
-    cols = Math.ceil(w / cellSize);
-    rows = Math.ceil(h / cellSize);
-    var maxCells = w < 768 ? 90 : 420;
-    var total = Math.min(rows * cols, maxCells);
+    cols = Math.ceil(w / cellSize) + 4;
+    rows = Math.ceil(h / cellSize) + 1;
+    var isMobile = w < 768;
+    var maxCells = isMobile ? 160 : 520;
+
+    if (cols * rows > maxCells) {
+      cols = Math.max(1, Math.floor(maxCells / rows));
+    }
 
     var fragment = document.createDocumentFragment();
-    for (var i = 0; i < total; i++) {
-      var span = document.createElement('span');
-      span.className = 'hero__block';
-      cells.push(span);
-      fragment.appendChild(span);
+    for (var r = 0; r < rows; r++) {
+      for (var c = 0; c < cols; c++) {
+        var span = document.createElement('span');
+        var isOdd = ((r + c) % 2) !== 0;
+        span.className = 'hero__block ' + (isOdd ? 'hero__block--odd' : 'hero__block--even');
+        span._row = r;
+        span._col = c;
+        span._isOdd = isOdd;
+        cells.push(span);
+        fragment.appendChild(span);
+      }
     }
     container.appendChild(fragment);
+
+    setupContinuousAnimation();
+  }
+
+  function setupContinuousAnimation() {
+    if (!window.gsap) return;
+
+    if (window.GW.isReducedMotion) {
+      cells.forEach(function(c) {
+        gsap.set(c, { opacity: c._isOdd ? 0.18 : 0.05 });
+      });
+      return;
+    }
+
+    var oddCells = cells.filter(function(c) { return c._isOdd; });
+    var evenCells = cells.filter(function(c) { return !c._isOdd; });
+
+    // Odd cells timeline: opacity 0.04 -> 0.26 over 3.2s sine.inOut, diagonal offset
+    oddTimeline = gsap.timeline({ repeat: -1, yoyo: true });
+    oddCells.forEach(function(c) {
+      var offset = (c._row + c._col) * 0.12;
+      oddTimeline.to(c, {
+        opacity: 0.26,
+        duration: 3.2,
+        ease: 'sine.inOut'
+      }, offset);
+    });
+
+    // Even cells timeline: identical tween in antiphase (started one half-cycle later at 3.2s)
+    evenTimeline = gsap.timeline({ repeat: -1, yoyo: true });
+    evenCells.forEach(function(c) {
+      var offset = (c._row + c._col) * 0.12;
+      evenTimeline.to(c, {
+        opacity: 0.26,
+        duration: 3.2,
+        ease: 'sine.inOut'
+      }, offset);
+    });
+    evenTimeline.time(3.2);
+
+    // Lateral drift across 2 columns over 14s, repeat -1 (desktop only)
+    var isMobile = window.innerWidth < 768;
+    if (!isMobile) {
+      driftTimeline = gsap.to(container, {
+        x: -2 * cellSize,
+        duration: 14,
+        ease: 'none',
+        repeat: -1
+      });
+    }
+
+    // Keep timelines paused until start()
+    oddTimeline.pause();
+    evenTimeline.pause();
+    if (driftTimeline) driftTimeline.pause();
   }
 
   function buildDust() {
@@ -73,8 +155,8 @@
     for (var i = 0; i < count; i++) {
       var dot = document.createElement('div');
       dot.className = 'hero__dust-dot';
-      dot.style.left = Math.random() * 100 + '%';
-      dot.style.top = Math.random() * 100 + '%';
+      dot.style.left = (Math.random() * 100) + '%';
+      dot.style.top = (Math.random() * 100) + '%';
       dustContainer.appendChild(dot);
 
       if (window.gsap) {
@@ -99,52 +181,101 @@
   }
 
   function setupPointer() {
-    if (!spotlight || window.matchMedia('(pointer: coarse)').matches) return;
+    if (!spotlight || window.matchMedia('(pointer: coarse)').matches || window.GW.isReducedMotion) return;
 
     if (window.gsap) {
       quickX = gsap.quickTo(spotlight, 'x', { duration: 0.6, ease: 'power3.out' });
       quickY = gsap.quickTo(spotlight, 'y', { duration: 0.6, ease: 'power3.out' });
 
-      window.addEventListener('mousemove', function(e) {
+      var heroEl = document.querySelector('.hero');
+      if (!heroEl) return;
+
+      heroEl.addEventListener('mouseenter', function() {
+        if (!isPaused) spotlight.classList.add('is-visible');
+      });
+
+      heroEl.addEventListener('mouseleave', function() {
+        spotlight.classList.remove('is-visible');
+      });
+
+      heroEl.addEventListener('mousemove', function(e) {
         if (isPaused) return;
-        spotlight.style.opacity = '1';
+        spotlight.classList.add('is-visible');
         quickX(e.clientX);
         quickY(e.clientY);
-
-        // Highlight arithmetic cell under pointer
-        var col = Math.floor(e.clientX / cellSize);
-        var row = Math.floor(e.clientY / cellSize);
-        var idx = row * cols + col;
-        if (cells[idx]) {
-          var c = cells[idx];
-          c.classList.add('is-gold');
-          gsap.fromTo(c, { opacity: 0.8 }, {
-            opacity: 0.15,
-            duration: 1.2,
-            ease: 'power2.out',
-            onComplete: function() {
-              c.classList.remove('is-gold');
-            }
-          });
-        }
       });
+    }
+  }
+
+  function setupViewportTrigger() {
+    if (!window.ScrollTrigger) return;
+    var heroEl = document.querySelector('.hero');
+    if (!heroEl) return;
+
+    ScrollTrigger.create({
+      trigger: heroEl,
+      start: 'top bottom',
+      end: 'bottom top',
+      onToggle: function(self) {
+        if (self.isActive) {
+          resume();
+        } else {
+          pause();
+        }
+      }
+    });
+  }
+
+  function runGoldFlashes() {
+    if (isPaused || !cells.length || window.GW.isReducedMotion || !window.gsap) return;
+    var count = Math.floor(2 + Math.random() * 2); // 2 or 3 cells
+    var available = cells.filter(function(c) {
+      return !c.classList.contains('is-gold');
+    });
+    if (available.length < count) return;
+
+    for (var i = 0; i < count; i++) {
+      var randIndex = Math.floor(Math.random() * available.length);
+      var cell = available.splice(randIndex, 1)[0];
+      if (cell) {
+        cell.classList.add('is-gold');
+        gsap.fromTo(cell, { opacity: 0.1 }, {
+          opacity: 0.5,
+          duration: 0.6,
+          yoyo: true,
+          repeat: 1,
+          ease: 'sine.inOut',
+          onComplete: (function(targetCell) {
+            return function() {
+              targetCell.classList.remove('is-gold');
+            };
+          })(cell)
+        });
+      }
+    }
+  }
+
+  function startGoldAccents() {
+    stopGoldAccents();
+    if (window.GW.isReducedMotion) return;
+    goldAccentInterval = setInterval(runGoldFlashes, 1600);
+  }
+
+  function stopGoldAccents() {
+    if (goldAccentInterval) {
+      clearInterval(goldAccentInterval);
+      goldAccentInterval = null;
     }
   }
 
   function start() {
     if (window.GW.isReducedMotion || !window.gsap) {
-      // Static pattern
-      for (var k = 0; k < Math.min(8, cells.length); k++) {
-        var randCell = cells[Math.floor(Math.random() * cells.length)];
-        if (randCell) {
-          randCell.classList.add('is-gold');
-          randCell.style.opacity = '0.5';
-        }
-      }
+      cells.forEach(function(c) {
+        gsap.set(c, { opacity: c._isOdd ? 0.18 : 0.05 });
+      });
       return;
     }
 
-    // Grid entrance
     gsap.from(cells, {
       opacity: 0,
       scale: 0.6,
@@ -154,71 +285,53 @@
         each: 0.004,
         from: 'center',
         grid: [rows, cols]
+      },
+      onComplete: function() {
+        if (!isPaused) {
+          if (oddTimeline) oddTimeline.play();
+          if (evenTimeline) evenTimeline.play();
+          if (driftTimeline) driftTimeline.play();
+          startGoldAccents();
+        }
       }
     });
-
-    schedulePulse();
-  }
-
-  function schedulePulse() {
-    if (isPaused) return;
-    var delay = 400 + Math.random() * 300;
-    pulseTimer = setTimeout(function() {
-      triggerPulse();
-      schedulePulse();
-    }, delay);
-  }
-
-  function triggerPulse() {
-    if (isPaused || !cells.length) return;
-    var isMobile = window.innerWidth < 768;
-    var batchSize = isMobile ? Math.floor(3 + Math.random() * 3) : Math.floor(5 + Math.random() * 5);
-
-    for (var b = 0; b < batchSize; b++) {
-      var randIdx = Math.floor(Math.random() * cells.length);
-      var cell = cells[randIdx];
-      if (cell && !cell.classList.contains('is-active-pulse')) {
-        var isGold = Math.random() < 0.3;
-        var variant = isGold ? 'is-gold' : 'is-green';
-        cell.classList.add('is-active-pulse', variant);
-
-        var peakOpacity = isGold ? 0.4 + Math.random() * 0.3 : 0.6 + Math.random() * 0.3;
-        var pulseDur = 1.1 + Math.random() * 0.4;
-
-        gsap.fromTo(cell, { opacity: 0.1 }, {
-          opacity: peakOpacity,
-          duration: pulseDur,
-          yoyo: true,
-          repeat: 1,
-          ease: 'sine.inOut',
-          onComplete: (function(c, v) {
-            return function() {
-              c.classList.remove('is-active-pulse', v);
-              c.style.opacity = '';
-            };
-          })(cell, variant)
-        });
-      }
-    }
   }
 
   function pause() {
+    if (isPaused) return;
     isPaused = true;
-    clearTimeout(pulseTimer);
-    if (container) container.style.visibility = 'hidden';
+    if (container) container.classList.add('is-paused');
+    if (oddTimeline) oddTimeline.pause();
+    if (evenTimeline) evenTimeline.pause();
+    if (driftTimeline) driftTimeline.pause();
+    stopGoldAccents();
+    if (spotlight) spotlight.classList.remove('is-visible');
   }
 
   function resume() {
     if (!isPaused) return;
     isPaused = false;
-    if (container) container.style.visibility = 'visible';
-    schedulePulse();
+    if (container) container.classList.remove('is-paused');
+    if (oddTimeline) oddTimeline.play();
+    if (evenTimeline) evenTimeline.play();
+    if (driftTimeline) driftTimeline.play();
+    startGoldAccents();
   }
 
   function rebuild() {
+    stopGoldAccents();
+    if (oddTimeline) { oddTimeline.kill(); oddTimeline = null; }
+    if (evenTimeline) { evenTimeline.kill(); evenTimeline = null; }
+    if (driftTimeline) { driftTimeline.kill(); driftTimeline = null; }
     if (window.gsap) gsap.killTweensOf(cells);
     buildGrid();
     buildDust();
+    if (!isPaused) {
+      if (oddTimeline) oddTimeline.play();
+      if (evenTimeline) evenTimeline.play();
+      if (driftTimeline) driftTimeline.play();
+      startGoldAccents();
+    }
   }
 
   function attachToTimeline(phaseATL) {

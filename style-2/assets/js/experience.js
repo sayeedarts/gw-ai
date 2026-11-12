@@ -61,8 +61,9 @@
     });
   }
 
-  function getCardCenterOffset(card) {
-    return window.innerWidth / 2 - (card.offsetLeft + card.offsetWidth / 2);
+  function getCardLeftOffset(card) {
+    var padLeft = parseFloat(window.getComputedStyle(track).paddingLeft) || 0;
+    return -(card.offsetLeft - padLeft);
   }
 
   function setupHorizontalScroll() {
@@ -71,13 +72,15 @@
     if (n <= 1) return;
 
     // Set initial position centered on card 0
-    gsap.set(track, { x: function() { return getCardCenterOffset(cards[0]); } });
+    // gsap.set(track, { x: function() { return getCardCenterOffset(cards[0]); } });
+    gsap.set(track, { x: function() { return getCardLeftOffset(cards[0]); } });
+
 
     var tl = gsap.timeline();
     for (var i = 1; i < n; i++) {
       (function(targetCard) {
         tl.to(track, {
-          x: function() { return getCardCenterOffset(targetCard); },
+          x: function() { return getCardLeftOffset(targetCard); },
           duration: 1,
           ease: 'none'
         });

@@ -56,8 +56,6 @@
 
   function setupIntro() {
     window.addEventListener('gw:ready', function() {
-      document.body.classList.add('hero-active');
-
       var eyebrow = section.querySelector('.hero__eyebrow');
       var title = section.querySelector('.hero__title');
       var brand = section.querySelector('.hero__brand');
@@ -128,13 +126,6 @@
             } else {
               window.GW.heroBlocks.resume();
             }
-          }
-
-          // Hero active class on body
-          if (prog >= 0.95) {
-            document.body.classList.remove('hero-active');
-          } else {
-            document.body.classList.add('hero-active');
           }
         }
       }

@@ -54,9 +54,6 @@
     <!-- Skip to main content link for accessibility -->
     <a href="#top" class="skip-link">Skip to main content</a>
 
-    <!-- Architectural Background Grid -->
-    <div class="page-grid" aria-hidden="true"></div>
-
     <!-- PRELOADER -->
     <aside class="preloader js-preloader" aria-label="Page loading" role="status">
       <div class="preloader__inner">
@@ -70,13 +67,13 @@
             height="220"
           />
         </div>
-        <p class="preloader__text">LOADING EXPERIENCE<span class="preloader__dots">...</span></p>
-        <div class="preloader__counter">
-          <span class="preloader__count">0%</span>
-        </div>
-        <div class="preloader__progress">
-          <div class="preloader__bar"></div>
-        </div>
+        <p class="preloader__text">LOADING EXPERIENCE<span class="preloader__dots">...</span></p>        
+      </div>
+      <div class="preloader__counter">
+        <span class="preloader__count">0%</span>
+      </div>
+      <div class="preloader__progress">
+        <div class="preloader__bar"></div>
       </div>
     </aside>
 
@@ -108,51 +105,58 @@
       </div>
     </header>
 
-    <!-- SITE MENU OVERLAY (5 items, renumbered 01-05) -->
-    <nav class="site-menu" id="site-menu" aria-label="Main menu">
+    <!-- SITE MENU OVERLAY (5 items, renumbered 01-05, with Close button & Dialog semantics) -->
+    <div class="site-menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Main menu">
+      <button type="button" class="site-menu__close js-menu-close" aria-label="Close menu">
+        <span class="site-menu__close-label">Close</span>
+        <span class="site-menu__close-icon"><i class="fa-solid fa-xmark" aria-hidden="true"></i></span>
+      </button>
+
       <div class="site-menu__inner container-fluid">
         <div class="site-menu__col site-menu__col--nav">
-          <ul class="site-menu__list list-unstyled">
-            <li class="site-menu__item">
-              <a href="#experience" class="site-menu__link" data-preview="exp">
-                <span class="site-menu__num">01</span>
-                <span class="site-menu__link-text">Experience</span>
-              </a>
-            </li>
-            <li class="site-menu__item">
-              <a href="#technology" class="site-menu__link" data-preview="tech">
-                <span class="site-menu__num">02</span>
-                <span class="site-menu__link-text">Technology</span>
-              </a>
-            </li>
-            <li class="site-menu__item">
-              <a href="#imagine" class="site-menu__link" data-preview="ai">
-                <span class="site-menu__num">03</span>
-                <span class="site-menu__link-text">AI Styling</span>
-              </a>
-            </li>
-            <li class="site-menu__item">
-              <a href="#final" class="site-menu__link" data-preview="looks">
-                <span class="site-menu__num">04</span>
-                <span class="site-menu__link-text">Final Looks</span>
-              </a>
-            </li>
-            <li class="site-menu__item">
-              <a href="#footer" class="site-menu__link" data-preview="contact">
-                <span class="site-menu__num">05</span>
-                <span class="site-menu__link-text">Contact</span>
-              </a>
-            </li>
-          </ul>
+          <nav aria-label="Main navigation links">
+            <ul class="site-menu__list list-unstyled">
+              <li class="site-menu__item">
+                <a href="#experience" class="site-menu__link" data-preview="exp">
+                  <span class="site-menu__num">01</span>
+                  <span class="site-menu__link-text">Experience</span>
+                </a>
+              </li>
+              <li class="site-menu__item">
+                <a href="#technology" class="site-menu__link" data-preview="tech">
+                  <span class="site-menu__num">02</span>
+                  <span class="site-menu__link-text">Technology</span>
+                </a>
+              </li>
+              <li class="site-menu__item">
+                <a href="#imagine" class="site-menu__link" data-preview="ai">
+                  <span class="site-menu__num">03</span>
+                  <span class="site-menu__link-text">AI Styling</span>
+                </a>
+              </li>
+              <li class="site-menu__item">
+                <a href="#final" class="site-menu__link" data-preview="looks">
+                  <span class="site-menu__num">04</span>
+                  <span class="site-menu__link-text">Final Looks</span>
+                </a>
+              </li>
+              <li class="site-menu__item">
+                <a href="#footer" class="site-menu__link" data-preview="contact">
+                  <span class="site-menu__num">05</span>
+                  <span class="site-menu__link-text">Contact</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
 
         <div class="site-menu__col site-menu__col--preview d-none d-md-block" aria-hidden="true">
           <div class="site-menu__preview">
-            <img src="assets/img/scanner-booth.png" alt="" class="site-menu__preview-img" data-preview-id="exp" />
-            <img src="assets/img/measurement.png" alt="" class="site-menu__preview-img" data-preview-id="tech" />
-            <img src="assets/img/blazer-selection.jpg" alt="" class="site-menu__preview-img" data-preview-id="ai" />
-            <img src="assets/img/final-western.png" alt="" class="site-menu__preview-img" data-preview-id="looks" />
-            <img src="assets/img/final-indian.jpg" alt="" class="site-menu__preview-img" data-preview-id="contact" />
+            <img src="assets/img/scanner-booth.png" alt="" class="site-menu__preview-img is-active" data-preview-id="exp" decoding="async" />
+            <img src="assets/img/measurement.png" alt="" class="site-menu__preview-img" data-preview-id="tech" decoding="async" />
+            <img src="assets/img/blazer-selection.jpg" alt="" class="site-menu__preview-img" data-preview-id="ai" decoding="async" />
+            <img src="assets/img/final-western.png" alt="" class="site-menu__preview-img" data-preview-id="looks" decoding="async" />
+            <img src="assets/img/final-indian.jpg" alt="" class="site-menu__preview-img" data-preview-id="contact" decoding="async" />
           </div>
         </div>
       </div>
@@ -164,16 +168,17 @@
         </a>
         <span class="site-menu__brand-line">Designed Around You. Not the Rack.</span>
       </div>
-    </nav>
+    </div>
 
     <!-- MAIN SCROLL CONTENT -->
     <main id="main">
       <!-- SECTION 1 — HERO (HERO-A 70/30 Layout) -->
       <section class="hero" id="top">
         <div class="hero__bg" aria-hidden="true">
-          <div class="hero__blocks"></div>
           <div class="hero__glow"></div>
-          <div class="hero__spotlight"></div>
+          <div class="hero__blocks js-hero-blocks"></div>
+          <div class="hero__spotlight js-hero-spotlight"></div>
+          <div class="hero__dust js-hero-dust"></div>
         </div>
 
         <div class="hero__content">
@@ -353,16 +358,6 @@
             </div>
           </div>
 
-          <div class="tech-tile tech-tile--6" role="button" aria-label="Sustainable Recycling Technology">
-            <img src="assets/img/auto-cutting.png" alt="Sustainable Recycling Cutting" class="tech-tile__bg" loading="lazy" />
-            <div class="tech-tile__scrim"></div>
-            <span class="tech-tile__index">06</span>
-            <div class="tech-tile__arrow"><i class="fa-solid fa-arrow-right"></i></div>
-            <div class="tech-tile__label">
-              <span>SUSTAINABLE RECYCLING</span>
-              <span class="tech-tile__label-line"></span>
-            </div>
-          </div>
         </div>
       </section>
 
