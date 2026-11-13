@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ML (Machine Learning) — Green Wardrobe</title>
+    <meta
+      name="description"
+      content="Machine Learning at Green Wardrobe: supervised, unsupervised, reinforcement and deep learning workflows across measurement, fabric and style analysis."
+    />
+    <link rel="canonical" href="technology-ml.html" />
+    <meta property="og:title" content="ML (Machine Learning) — Green Wardrobe" />
+    <meta
+      property="og:description"
+      content="Turning data into patterns and patterns into intelligence — machine learning approaches in digital fashion workflows."
+    />
+    <meta property="og:image" content="assets/img/fabric-selection.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#032F22" />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&family=Raleway:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <noscript>
+      <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <script src="assets/js/boot.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Technology", "item": "technology.html" },
+          { "@type": "ListItem", "position": 3, "name": "ML", "item": "technology-ml.html" }
+        ]
+      }
+    </script>
+  </head>
+  <body data-page="technology-ml">
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <div class="page-progress" aria-hidden="true">
+      <div class="page-progress__bar"></div>
+    </div>
+
+    <header class="site-header">
+      <div class="site-header__inner container-fluid">
+        <a href="index.html" class="site-header__brand" aria-label="Green Wardrobe Home">
+          <img
+            class="site-header__logo"
+            src="assets/img/logo.png"
+            alt="Green Wardrobe"
+            width="76"
+            height="76"
+            loading="eager"
+          />
+        </a>
+
+        <button
+          type="button"
+          class="hamburger"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="site-menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Main menu">
+      <button type="button" class="site-menu__close js-menu-close" aria-label="Close menu">
+        <span class="site-menu__close-label">Close</span>
+        <span class="site-menu__close-icon"><i class="fa-solid fa-xmark" aria-hidden="true"></i></span>
+      </button>
+
+      <div class="site-menu__inner container-fluid">
+        <div class="site-menu__col site-menu__col--nav">
+          <nav aria-label="Main navigation links">
+            <ul class="site-menu__list list-unstyled">
+              <li class="site-menu__item">
+                <a href="experience.html" class="site-menu__link" data-preview="exp">
+                  <span class="site-menu__num">01</span>
+                  <span class="site-menu__link-text">Experience</span>
+                </a>
+              </li>
+              <li class="site-menu__item">
+                <a href="technology.html" class="site-menu__link" data-preview="tech" aria-current="page">
+                  <span class="site-menu__num">02</span>
+                  <span class="site-menu__link-text">Technology</span>
+                </a>
+              </li>
+              <li class="site-menu__item">
+                <a href="ai-styling.html" class="site-menu__link" data-preview="ai">
+                  <span class="site-menu__num">03</span>
+                  <span class="site-menu__link-text">AI Styling</span>
+                </a>
+              </li>
+              <li class="site-menu__item">
+                <a href="final-looks.html" class="site-menu__link" data-preview="looks">
+                  <span class="site-menu__num">04</span>
+                  <span class="site-menu__link-text">Final Looks</span>
+                </a>
+              </li>
+              <li class="site-menu__item">
+                <a href="contact.html" class="site-menu__link" data-preview="contact">
+                  <span class="site-menu__num">05</span>
+                  <span class="site-menu__link-text">Contact</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="site-menu__col site-menu__col--preview d-none d-md-block" aria-hidden="true">
+          <div class="site-menu__preview">
+            <img src="assets/img/scanner-booth.png" alt="" class="site-menu__preview-img is-active" data-preview-id="exp" decoding="async" />
+            <img src="assets/img/measurement.png" alt="" class="site-menu__preview-img" data-preview-id="tech" decoding="async" />
+            <img src="assets/img/blazer-selection.jpg" alt="" class="site-menu__preview-img" data-preview-id="ai" decoding="async" />
+            <img src="assets/img/final-western.png" alt="" class="site-menu__preview-img" data-preview-id="looks" decoding="async" />
+            <img src="assets/img/final-indian.jpg" alt="" class="site-menu__preview-img" data-preview-id="contact" decoding="async" />
+          </div>
+        </div>
+      </div>
+
+      <div class="site-menu__footer container-fluid">
+        <a href="contact.html" class="btn-cta btn-cta--solid">
+          <span>Book Your GW Experience</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <span class="site-menu__brand-line">Designed Around You. Not the Rack.</span>
+      </div>
+    </div>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="page-hero">
+        <div class="page-container">
+          <div class="hero__bg" aria-hidden="true">
+            <div class="hero__glow"></div>
+            <div class="hero__blocks js-hero-blocks">
+              <div class="hero__blocks-track js-hero-blocks-track"></div>
+            </div>
+            <div class="hero__spotlight js-hero-spotlight"></div>
+            <div class="hero__dust js-hero-dust"></div>
+          </div>
+      
+
+            <div class="row align-items-center g-5">
+              <div class="col-lg-12">
+              <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                  <li><a href="index.html">Home</a></li>
+                  <li class="breadcrumb__sep" aria-hidden="true">/</li>
+                  <li><a href="technology.html">Technology</a></li>
+                  <li class="breadcrumb__sep" aria-hidden="true">/</li>
+                  <li aria-current="page">ML</li>
+                </ol>
+              </nav>
+
+              <p class="page-hero__eyebrow">DATA-DRIVEN INTELLIGENCE</p>
+              <h1 class="page-hero__title">ML (MACHINE LEARNING)</h1>
+              <p class="page-hero__subhead">TURNING DATA INTO PATTERNS. PATTERNS INTO INTELLIGENCE.</p>
+              <p class="page-hero__lead">
+                Machine learning enables computational systems to identify patterns, develop predictive
+                models and improve their performance through data-driven learning across fashion
+                and measurement workflows.
+              </p>
+
+              <div class="page-hero__actions">
+                <a href="#ml-workflow" class="btn-cta btn-cta--solid">
+                  <span>Explore ML Architecture</span>
+                  <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                </a>
+                <a href="technology-ai.html" class="page-hero__link">
+                  <span>Compare AI &amp; ML Roles</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 02: INTRODUCTION -->
+      <section class="page-section page-section--deep">
+        <div class="page-container">
+          <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-reveal="up">
+              <div class="sec-head mb-0">
+                <p class="sec-head__eyebrow">THE SCIENCE OF LEARNING FROM DATA</p>
+                <h2 class="sec-head__title" data-reveal="lines">SYSTEMS THAT LEARN FROM INFORMATION.</h2>
+              </div>
+            </div>
+            <div class="col-lg-6" data-reveal="up">
+              <p class="page-hero__lead">
+                Machine learning is a branch of artificial intelligence focused on developing algorithms that learn patterns and relationships from data.
+              </p>
+              <p class="page-hero__lead">
+                Instead of defining every possible decision through fixed instructions, machine learning models identify patterns from examples and use those patterns to make predictions, classifications or other computational outputs.
+              </p>
+              <p class="page-hero__lead mb-0">
+                Its applications include pattern recognition, predictive analytics, classification, clustering and optimisation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 03: TYPES OF MACHINE LEARNING -->
+      <section class="page-section">
+        <div class="page-container">
+          <div class="sec-head" data-reveal="up">
+            <p class="sec-head__eyebrow">UNDERSTANDING THE LEARNING MODELS</p>
+            <h2 class="sec-head__title" data-reveal="lines">FOUR APPROACHES TO MACHINE LEARNING.</h2>
+          </div>
+
+          <div class="row g-4" data-reveal="up" data-stagger="0.08">
+            <div class="col-md-6">
+              <article class="card-feature">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-tags"></i></div>
+                <h3 class="card-feature__title">01. Supervised Learning</h3>
+                <p class="card-feature__text">Learning from labelled datasets where the expected output is known. Applications: classification and prediction using labelled data.</p>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Linear Regression &amp; Logistic Regression</span></li>
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Decision Trees, Random Forests &amp; Support Vector Machines</span></li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="col-md-6">
+              <article class="card-feature">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-object-group"></i></div>
+                <h3 class="card-feature__title">02. Unsupervised Learning</h3>
+                <p class="card-feature__text">Identifying hidden structures and relationships in datasets without predefined output labels. Applications: data grouping, pattern discovery and similarity analysis.</p>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>K-Means Clustering &amp; Hierarchical Clustering</span></li>
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Principal Component Analysis &amp; Dimensionality Reduction</span></li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="col-md-6">
+              <article class="card-feature">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-arrows-spin"></i></div>
+                <h3 class="card-feature__title">03. Reinforcement Learning</h3>
+                <p class="card-feature__text">Learning through interaction with an environment using rewards and penalties. Applications: sequential decision-making and optimisation problems.</p>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Agent, Environment &amp; State</span></li>
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Action, Reward &amp; Policy</span></li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="col-md-6">
+              <article class="card-feature">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-network-wired"></i></div>
+                <h3 class="card-feature__title">04. Deep Learning</h3>
+                <p class="card-feature__text">A specialised area of machine learning based on multi-layered neural networks. Applications: image analysis, sequence processing and complex pattern recognition.</p>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Artificial &amp; Convolutional Neural Networks</span></li>
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Recurrent Neural Networks &amp; Transformers</span></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 04: MACHINE LEARNING WORKFLOW -->
+      <section class="page-section page-section--deep" id="ml-workflow">
+        <div class="page-container">
+          <div class="sec-head" data-reveal="up">
+            <p class="sec-head__eyebrow">THE MODEL DEVELOPMENT LIFECYCLE</p>
+            <h2 class="sec-head__title" data-reveal="lines">FROM RAW DATA TO TRAINED MODELS.</h2>
+          </div>
+
+          <div class="pipeline" data-reveal="up" data-stagger="0.06">
+            <div class="pipeline-step is-active">
+              <span class="pipeline-step__num">01</span>
+              <h3 class="pipeline-step__title">Data Collection</h3>
+              <p class="pipeline-step__text">Gathering relevant information from appropriate data sources.</p>
+            </div>
+            <div class="pipeline-step">
+              <span class="pipeline-step__num">02</span>
+              <h3 class="pipeline-step__title">Data Preprocessing</h3>
+              <p class="pipeline-step__text">Cleaning, normalising, transforming and preparing datasets.</p>
+            </div>
+            <div class="pipeline-step">
+              <span class="pipeline-step__num">03</span>
+              <h3 class="pipeline-step__title">Feature Engineering</h3>
+              <p class="pipeline-step__text">Identifying and preparing meaningful input variables for model training.</p>
+            </div>
+            <div class="pipeline-step">
+              <span class="pipeline-step__num">04</span>
+              <h3 class="pipeline-step__title">Model Training</h3>
+              <p class="pipeline-step__text">Applying selected algorithms to learn patterns from training data.</p>
+            </div>
+            <div class="pipeline-step">
+              <span class="pipeline-step__num">05</span>
+              <h3 class="pipeline-step__title">Model Evaluation</h3>
+              <p class="pipeline-step__text">Testing model performance using appropriate evaluation metrics and unseen data.</p>
+            </div>
+            <div class="pipeline-step">
+              <span class="pipeline-step__num">06</span>
+              <h3 class="pipeline-step__title">Model Deployment</h3>
+              <p class="pipeline-step__text">Making validated models available for use within a computational application.</p>
+            </div>
+            <div class="pipeline-step">
+              <span class="pipeline-step__num">07</span>
+              <h3 class="pipeline-step__title">Model Monitoring</h3>
+              <p class="pipeline-step__text">Monitoring performance and identifying when retraining or adjustments may be required.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 05 & 06: ML IN DIGITAL FASHION & IMPORTANT CONCEPTS -->
+      <section class="page-section">
+        <div class="page-container">
+          <div class="sec-head" data-reveal="up">
+            <p class="sec-head__eyebrow">DATA APPLICATIONS</p>
+            <h2 class="sec-head__title" data-reveal="lines">WHERE DATA SCIENCE MEETS FASHION TECHNOLOGY.</h2>
+          </div>
+
+          <ul class="check-list check-list--2col mb-4" data-reveal="up">
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span><strong>Body Measurement Analysis:</strong> Analysing structured body measurement datasets to identify patterns and dimensional relationships.</span></li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span><strong>Fabric Classification:</strong> Exploring classification models that can categorise fabric information based on relevant input features.</span></li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span><strong>Style Preference Analysis:</strong> Identifying patterns in styling preferences and user-provided information.</span></li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span><strong>Visual Similarity:</strong> Comparing visual characteristics to identify similarities between design references.</span></li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span><strong>Predictive Modelling:</strong> Developing models to estimate outcomes from historical and structured data.</span></li>
+          </ul>
+
+          <div class="supply-note mb-5" data-reveal="up">
+            <strong>Note:</strong> These are potential application domains, not assertions that all such models are currently implemented by Green Wardrobe.
+          </div>
+
+          <div class="sec-head mt-5" data-reveal="up">
+            <p class="sec-head__eyebrow">THE FOUNDATIONS OF MODEL PERFORMANCE</p>
+            <h2 class="sec-head__title" data-reveal="lines">IMPORTANT MACHINE LEARNING CONCEPTS.</h2>
+          </div>
+
+          <div class="row g-4" data-reveal="up" data-stagger="0.06">
+            <div class="col-md-4">
+              <article class="card-feature">
+                <h3 class="card-feature__title">Dataset &amp; Features</h3>
+                <p class="card-feature__text">Datasets provide the information used to train, validate and evaluate models; features are the measurable characteristics supplied as inputs.</p>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="card-feature">
+                <h3 class="card-feature__title">Training &amp; Validation</h3>
+                <p class="card-feature__text">Training is how a model learns relationships from data; validation evaluates behaviour during development.</p>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="card-feature">
+                <h3 class="card-feature__title">Inference &amp; Performance</h3>
+                <p class="card-feature__text">Inference generates outputs from new inputs; accuracy metrics evaluate how well a model performs its intended task.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RELATED & CTA -->
+      <section class="page-section page-section--deep">
+        <div class="page-container">
+          <div class="related mb-5" data-reveal="up">
+            <a href="technology-ai.html" class="related__card">
+              <i class="fa-solid fa-wand-magic-sparkles related__card-icon" aria-hidden="true"></i>
+              <span class="related__card-title">Artificial Intelligence</span>
+              <p class="related__card-desc">AI defines the broader objective; ML provides the data-driven techniques.</p>
+              <span class="related__card-arrow">Explore AI <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+            <a href="technology-3d-screening.html" class="related__card">
+              <i class="fa-solid fa-cube related__card-icon" aria-hidden="true"></i>
+              <span class="related__card-title">3D Screening</span>
+              <p class="related__card-desc">Structured spatial body measurement coordinates feeding digital records.</p>
+              <span class="related__card-arrow">Explore 3D <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+            <a href="technology-robotics.html" class="related__card">
+              <i class="fa-solid fa-robot related__card-icon" aria-hidden="true"></i>
+              <span class="related__card-title">Robotics</span>
+              <p class="related__card-desc">Precision cutting and stitching translating digital patterns to cloth.</p>
+              <span class="related__card-arrow">Explore Robotics <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </div>
+
+          <div class="cta-band" data-reveal="scale">
+            <div class="cta-band__inner">
+              <h2 class="cta-band__title">DATA IS THE FOUNDATION. INTELLIGENCE IS THE OUTCOME.</h2>
+              <p class="cta-band__text">Explore the computational models and learning methodologies behind machine intelligence.</p>
+              <a href="technology.html" class="btn-cta btn-cta--solid">
+                <span>Explore the Technology Ecosystem</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="footer__inner container-fluid">
+        <div class="footer__top">
+          <nav class="footer__nav" aria-label="Footer Navigation">
+            <a href="experience.html" class="footer__link">Experience</a>
+            <a href="technology.html" class="footer__link">Technology</a>
+            <a href="ai-styling.html" class="footer__link">AI Styling</a>
+            <a href="final-looks.html" class="footer__link">Final Looks</a>
+            <a href="contact.html" class="footer__link">Contact</a>
+          </nav>
+
+          <div class="footer__tech-row">
+            <span class="footer__tech-label">Technologies:</span>
+            <nav class="footer__tech-links" aria-label="Technology pages">
+              <a href="technology-3d-screening.html" class="footer__link footer__link--tech">3D Screening</a>
+              <a href="technology-ai.html" class="footer__link footer__link--tech">AI</a>
+              <a href="technology-ml.html" class="footer__link footer__link--tech">ML</a>
+              <a href="technology-robotics.html" class="footer__link footer__link--tech">Robotics</a>
+              <a href="technology-quantum-physics.html" class="footer__link footer__link--tech">Quantum Physics</a>
+              <a href="technology-sustainable-recycling.html" class="footer__link footer__link--tech">Sustainable Recycling</a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="footer__middle">
+          <div class="footer__legal">
+            <a href="#footer" class="footer__sublink">Privacy</a>
+            <a href="#footer" class="footer__sublink">Terms</a>
+            <a href="#footer" class="footer__sublink">Returns</a>
+            <a href="#footer" class="footer__sublink">FAQs</a>
+          </div>
+
+          <div class="footer__brand-meta">
+            <span class="footer__brand-line">Designed Around You. Not the Rack.</span>
+            <span class="footer__copy">© 2026 Green Wardrobe.</span>
+          </div>
+        </div>
+
+        <div class="footer__bottom" aria-hidden="true">
+          <p class="footer__watermark">GREEN WARDROBE</p>
+        </div>
+      </div>
+    </footer>
+
+    <button type="button" class="scroll-top js-scroll-top" aria-label="Back to top">
+      <svg class="scroll-top__ring" viewBox="0 0 48 48" aria-hidden="true">
+        <circle class="scroll-top__track" cx="24" cy="24" r="22" />
+        <circle class="scroll-top__progress" cx="24" cy="24" r="22" />
+      </svg>
+      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <div class="page-curtain" aria-hidden="true">
+      <img src="assets/img/logo.png" alt="Green Wardrobe" class="page-curtain__logo" />
+    </div>
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script defer src="assets/js/utils.js"></script>
+    <script defer src="assets/js/smooth-scroll.js"></script>
+    <script defer src="assets/js/page-transition.js"></script>
+    <script defer src="assets/js/menu.js"></script>
+    <script defer src="assets/js/hero.js"></script>
+    <script defer src="assets/js/hero-blocks.js"></script>
+    <script defer src="assets/js/page.js"></script>
+    <script defer src="assets/js/page-tech-detail.js"></script>
+    <script defer src="assets/js/scroll-top.js"></script>
+    <script defer src="assets/js/restore.js"></script>
+    <script defer src="assets/js/main.js"></script>
+  </body>
+</html>

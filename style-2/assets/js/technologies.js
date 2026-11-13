@@ -1,5 +1,5 @@
 /**
- * technologies.js — Bento grid entrance, hover/tap expansion, and parallax drift
+ * technologies.js — Bento icon card reveal and pointer glow
  */
 (function() {
   'use strict';
@@ -7,99 +7,74 @@
 
   var section = null;
   var grid = null;
-  var tiles = [];
+  var cards = [];
 
   function init() {
     section = document.querySelector('section#technology');
     if (!section) return;
 
     grid = section.querySelector('.tech__grid');
-    tiles = Array.prototype.slice.call(section.querySelectorAll('.tech-tile'));
+    cards = Array.prototype.slice.call(section.querySelectorAll('.tech-card'));
+    if (!cards.length) return;
 
-    if (window.GW.isReducedMotion || !window.gsap) {
-      tiles.forEach(function(t) {
-        t.style.clipPath = 'none';
-        var img = t.querySelector('.tech-tile__bg');
-        if (img) img.style.transform = 'none';
-      });
-      return;
+    if (!window.GW.isReducedMotion && window.gsap && window.ScrollTrigger) {
+      setupReveal();
     }
 
-    // Scroll reveal
-    gsap.fromTo(tiles, {
-      clipPath: 'inset(100% 0% 0% 0%)'
+    setupPointerGlow();
+  }
+
+  function setupReveal() {
+    var icons = section.querySelectorAll('.tech-card__icon');
+
+    gsap.fromTo(cards, {
+      opacity: 0,
+      y: 36
     }, {
-      clipPath: 'inset(0% 0% 0% 0%)',
-      duration: 1.2,
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
       stagger: 0.1,
-      ease: 'expo.inOut',
+      ease: 'power3.out',
       scrollTrigger: {
         trigger: grid,
-        start: 'top 80%',
+        start: 'top 82%',
         once: true
       }
     });
 
-    // Parallax on images
-    tiles.forEach(function(tile) {
-      var img = tile.querySelector('.tech-tile__bg');
-      if (img && window.ScrollTrigger) {
-        gsap.to(img, {
-          yPercent: 12,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: tile,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true
-          }
-        });
-      }
-    });
-
-    // Interactive focus / tap toggling
-    tiles.forEach(function(tile) {
-      tile.setAttribute('tabindex', '0');
-
-      tile.addEventListener('click', function(e) {
-        toggleTile(tile);
-      });
-
-      tile.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleTile(tile);
+    if (icons.length) {
+      gsap.fromTo(icons, {
+        scale: 0.6,
+        opacity: 0
+      }, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.1,
+        delay: 0.15,
+        ease: 'back.out(1.6)',
+        scrollTrigger: {
+          trigger: grid,
+          start: 'top 82%',
+          once: true
         }
       });
-    });
-
-    document.addEventListener('click', function(e) {
-      if (!grid.contains(e.target)) {
-        clearActiveTiles();
-      }
-    });
-
-    window.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        clearActiveTiles();
-      }
-    });
-  }
-
-  function toggleTile(targetTile) {
-    var wasActive = targetTile.classList.contains('is-active');
-    clearActiveTiles();
-    if (!wasActive) {
-      targetTile.classList.add('is-active');
-      grid.classList.add('has-active');
     }
   }
 
-  function clearActiveTiles() {
-    tiles.forEach(function(t) {
-      t.classList.remove('is-active');
+  function setupPointerGlow() {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    cards.forEach(function(card) {
+      card.addEventListener('pointermove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var x = ((e.clientX - rect.left) / rect.width) * 100;
+        var y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty('--mx', x.toFixed(1) + '%');
+        card.style.setProperty('--my', y.toFixed(1) + '%');
+      });
     });
-    if (grid) grid.classList.remove('has-active');
   }
 
   window.GW.technologies = {

@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technology — Green Wardrobe</title>
+    <meta
+      name="description"
+      content="Technology at the Intersection of Fashion, Intelligence and Human Geometry: 3D Body Scanning, Artificial Intelligence, Machine Learning, Robotics and Quantum Physics."
+    />
+    <link rel="canonical" href="technology.html" />
+    <meta property="og:title" content="Technology — Green Wardrobe" />
+    <meta
+      property="og:description"
+      content="Integrating artificial intelligence, machine learning, 3D body scanning and emerging scientific principles for personalised fashion systems."
+    />
+    <meta property="og:image" content="assets/img/measurement.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#032F22" />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&family=Raleway:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <noscript>
+      <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <script src="assets/js/boot.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Technology", "item": "technology.html" }
+        ]
+      }
+    </script>
+  </head>
+  <body data-page="technology">
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <div class="page-progress" aria-hidden="true">
+      <div class="page-progress__bar"></div>
+    </div>
+
+    <header class="site-header">
+      <div class="site-header__inner container-fluid">
+        <a href="index.html" class="site-header__brand" aria-label="Green Wardrobe Home">
+          <img
+            class="site-header__logo"
+            src="assets/img/logo.png"
+            alt="Green Wardrobe"
+            width="76"
+            height="76"
+            loading="eager"
+          />
+        </a>
+
+        <button
+          type="button"
+          class="hamburger"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="site-menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Main menu">
+      <button type="button" class="site-menu__close js-menu-close" aria-label="Close menu">
+        <span class="site-menu__close-label">Close</span>
+        <span class="site-menu__close-icon"><i class="fa-solid fa-xmark" aria-hidden="true"></i></span>
+      </button>
+
+      <div class="site-menu__inner container-fluid">
+        <div class="site-menu__col site-menu__col--nav">
+          <nav aria-label="Main navigation links">
+            <ul class="site-menu__list list-unstyled">
+              <li class="site-menu__item">
+                <a href="experience.html" class="site-menu__link" data-preview="exp">
+                  <span class="site-menu__num">01</span>
+                  <span class="site-menu__link-text">Experience</span>
+                </a>
+              </li>
+              <li class="site-menu__item">
+                <a href="technology.html" class="site-menu__link" data-preview="tech" aria-current="page">
+                  <span class="site-menu__num">02</span>
+                  <span class="site-menu__link-text">Technology</span>
+                </a>
+              </li>
+              <li class="site-menu__item">
+                <a href="ai-styling.html" class="site-menu__link" data-preview="ai">
+                  <span class="site-menu__num">03</span>
+                  <span class="site-menu__link-text">AI Styling</span>
+                </a>
+              </li>
+              <li class="site-menu__item">
+                <a href="final-looks.html" class="site-menu__link" data-preview="looks">
+                  <span class="site-menu__num">04</span>
+                  <span class="site-menu__link-text">Final Looks</span>
+                </a>
+              </li>
+              <li class="site-menu__item">
+                <a href="contact.html" class="site-menu__link" data-preview="contact">
+                  <span class="site-menu__num">05</span>
+                  <span class="site-menu__link-text">Contact</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="site-menu__col site-menu__col--preview d-none d-md-block" aria-hidden="true">
+          <div class="site-menu__preview">
+            <img src="assets/img/scanner-booth.png" alt="" class="site-menu__preview-img is-active" data-preview-id="exp" decoding="async" />
+            <img src="assets/img/measurement.png" alt="" class="site-menu__preview-img" data-preview-id="tech" decoding="async" />
+            <img src="assets/img/blazer-selection.jpg" alt="" class="site-menu__preview-img" data-preview-id="ai" decoding="async" />
+            <img src="assets/img/final-western.png" alt="" class="site-menu__preview-img" data-preview-id="looks" decoding="async" />
+            <img src="assets/img/final-indian.jpg" alt="" class="site-menu__preview-img" data-preview-id="contact" decoding="async" />
+          </div>
+        </div>
+      </div>
+
+      <div class="site-menu__footer container-fluid">
+        <a href="contact.html" class="btn-cta btn-cta--solid">
+          <span>Book Your GW Experience</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <span class="site-menu__brand-line">Designed Around You. Not the Rack.</span>
+      </div>
+    </div>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="page-hero">
+        <div class="page-container">
+          <div class="hero__bg" aria-hidden="true">
+            <div class="hero__glow"></div>
+            <div class="hero__blocks js-hero-blocks">
+              <div class="hero__blocks-track js-hero-blocks-track"></div>
+            </div>
+            <div class="hero__spotlight js-hero-spotlight"></div>
+            <div class="hero__dust js-hero-dust"></div>
+          </div>
+      
+
+            <div class="row align-items-center g-5">
+              <div class="col-lg-12">
+                <nav aria-label="Breadcrumb">
+                  <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="breadcrumb__sep" aria-hidden="true">/</li>
+                    <li aria-current="page">Technology</li>
+                  </ol>
+                </nav>
+
+                <p class="page-hero__eyebrow">THE TECHNOLOGY ECOSYSTEM</p>
+                <h1 class="page-hero__title">TECHNOLOGY MEETS PERSONAL STYLE.</h1>
+                <p class="page-hero__subhead">Technology at the Intersection of Fashion, Intelligence and Human Geometry.</p>
+                <p class="page-hero__lead">
+                  Integrating artificial intelligence, machine learning, 3D body scanning and emerging
+                  scientific principles to explore the next generation of personalised fashion systems.
+                </p>
+
+                <div class="page-hero__actions">
+                  <a href="#core" class="btn-cta btn-cta--solid">
+                    <span>Explore Core Technologies</span>
+                    <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                  </a>
+                  <a href="experience.html" class="page-hero__link">
+                    <span>See the 8-Step Experience</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- STICKY TOC & OVERVIEW -->
+      <section class="page-section page-section--deep" id="overview">
+        <div class="page-container">
+          <nav class="toc" aria-label="Technology sections">
+            <a href="#overview" class="toc__link is-active">Overview</a>
+            <a href="#core" class="toc__link">Core Technologies</a>
+            <a href="#supporting" class="toc__link">Supporting Systems</a>
+            <a href="#integration" class="toc__link">Integration</a>
+            <a href="#applications" class="toc__link">Applications</a>
+          </nav>
+
+          <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-reveal="up">
+              <div class="sec-head mb-0">
+                <p class="sec-head__eyebrow">BEYOND CONVENTIONAL FASHION</p>
+                <h2 class="sec-head__title" data-reveal="lines">ENGINEERING A MORE INTELLIGENT APPROACH TO FASHION.</h2>
+                <p class="sec-head__lead">
+                  Fashion technology is evolving beyond conventional garment design and manufacturing.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-6" data-reveal="up">
+              <p class="page-hero__lead">
+                The convergence of computational intelligence, digital human modelling, dimensional
+                measurement and emerging scientific research introduces new possibilities for
+                understanding the human body, interpreting design preferences and developing
+                personalised garment systems.
+              </p>
+              <p class="page-hero__lead mb-0">
+                Green Wardrobe explores this intersection through specialised core technology
+                domains alongside automated robotics fabrication and circular wardrobe renewal.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CORE TECHNOLOGIES (4 Domains from Content Doc + 2 Supporting) -->
+      <section class="page-section" id="core">
+        <div class="page-container">
+          <div class="sec-head" data-reveal="up">
+            <p class="sec-head__eyebrow">CORE TECHNOLOGIES</p>
+            <h2 class="sec-head__title" data-reveal="lines">FOUR SPECIALISED SCIENTIFIC &amp; DIGITAL DOMAINS.</h2>
+          </div>
+
+          <div class="row g-4" data-reveal="up" data-stagger="0.1">
+            <!-- 01. 3D Body Scanning -->
+            <div class="col-md-6">
+              <article class="card-feature">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-cube"></i></div>
+                <h3 class="card-feature__title">01. 3D Body Scanning</h3>
+                <p class="card-feature__sub">Digital Human Geometry &amp; Measurement</p>
+                <p class="card-feature__text">
+                  Capturing human body geometry through three-dimensional scanning and transforming physical dimensions into structured digital measurement data.
+                </p>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>3D Body Capture &amp; Human Geometry Mapping</span></li>
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Anatomical Measurement Extraction</span></li>
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Digital Body Modelling &amp; Measurement Data Processing</span></li>
+                </ul>
+                <a href="technology-3d-screening.html" class="card-feature__link">
+                  <span>Explore 3D Technology</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </article>
+            </div>
+
+            <!-- 02. Artificial Intelligence -->
+            <div class="col-md-6">
+              <article class="card-feature">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3 class="card-feature__title">02. Artificial Intelligence</h3>
+                <p class="card-feature__sub">Intelligent Systems for Personalised Fashion</p>
+                <p class="card-feature__text">
+                  Applying artificial intelligence concepts to visual interpretation, styling intelligence, design exploration and intelligent recommendation systems.
+                </p>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>AI-Based Visual Interpretation &amp; Intelligent Styling Systems</span></li>
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Generative Design Concepts &amp; Recommendation Algorithms</span></li>
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Automated Decision Support</span></li>
+                </ul>
+                <a href="technology-ai.html" class="card-feature__link">
+                  <span>Explore Artificial Intelligence</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </article>
+            </div>
+
+            <!-- 03. Machine Learning -->
+            <div class="col-md-6">
+              <article class="card-feature">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-diagram-project"></i></div>
+                <h3 class="card-feature__title">03. Machine Learning</h3>
+                <p class="card-feature__sub">Data Intelligence &amp; Predictive Modelling</p>
+                <p class="card-feature__text">
+                  Exploring data-driven models that identify patterns, process information and support predictive analysis across digital fashion workflows.
+                </p>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Data Processing &amp; Pattern Recognition</span></li>
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Predictive Modelling &amp; Algorithm Training</span></li>
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Model Evaluation</span></li>
+                </ul>
+                <a href="technology-ml.html" class="card-feature__link">
+                  <span>Explore Machine Learning</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </article>
+            </div>
+
+            <!-- 04. Quantum Physics -->
+            <div class="col-md-6">
+              <article class="card-feature">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-atom"></i></div>
+                <h3 class="card-feature__title">04. Quantum Physics</h3>
+                <p class="card-feature__sub">Scientific Principles &amp; Future Computational Possibilities</p>
+                <p class="card-feature__text">
+                  Understanding quantum mechanical principles and exploring their relationship with emerging computational technologies and future research possibilities.
+                </p>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Quantum Mechanics &amp; Superposition</span></li>
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Quantum Entanglement &amp; Quantum Information</span></li>
+                  <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Quantum Computing Concepts</span></li>
+                </ul>
+                <a href="technology-quantum-physics.html" class="card-feature__link">
+                  <span>Explore Quantum Physics</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUPPORTING TECHNOLOGIES -->
+      <section class="page-section page-section--deep" id="supporting">
+        <div class="page-container">
+          <div class="sec-head" data-reveal="up">
+            <p class="sec-head__eyebrow">SUPPORTING TECHNOLOGY</p>
+            <h2 class="sec-head__title" data-reveal="lines">ROBOTICS AUTOMATION &amp; SUSTAINABLE RENEWAL.</h2>
+          </div>
+
+          <div class="row g-4" data-reveal="up" data-stagger="0.1">
+            <div class="col-md-6">
+              <article class="card-feature card-feature--highlight">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-robot"></i></div>
+                <h3 class="card-feature__title">05. Robotics &amp; Automation</h3>
+                <p class="card-feature__sub">Automated Cutting &amp; Precision Stitching</p>
+                <p class="card-feature__text">
+                  Robotic measurement and automated cutting and stitching bring dimensional precision from digital pattern profiles to finished garments.
+                </p>
+                <a href="technology-robotics.html" class="card-feature__link">
+                  <span>Explore Robotics</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </article>
+            </div>
+
+            <div class="col-md-6">
+              <article class="card-feature card-feature--highlight">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-recycle"></i></div>
+                <h3 class="card-feature__title">06. Sustainable Material &amp; Recycling Systems</h3>
+                <p class="card-feature__sub">ReWardrobe — Return. Reward. Renew.</p>
+                <p class="card-feature__text">
+                  Give eligible pre-loved clothes a new purpose. Up to 25% off eligible new purchases through circular wardrobe renewal. Terms apply.
+                </p>
+                <a href="technology-sustainable-recycling.html" class="card-feature__link">
+                  <span>Explore Sustainable Recycling</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTEGRATION -->
+      <section class="page-section" id="integration">
+        <div class="page-container">
+          <div class="sec-head" data-reveal="up">
+            <p class="sec-head__eyebrow">ONE ECOSYSTEM. MULTIPLE TECHNOLOGIES.</p>
+            <h2 class="sec-head__title" data-reveal="lines">WHERE HUMAN MEASUREMENTS MEET COMPUTATIONAL INTELLIGENCE.</h2>
+            <p class="sec-head__lead">Each technology represents a different dimension of the digital fashion ecosystem.</p>
+          </div>
+
+          <div class="pipeline" data-reveal="up" data-stagger="0.08">
+            <div class="pipeline-step">
+              <span class="pipeline-step__num">CAPTURE</span>
+              <h3 class="pipeline-step__title">3D Scanning</h3>
+              <p class="pipeline-step__text">Acquisition of three-dimensional body geometry and measurement information.</p>
+            </div>
+            <div class="pipeline-step">
+              <span class="pipeline-step__num">INTERPRET</span>
+              <h3 class="pipeline-step__title">AI</h3>
+              <p class="pipeline-step__text">Computational intelligence for interpreting inputs and exploring design or styling possibilities.</p>
+            </div>
+            <div class="pipeline-step">
+              <span class="pipeline-step__num">LEARN</span>
+              <h3 class="pipeline-step__title">ML</h3>
+              <p class="pipeline-step__text">Data-driven pattern identification, model development and predictive analysis.</p>
+            </div>
+            <div class="pipeline-step">
+              <span class="pipeline-step__num">EXPLORE</span>
+              <h3 class="pipeline-step__title">Quantum Physics</h3>
+              <p class="pipeline-step__text">Scientific foundations and potential future computational approaches.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- APPLICATION DOMAINS -->
+      <section class="page-section page-section--deep" id="applications">
+        <div class="page-container">
+          <div class="sec-head" data-reveal="up">
+            <p class="sec-head__eyebrow">TECHNOLOGY APPLICATIONS</p>
+            <h2 class="sec-head__title" data-reveal="lines">FROM DIGITAL HUMAN MODELLING TO INTELLIGENT DESIGN.</h2>
+          </div>
+
+          <div class="row g-4" data-reveal="up" data-stagger="0.1">
+            <div class="col-md-6 col-lg-3">
+              <article class="card-feature">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-person"></i></div>
+                <h3 class="card-feature__title">Digital Human Modelling</h3>
+                <p class="card-feature__text">Representing physical human dimensions through structured three-dimensional digital models.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <article class="card-feature">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-compass-drafting"></i></div>
+                <h3 class="card-feature__title">Intelligent Design Systems</h3>
+                <p class="card-feature__text">Exploring computational approaches to design interpretation, visualisation and recommendation.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <article class="card-feature">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-sliders"></i></div>
+                <h3 class="card-feature__title">Data-Driven Personalisation</h3>
+                <p class="card-feature__text">Using measurement data, design information and computational models to investigate personalised fashion workflows.</p>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <article class="card-feature">
+                <div class="card-feature__icon" aria-hidden="true"><i class="fa-solid fa-microchip"></i></div>
+                <h3 class="card-feature__title">Advanced Computational Research</h3>
+                <p class="card-feature__text">Exploring emerging scientific and computational principles that may influence future technology development.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="supply-note mt-5" data-reveal="up">
+            <strong>Content &amp; Technical Validation Note:</strong> The technical descriptions of AI, ML, 3D scanning and quantum physics on this hub and linked pages provide scientific and engineering explanations and do not imply that every exploratory concept is an operational production capability without independent technical confirmation.
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA BAND -->
+      <section class="page-section">
+        <div class="page-container">
+          <div class="cta-band" data-reveal="scale">
+            <div class="cta-band__inner">
+              <h2 class="cta-band__title">THE FUTURE OF FASHION IS BUILT ON INTELLIGENCE, PRECISION AND SCIENCE.</h2>
+              <p class="cta-band__text">
+                Exploring the technologies that connect human geometry, computational intelligence and digital innovation.
+              </p>
+              <a href="contact.html" class="btn-cta btn-cta--solid">
+                <span>Book Your GW Experience</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="footer__inner container-fluid">
+        <div class="footer__top">
+          <nav class="footer__nav" aria-label="Footer Navigation">
+            <a href="experience.html" class="footer__link">Experience</a>
+            <a href="technology.html" class="footer__link">Technology</a>
+            <a href="ai-styling.html" class="footer__link">AI Styling</a>
+            <a href="final-looks.html" class="footer__link">Final Looks</a>
+            <a href="contact.html" class="footer__link">Contact</a>
+          </nav>
+
+          <div class="footer__tech-row">
+            <span class="footer__tech-label">Technologies:</span>
+            <nav class="footer__tech-links" aria-label="Technology pages">
+              <a href="technology-3d-screening.html" class="footer__link footer__link--tech">3D Screening</a>
+              <a href="technology-ai.html" class="footer__link footer__link--tech">AI</a>
+              <a href="technology-ml.html" class="footer__link footer__link--tech">ML</a>
+              <a href="technology-robotics.html" class="footer__link footer__link--tech">Robotics</a>
+              <a href="technology-quantum-physics.html" class="footer__link footer__link--tech">Quantum Physics</a>
+              <a href="technology-sustainable-recycling.html" class="footer__link footer__link--tech">Sustainable Recycling</a>
+            </nav>
+          </div>
+        </div>
+
+        <div class="footer__middle">
+          <div class="footer__legal">
+            <a href="#footer" class="footer__sublink">Privacy</a>
+            <a href="#footer" class="footer__sublink">Terms</a>
+            <a href="#footer" class="footer__sublink">Returns</a>
+            <a href="#footer" class="footer__sublink">FAQs</a>
+          </div>
+
+          <div class="footer__brand-meta">
+            <span class="footer__brand-line">Designed Around You. Not the Rack.</span>
+            <span class="footer__copy">© 2026 Green Wardrobe.</span>
+          </div>
+        </div>
+
+        <div class="footer__bottom" aria-hidden="true">
+          <p class="footer__watermark">GREEN WARDROBE</p>
+        </div>
+      </div>
+    </footer>
+
+    <button type="button" class="scroll-top js-scroll-top" aria-label="Back to top">
+      <svg class="scroll-top__ring" viewBox="0 0 48 48" aria-hidden="true">
+        <circle class="scroll-top__track" cx="24" cy="24" r="22" />
+        <circle class="scroll-top__progress" cx="24" cy="24" r="22" />
+      </svg>
+      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <div class="page-curtain" aria-hidden="true">
+      <img src="assets/img/logo.png" alt="Green Wardrobe" class="page-curtain__logo" />
+    </div>
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script defer src="assets/js/utils.js"></script>
+    <script defer src="assets/js/smooth-scroll.js"></script>
+    <script defer src="assets/js/page-transition.js"></script>
+    <script defer src="assets/js/menu.js"></script>
+    <script defer src="assets/js/hero.js"></script>
+    <script defer src="assets/js/hero-blocks.js"></script>
+    <script defer src="assets/js/page.js"></script>
+    <script defer src="assets/js/page-technology.js"></script>
+    <script defer src="assets/js/scroll-top.js"></script>
+    <script defer src="assets/js/restore.js"></script>
+    <script defer src="assets/js/main.js"></script>
+  </body>
+</html>

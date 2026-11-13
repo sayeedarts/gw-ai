@@ -26,8 +26,11 @@
     barEl = preloaderEl.querySelector('.preloader__bar');
     announceEl = preloaderEl.querySelector('.js-preloader-announce');
 
-    // Stop scroll and set inert on main content
-    window.scrollTo(0, 0);
+    // Only jump to top when NOT restoring scroll on reload/back_forward
+    if (!(window.GW.restoreY > 0)) {
+      window.scrollTo(0, 0);
+    }
+
     if (window.GW.smoothScroll) {
       window.GW.smoothScroll.stop();
     }
@@ -93,7 +96,7 @@
       weights.logo = 20;
       updateWeighted();
     };
-    heroPoster.src = '/assets/img/hero.jpg';
+    heroPoster.src = 'assets/img/hero.jpg';
 
     // 3. Hero Video Metadata 20%
     var video = document.querySelector('.hero__video');
@@ -148,7 +151,7 @@
 
       var rounded = Math.round(currentPercent);
       if (countEl) countEl.textContent = rounded + '%';
-      if (barEl) barEl.style.transform = 'scaleX(' + (currentPercent / 100) + ')';
+      if (barEl) gsap.set(barEl, { scaleX: currentPercent / 100 });
 
       // Accessibility announce
       if (announceEl && (rounded === 25 || rounded === 50 || rounded === 75 || rounded === 100)) {
@@ -158,10 +161,23 @@
       if (targetPercent >= 100 && currentPercent >= 99.5 && elapsed >= minDuration) {
         clearInterval(progressInterval);
         if (countEl) countEl.textContent = '100%';
-        if (barEl) barEl.style.transform = 'scaleX(1)';
-        setTimeout(playExit, 350);
+        if (barEl && window.gsap) gsap.set(barEl, { scaleX: 1 });
+        setTimeout(prepareExit, 350);
       }
     }, 30);
+  }
+
+  function prepareExit() {
+    if (window.GW.restore && window.GW.restoreY > 0) {
+      // Restore scroll silently behind preloader before lifting it
+      document.documentElement.classList.remove('is-loading');
+      if (window.GW.smoothScroll) {
+        window.GW.smoothScroll.start();
+      }
+      window.GW.restore.applyRestore(playExit);
+    } else {
+      playExit();
+    }
   }
 
   function playExit() {
@@ -174,7 +190,7 @@
 
     if (window.GW.isReducedMotion || !window.gsap) {
       if (preloaderEl) {
-        preloaderEl.style.display = 'none';
+        preloaderEl.classList.add('is-dismissed');
       }
       finishPreload();
       return;
@@ -210,50 +226,41 @@
       duration: 1.0,
       ease: 'expo.inOut'
     }, '-=0.2');
-
-    // DO NOT animate body scale as any transform on <body> breaks position:fixed ScrollTrigger pins!
   }
 
   function finishPreload() {
-    // 1. Remove scroll-lock from html
     document.documentElement.classList.remove('is-loading');
 
-    // 2. Remove inert attributes
     var mainEl = document.querySelector('main');
     var headerEl = document.querySelector('.site-header');
     if (mainEl) mainEl.removeAttribute('inert');
     if (headerEl) headerEl.removeAttribute('inert');
 
-    // 3. Clear any stray transform on body
-    document.body.style.transform = '';
-
-    // 4. Remove preloader element completely
     if (preloaderEl && preloaderEl.parentNode) {
       preloaderEl.parentNode.removeChild(preloaderEl);
     }
 
-    // 5. Start smooth scroll
     if (window.GW.smoothScroll) {
       window.GW.smoothScroll.start();
     }
 
-    // 6. Refresh ScrollTrigger cleanly after DOM reflow and unlock
+    if (window.GW.restore && window.GW.restoreY > 0 && window.GW.skipPreload) {
+      window.GW.restore.applyRestore(function() {
+        window.dispatchEvent(new CustomEvent('gw:ready'));
+      });
+      return;
+    }
+
     requestAnimationFrame(function() {
-      if (window.ScrollTrigger) {
+      if (window.ScrollTrigger && !(window.GW.restoreY > 0)) {
         window.ScrollTrigger.refresh(true);
       }
       setTimeout(function() {
-        if (window.ScrollTrigger) {
+        if (window.ScrollTrigger && !(window.GW.restoreY > 0)) {
           window.ScrollTrigger.refresh(true);
         }
-        // Dispatch global ready event
         window.dispatchEvent(new CustomEvent('gw:ready'));
       }, 150);
-      setTimeout(function() {
-        if (window.ScrollTrigger) {
-          window.ScrollTrigger.refresh();
-        }
-      }, 500);
     });
   }
 

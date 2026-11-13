@@ -1,0 +1,6 @@
+{
+  "name": "Green Wardrobe",
+  "description": "Designed Around You. Not the Rack. Luxury bespoke fashion combining 3D body scanning, AI styling, robotics tailoring and wardrobe renewal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

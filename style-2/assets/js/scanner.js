@@ -233,7 +233,7 @@
     hasInteracted = true;
     if (demoTimer) clearTimeout(demoTimer);
     if (hint) {
-      hint.classList.add('is-hidden');
+      hint.classList.add('is-dimmed');
     }
   }
 

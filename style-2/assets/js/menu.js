@@ -34,10 +34,8 @@
       });
     }
 
-    // Keyboard navigation & accessibility
     window.addEventListener('keydown', handleKeydown);
 
-    // In-page navigation and preview triggers
     menuLinks.forEach(function(link) {
       var targetPreview = link.getAttribute('data-preview');
 
@@ -63,6 +61,9 @@
               }
             });
           }
+        } else if (link.getAttribute('aria-current') === 'page') {
+          e.preventDefault();
+          closeMenu();
         }
       });
     });
@@ -75,17 +76,14 @@
       });
     }
 
-    // Header scroll behavior with hysteresis (never hidden; morphs to centered pill)
     window.addEventListener('scroll', onScroll, { passive: true });
     updateHeaderScroll();
 
-    // Recompute clipPath on resize if open
     window.addEventListener('resize', onResize);
 
-    // Entrance intro on gw:ready
     window.addEventListener('gw:ready', function() {
       updateHeaderScroll();
-      if (!window.GW.isReducedMotion && window.gsap) {
+      if (!(window.GW.restoreY > 0) && !window.GW.isReducedMotion && window.gsap) {
         var logo = header.querySelector('.site-header__logo');
         var lines = header.querySelectorAll('.hamburger__line');
 
@@ -204,7 +202,6 @@
     document.body.classList.add('is-locked');
     setInertState(true);
 
-    // Reset default preview to 01 Experience
     setPreview('exp');
     menuLinks.forEach(function(l) {
       l.classList.remove('is-dimmed', 'is-hovered');
@@ -212,6 +209,9 @@
 
     if (window.GW.smoothScroll) {
       window.GW.smoothScroll.stop();
+    }
+    if (window.GW.scrollTop) {
+      window.GW.scrollTop.update();
     }
 
     var rect = hamburger.getBoundingClientRect();
@@ -272,6 +272,9 @@
 
     if (window.GW.smoothScroll) {
       window.GW.smoothScroll.start();
+    }
+    if (window.GW.scrollTop) {
+      window.GW.scrollTop.update();
     }
 
     if (!window.GW.isReducedMotion && window.gsap) {

@@ -29,28 +29,32 @@
     var cta = section.querySelector('.btn-cta');
     if (cta) {
       cta.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (window.GW.smoothScroll) {
-          window.GW.smoothScroll.scrollTo('#imagine');
-        } else {
-          var target = document.querySelector('#imagine');
-          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        var href = cta.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          if (window.GW.smoothScroll) {
+            window.GW.smoothScroll.scrollTo(href);
+          } else {
+            var target = document.querySelector(href);
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+          }
         }
       });
     }
 
     if (window.GW.isReducedMotion || !window.gsap || !window.ScrollTrigger) {
-      // Fallback: static positioning via class toggle without direct element.style writes
       if (media) {
         media.classList.add('is-static');
       }
       return;
     }
 
-    // Single source of truth in GSAP: media at yPercent: 70
-    gsap.set(media, { y: 0, yPercent: 85 });
+    // Single source of truth in GSAP
+    gsap.set(media, { y: 0, yPercent: window.GW.restoreY > 0 ? 75 : 85 });
 
-    setupIntro();
+    if (!(window.GW.restoreY > 0)) {
+      setupIntro();
+    }
     setupScrollTrigger();
   }
 
@@ -64,7 +68,7 @@
       var tl = gsap.timeline();
       tl.fromTo(media, {
         y: 0,
-        yPercent: 100,
+        yPercent: 100
       }, {
         y: 0,
         yPercent: 75,
@@ -87,7 +91,7 @@
   function setupScrollTrigger() {
     var isMobile = window.innerWidth < 768;
 
-    // Master pinned timeline for hero card expansion (Task A2)
+    // Master pinned timeline for hero card expansion
     var masterTL = gsap.timeline({
       scrollTrigger: {
         trigger: section,
@@ -109,7 +113,6 @@
                 isVideoPlaying = true;
                 if (playRing) gsap.to(playRing, { opacity: 0, duration: 0.3 });
               }).catch(function() {
-                // Keep poster/ring visible if autoplay blocked
                 isVideoPlaying = false;
               });
             }
@@ -117,15 +120,6 @@
             video.pause();
             isVideoPlaying = false;
             if (playRing) gsap.to(playRing, { opacity: 1, duration: 0.3 });
-          }
-
-          // Hero blocks link: pause at >= 0.7, resume below
-          if (window.GW.heroBlocks) {
-            if (prog >= 0.7) {
-              window.GW.heroBlocks.pause();
-            } else {
-              window.GW.heroBlocks.resume();
-            }
           }
         }
       }
@@ -142,16 +136,16 @@
     // 0 -> 0.85: media lifts to yPercent 0, full width, zero radius; video scale 1.15 -> 1
     .fromTo(media,
       {
-        width: 'calc(80% - (2 * var(--gutter)))',        
+        width: 'calc(80% - (2 * var(--gutter)))',
         borderRadius: '20px'
-      },{
+      }, {
         yPercent: 0,
-        y: 0,      
+        y: 0,
         borderRadius: '0px',
         duration: 0.85,
         ease: 'none',
         width: '100vw'
-    }, 0)
+      }, 0)
     .to(video, {
       scale: 1,
       duration: 0.85,
@@ -170,7 +164,6 @@
       ease: 'power2.out'
     }, 0.90);
 
-    // Attach hero blocks timeline link
     if (window.GW.heroBlocks) {
       window.GW.heroBlocks.attachToTimeline(masterTL);
     }

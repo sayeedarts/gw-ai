@@ -1,3 +1,5 @@
-.preloader {
+.preloader,
+.page-curtain {
   display: none !important;
 }
+

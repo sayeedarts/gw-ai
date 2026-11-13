@@ -67,13 +67,13 @@
             height="220"
           />
         </div>
-        <p class="preloader__text">LOADING EXPERIENCE<span class="preloader__dots">...</span></p>        
-      </div>
-      <div class="preloader__counter">
-        <span class="preloader__count">0%</span>
-      </div>
-      <div class="preloader__progress">
-        <div class="preloader__bar"></div>
+        <p class="preloader__text">LOADING EXPERIENCE<span class="preloader__dots">...</span></p>
+        <div class="preloader__counter">
+          <span class="preloader__count">0%</span>
+        </div>
+        <div class="preloader__progress">
+          <div class="preloader__bar"></div>
+        </div>
       </div>
     </aside>
 
@@ -117,31 +117,31 @@
           <nav aria-label="Main navigation links">
             <ul class="site-menu__list list-unstyled">
               <li class="site-menu__item">
-                <a href="#experience" class="site-menu__link" data-preview="exp">
+                <a href="experience.html" class="site-menu__link" data-preview="exp">
                   <span class="site-menu__num">01</span>
                   <span class="site-menu__link-text">Experience</span>
                 </a>
               </li>
               <li class="site-menu__item">
-                <a href="#technology" class="site-menu__link" data-preview="tech">
+                <a href="technology.html" class="site-menu__link" data-preview="tech">
                   <span class="site-menu__num">02</span>
                   <span class="site-menu__link-text">Technology</span>
                 </a>
               </li>
               <li class="site-menu__item">
-                <a href="#imagine" class="site-menu__link" data-preview="ai">
+                <a href="ai-styling.html" class="site-menu__link" data-preview="ai">
                   <span class="site-menu__num">03</span>
                   <span class="site-menu__link-text">AI Styling</span>
                 </a>
               </li>
               <li class="site-menu__item">
-                <a href="#final" class="site-menu__link" data-preview="looks">
+                <a href="final-looks.html" class="site-menu__link" data-preview="looks">
                   <span class="site-menu__num">04</span>
                   <span class="site-menu__link-text">Final Looks</span>
                 </a>
               </li>
               <li class="site-menu__item">
-                <a href="#footer" class="site-menu__link" data-preview="contact">
+                <a href="contact.html" class="site-menu__link" data-preview="contact">
                   <span class="site-menu__num">05</span>
                   <span class="site-menu__link-text">Contact</span>
                 </a>
@@ -162,9 +162,9 @@
       </div>
 
       <div class="site-menu__footer container-fluid">
-        <a href="mailto:saidarts@gmail.com?subject=Green%20Wardrobe%20Experience%20Booking" class="btn-cta btn-cta--solid">
+        <a href="contact.html" class="btn-cta btn-cta--solid">
           <span>Book Your GW Experience</span>
-          <i class="fa-solid fa-arrow-right"></i>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
         </a>
         <span class="site-menu__brand-line">Designed Around You. Not the Rack.</span>
       </div>
@@ -176,7 +176,9 @@
       <section class="hero" id="top">
         <div class="hero__bg" aria-hidden="true">
           <div class="hero__glow"></div>
-          <div class="hero__blocks js-hero-blocks"></div>
+          <div class="hero__blocks js-hero-blocks">
+            <div class="hero__blocks-track js-hero-blocks-track"></div>
+          </div>
           <div class="hero__spotlight js-hero-spotlight"></div>
           <div class="hero__dust js-hero-dust"></div>
         </div>
@@ -191,7 +193,7 @@
           </div>
 
           <h1 class="hero__title">
-            YOUR BODY. YOUR STYLE. <br />YOUR PERFECT WARDROBE.
+            YOUR BODY. YOUR STYLE. <br /><span>YOUR PERFECT WARDROBE.</span>
           </h1>
 
           <p class="hero__brand">Designed Around You. Not the Rack.</p>
@@ -295,7 +297,7 @@
         </div>
       </section>
 
-      <!-- SECTION 3 — TECHNOLOGIES (Plain Heading) -->
+      <!-- SECTION 3 — TECHNOLOGIES (Icon Cards in Bento Layout) -->
       <section class="technologies" id="technology">
         <div class="tech__header text-center">
           <p class="tech__eyebrow">TECHNOLOGIES</p>
@@ -303,61 +305,138 @@
         </div>
 
         <div class="tech__grid" role="region" aria-label="Technology modules">
-          <div class="tech-tile tech-tile--1" role="button" aria-label="3D Technology">
-            <img src="assets/img/measurement.png" alt="3D Measurement visual" class="tech-tile__bg" loading="lazy" />
-            <div class="tech-tile__scrim"></div>
-            <span class="tech-tile__index">01</span>
-            <div class="tech-tile__arrow"><i class="fa-solid fa-arrow-right"></i></div>
-            <div class="tech-tile__label">
-              <span>3D</span>
-              <span class="tech-tile__label-line"></span>
+          <a href="technology-3d-screening.html" class="tech-card tech-card--1">
+            <div class="tech-card__top">
+              <span class="tech-card__dot" aria-hidden="true"></span>
+              <span class="tech-card__name">3D Screening</span>
             </div>
-          </div>
-
-          <div class="tech-tile tech-tile--2" role="button" aria-label="AI Technology">
-            <img src="assets/img/blazer-selection.jpg" alt="AI Blazer Selection" class="tech-tile__bg" loading="lazy" />
-            <div class="tech-tile__scrim"></div>
-            <span class="tech-tile__index">02</span>
-            <div class="tech-tile__arrow"><i class="fa-solid fa-arrow-right"></i></div>
-            <div class="tech-tile__label">
-              <span>AI</span>
-              <span class="tech-tile__label-line"></span>
+            <div class="tech-card__icon-wrap">
+              <div class="tech-card__icon" aria-hidden="true">
+                <i class="fa-solid fa-cube"></i>
+              </div>
             </div>
-          </div>
-
-          <div class="tech-tile tech-tile--3" role="button" aria-label="ML Technology">
-            <img src="assets/img/fabric-selection.png" alt="ML Fabric Selection" class="tech-tile__bg" loading="lazy" />
-            <div class="tech-tile__scrim"></div>
-            <span class="tech-tile__index">03</span>
-            <div class="tech-tile__arrow"><i class="fa-solid fa-arrow-right"></i></div>
-            <div class="tech-tile__label">
-              <span>ML</span>
-              <span class="tech-tile__label-line"></span>
+            <div class="tech-card__bottom">
+              <p class="tech-card__desc">
+                A 3D scan captures your individual measurements, so fit starts with you, not standard sizes.
+              </p>
+              <span class="tech-card__cta">
+                <span>Learn more</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </span>
             </div>
-          </div>
+          </a>
 
-          <div class="tech-tile tech-tile--4" role="button" aria-label="Robotics Technology">
-            <img src="assets/img/auto-stitching.png" alt="Robotics Stitching" class="tech-tile__bg" loading="lazy" />
-            <div class="tech-tile__scrim"></div>
-            <span class="tech-tile__index">04</span>
-            <div class="tech-tile__arrow"><i class="fa-solid fa-arrow-right"></i></div>
-            <div class="tech-tile__label">
-              <span>ROBOTICS</span>
-              <span class="tech-tile__label-line"></span>
+          <a href="technology-ai.html" class="tech-card tech-card--2">
+            <div class="tech-card__top">
+              <span class="tech-card__dot" aria-hidden="true"></span>
+              <span class="tech-card__name">AI (Artificial Intelligence)</span>
             </div>
-          </div>
-
-          <div class="tech-tile tech-tile--5" role="button" aria-label="Quantum Physics Technology">
-            <img src="assets/img/scanner-booth.png" alt="Quantum Physics Visual" class="tech-tile__bg" loading="lazy" />
-            <div class="tech-tile__scrim"></div>
-            <span class="tech-tile__index">05</span>
-            <div class="tech-tile__arrow"><i class="fa-solid fa-arrow-right"></i></div>
-            <div class="tech-tile__label">
-              <span>QUANTUM PHYSICS</span>
-              <span class="tech-tile__label-line"></span>
+            <div class="tech-card__icon-wrap">
+              <div class="tech-card__icon" aria-hidden="true">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
             </div>
-          </div>
+            <div class="tech-card__bottom">
+              <p class="tech-card__desc">
+                Turns your style brief into a complete look: outfit, fabric and colours, accessories and grooming.
+              </p>
+              <span class="tech-card__cta">
+                <span>Learn more</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </span>
+            </div>
+          </a>
 
+          <a href="technology-ml.html" class="tech-card tech-card--3">
+            <div class="tech-card__top">
+              <span class="tech-card__dot" aria-hidden="true"></span>
+              <span class="tech-card__name">ML (Machine Learning)</span>
+            </div>
+            <div class="tech-card__icon-wrap">
+              <div class="tech-card__icon" aria-hidden="true">
+                <i class="fa-solid fa-diagram-project"></i>
+              </div>
+            </div>
+            <div class="tech-card__bottom">
+              <p class="tech-card__desc">
+                Supports fabric, styling, accessory and grooming choices, and precise cutting and stitching.
+              </p>
+              <span class="tech-card__cta">
+                <span>Learn more</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </span>
+            </div>
+          </a>
+
+          <a href="technology-robotics.html" class="tech-card tech-card--4">
+            <div class="tech-card__top">
+              <span class="tech-card__dot" aria-hidden="true"></span>
+              <span class="tech-card__name">Robotics</span>
+            </div>
+            <div class="tech-card__icon-wrap">
+              <div class="tech-card__icon" aria-hidden="true">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+            </div>
+            <div class="tech-card__bottom">
+              <p class="tech-card__desc">
+                Robotic measurement and automated cutting and stitching bring precision to every garment.
+              </p>
+              <span class="tech-card__cta">
+                <span>Learn more</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </span>
+            </div>
+          </a>
+
+          <a href="technology-quantum-physics.html" class="tech-card tech-card--5">
+            <div class="tech-card__top">
+              <span class="tech-card__dot" aria-hidden="true"></span>
+              <span class="tech-card__name">Quantum Physics</span>
+            </div>
+            <div class="tech-card__icon-wrap">
+              <div class="tech-card__icon" aria-hidden="true">
+                <i class="fa-solid fa-atom"></i>
+              </div>
+            </div>
+            <div class="tech-card__bottom">
+              <p class="tech-card__desc">
+                [SUPPLY — Specific, technically validated description of how quantum physics applies to Green Wardrobe must be supplied before launch.]
+              </p>
+              <span class="tech-card__cta">
+                <span>Learn more</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </span>
+            </div>
+          </a>
+
+          <a href="technology-sustainable-recycling.html" class="tech-card tech-card--6">
+            <div class="tech-card__top">
+              <span class="tech-card__dot" aria-hidden="true"></span>
+              <span class="tech-card__name">Sustainable Recycling</span>
+            </div>
+            <div class="tech-card__icon-wrap">
+              <div class="tech-card__icon" aria-hidden="true">
+                <i class="fa-solid fa-recycle"></i>
+              </div>
+            </div>
+            <div class="tech-card__bottom">
+              <p class="tech-card__desc">
+                Give eligible pre-loved clothes a new purpose. Return. Reward. Renew.
+              </p>
+              <span class="tech-card__cta">
+                <span>Learn more</span>
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <div class="tech__footer-cta">
+          <a href="technology.html" class="btn-cta btn-cta--outlined">
+            <span>Explore Our Technology Ecosystem</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
         </div>
       </section>
 
@@ -367,6 +446,12 @@
           <p class="experience__eyebrow">THE GW EXPERIENCE</p>
           <h2 class="experience__title">THE GW EXPERIENCE</h2>
           <p class="experience__sub">An 8 step journey that brings together technology, design and craftsmanship.</p>
+          <div class="mt-3">
+            <a href="experience.html" class="page-hero__link">
+              <span>Explore Full 8-Step Journey</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
 
         <div class="experience__stage">
@@ -402,7 +487,7 @@
                 </div>
                 <div class="exp-card__body">
                   <h3 class="exp-card__title">3D + ML Screening</h3>
-                  <a href="#scanner" class="exp-card__link">
+                  <a href="experience.html#step-01" class="exp-card__link">
                     <span>See in detail</span>
                     <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                   </a>
@@ -420,7 +505,7 @@
                 </div>
                 <div class="exp-card__body">
                   <h3 class="exp-card__title">Robotics Measurement</h3>
-                  <a href="#scanner" class="exp-card__link">
+                  <a href="experience.html#step-02" class="exp-card__link">
                     <span>See in detail</span>
                     <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                   </a>
@@ -438,7 +523,7 @@
                 </div>
                 <div class="exp-card__body">
                   <h3 class="exp-card__title">ML Fabric Selection</h3>
-                  <a href="#imagine" class="exp-card__link">
+                  <a href="experience.html#step-03" class="exp-card__link">
                     <span>See in detail</span>
                     <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                   </a>
@@ -456,7 +541,7 @@
                 </div>
                 <div class="exp-card__body">
                   <h3 class="exp-card__title">ML + AI Styling</h3>
-                  <a href="#imagine" class="exp-card__link">
+                  <a href="experience.html#step-04" class="exp-card__link">
                     <span>See in detail</span>
                     <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                   </a>
@@ -474,7 +559,7 @@
                 </div>
                 <div class="exp-card__body">
                   <h3 class="exp-card__title">ML + AI Accessory Selection</h3>
-                  <a href="#imagine" class="exp-card__link">
+                  <a href="experience.html#step-05" class="exp-card__link">
                     <span>See in detail</span>
                     <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                   </a>
@@ -492,7 +577,7 @@
                 </div>
                 <div class="exp-card__body">
                   <h3 class="exp-card__title">Hair + Grooming — ML</h3>
-                  <a href="#imagine" class="exp-card__link">
+                  <a href="experience.html#step-06" class="exp-card__link">
                     <span>See in detail</span>
                     <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                   </a>
@@ -510,7 +595,7 @@
                 </div>
                 <div class="exp-card__body">
                   <h3 class="exp-card__title">Automated Cutting, Precise Stitching through ML</h3>
-                  <a href="#machines" class="exp-card__link">
+                  <a href="experience.html#step-07" class="exp-card__link">
                     <span>See in detail</span>
                     <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                   </a>
@@ -528,7 +613,7 @@
                 </div>
                 <div class="exp-card__body">
                   <h3 class="exp-card__title">Final Result</h3>
-                  <a href="#final" class="exp-card__link">
+                  <a href="experience.html#step-08" class="exp-card__link">
                     <span>See in detail</span>
                     <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                   </a>
@@ -805,10 +890,16 @@
 
             <!-- CTA & Micro Label -->
             <div class="studio__footer">
-              <a href="mailto:saidarts@gmail.com?subject=Green%20Wardrobe%20Experience%20Booking" class="btn-cta btn-cta--solid">
-                <span>Book Your GW Experience</span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </a>
+              <div class="d-flex flex-wrap align-items-center gap-3">
+                <a href="contact.html" class="btn-cta btn-cta--solid">
+                  <span>Book Your GW Experience</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+                <a href="ai-styling.html" class="page-hero__link">
+                  <span>Explore AI Styling</span>
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
               <p class="studio__micro">Concept preview — illustrative looks.</p>
             </div>
           </div>
@@ -934,9 +1025,13 @@
           </div>
         </div>
 
-        <div class="final__cta-wrap text-center">
-          <a href="mailto:saidarts@gmail.com?subject=Green%20Wardrobe%20Experience%20Booking" class="btn-cta btn-cta--solid">
+        <div class="final__cta-wrap text-center d-flex flex-wrap justify-content-center align-items-center gap-3">
+          <a href="contact.html" class="btn-cta btn-cta--solid">
             <span>Book Your GW Experience</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+          <a href="final-looks.html" class="btn-cta btn-cta--outlined">
+            <span>View Final Looks</span>
             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
@@ -948,12 +1043,24 @@
       <div class="footer__inner container-fluid">
         <div class="footer__top">
           <nav class="footer__nav" aria-label="Footer Navigation">
-            <a href="#experience" class="footer__link">Experience</a>
-            <a href="#technology" class="footer__link">Technology</a>
-            <a href="#imagine" class="footer__link">AI Styling</a>
-            <a href="#final" class="footer__link">Final Looks</a>
-            <a href="#footer" class="footer__link">Contact</a>
+            <a href="experience.html" class="footer__link">Experience</a>
+            <a href="technology.html" class="footer__link">Technology</a>
+            <a href="ai-styling.html" class="footer__link">AI Styling</a>
+            <a href="final-looks.html" class="footer__link">Final Looks</a>
+            <a href="contact.html" class="footer__link">Contact</a>
           </nav>
+
+          <div class="footer__tech-row">
+            <span class="footer__tech-label">Technologies:</span>
+            <nav class="footer__tech-links" aria-label="Technology pages">
+              <a href="technology-3d-screening.html" class="footer__link footer__link--tech">3D Screening</a>
+              <a href="technology-ai.html" class="footer__link footer__link--tech">AI</a>
+              <a href="technology-ml.html" class="footer__link footer__link--tech">ML</a>
+              <a href="technology-robotics.html" class="footer__link footer__link--tech">Robotics</a>
+              <a href="technology-quantum-physics.html" class="footer__link footer__link--tech">Quantum Physics</a>
+              <a href="technology-sustainable-recycling.html" class="footer__link footer__link--tech">Sustainable Recycling</a>
+            </nav>
+          </div>
         </div>
 
         <div class="footer__middle">
@@ -976,12 +1083,21 @@
       </div>
     </footer>
 
+    <!-- SCROLL TO TOP BUTTON -->
+    <button type="button" class="scroll-top js-scroll-top" aria-label="Back to top">
+      <svg class="scroll-top__ring" viewBox="0 0 48 48" aria-hidden="true">
+        <circle class="scroll-top__track" cx="24" cy="24" r="22" />
+        <circle class="scroll-top__progress" cx="24" cy="24" r="22" />
+      </svg>
+      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
     <!-- THIRD-PARTY LIBRARIES (GSAP, ScrollTrigger, Lenis) -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 
-    <!-- CORE SCRIPTS (In exact sequence specified in Section 11) -->
+    <!-- CORE SCRIPTS -->
     <script defer src="assets/js/utils.js"></script>
     <script defer src="assets/js/smooth-scroll.js"></script>
     <script defer src="assets/js/preloader.js"></script>
@@ -996,6 +1112,8 @@
     <script defer src="assets/js/machines.js"></script>
     <script defer src="assets/js/final-results.js"></script>
     <script defer src="assets/js/footer.js"></script>
+    <script defer src="assets/js/scroll-top.js"></script>
+    <script defer src="assets/js/restore.js"></script>
     <script defer src="assets/js/main.js"></script>
   </body>
 </html>
