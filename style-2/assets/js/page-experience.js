@@ -57,6 +57,36 @@
     });
   }
 
+
+  function initStepsPin() {
+  var steps  = document.querySelector('.steps');
+  if (!steps || !window.gsap || !window.ScrollTrigger) return;
+
+  var visual = steps.querySelector('.steps__visual');
+  var list   = steps.querySelector('.steps__list');
+  var HEADER = 100; // px gap under your fixed header (header ~76px + breathing room)
+
+  var mm = gsap.matchMedia();
+
+  mm.add('(min-width: 992px)', function () {
+    ScrollTrigger.create({
+      trigger: visual,
+      start: 'top top+=' + HEADER,
+      endTrigger: list,
+      // release when the list's bottom edge meets the visual's bottom edge
+      end: function () { return 'bottom ' + (HEADER + visual.offsetHeight) + 'px'; },
+      pin: visual,
+      pinSpacing: false,        // the list already supplies the height
+      anticipatePin: 1,
+      invalidateOnRefresh: true
+    });
+  });
+  // below 992px nothing is pinned, matchMedia cleans up automatically on resize
+}
+
+// call it after GSAP + ScrollTrigger are registered, e.g. in your init:
+initStepsPin();
+
   window.GW.pageExperience = {
     init: init
   };

@@ -2569,7 +2569,8 @@ body {
   text-transform: uppercase;
   color: var(--gw-gold);
   margin-bottom: 1rem;
-  display: inline-flex;
+  /* display: inline-flex; */
+  display: none!important;
   align-items: center;
   gap: 0.75rem;
 }
@@ -2607,7 +2608,6 @@ body {
   font-weight: 300;
   line-height: 1.65;
   color: rgba(245, 243, 236, 0.85);
-  max-width: 56ch;
   margin-bottom: 2rem;
 }
 
@@ -2976,13 +2976,14 @@ body {
 
 .steps__visual {
   position: sticky;
-  top: calc(var(--header-h) + 1.5rem);
+  /* top: calc(var(--header-h) + 1.5rem); */
   border-radius: var(--radius-card);
   overflow: hidden;
   border: 1px solid var(--gw-line);
   aspect-ratio: 4 / 5;
   background: var(--gw-midnight);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  align-self: start;
 }
 
 .steps__visual-img {
